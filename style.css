@@ -1,0 +1,160 @@
+/*
+#menu-main-menu li:nth-last-child(3),
+#menu-main-menu-1 li:nth-last-child(3) {
+	display: none !important;
+}*/
+
+
+#header-section,
+#header-catalogy,
+#archive-portfolio-header,
+#header-payments,
+#header-contacts {
+	padding-top: 50px;
+}
+
+/* Подзаголовок в home-section */
+.home-sub-title {
+	color: #ffffff;
+}
+
+/* Показываем пункты меню чередованием
+.left-col-footer-menu ul li:nth-child(4n-1) { display: inline-block !important }
+.left-col-footer-menu ul li:nth-child(4n-1):not(.dropdown-menu li) { display: none !important } */
+
+/*.left-col-footer-menu ul li:nth-child(4n-1) { display: none !important }*/
+/*.right-col-footer-menu ul > li:nth-child(4n+1) { display: none !important }*/
+
+/* Пункты меню в футер-3 которые не показываем */
+#menu-main-menu-2 > li:nth-child(3) { display: none !important }
+#menu-main-menu-2 > li:nth-child(6) { display: none !important }
+#menu-main-menu-2 > li:nth-child(10) { display: none !important }
+
+#menu-main-menu-3 > li:nth-child(1) { display: none !important }
+#menu-main-menu-3 > li:nth-child(5) { display: none !important }
+#menu-main-menu-3 > li:nth-child(8) { display: none !important }
+#menu-main-menu-3 > li:nth-child(12) { display: none !important }
+
+
+
+/*** PARALLAX HOME SECTION ***/
+.parallax-home-section {
+	min-height: 640px;
+	width: 100%;
+	position: fixed;
+	background: url(img/header-catalog-background.jpg) no-repeat;
+	background-position: 50% 50%;
+	background-size: cover;
+	z-index: -1;
+	/*display: block;*/ }
+
+	/* md (less than 768px) */
+	@media (max-width: 767.98px) {
+		.parallax-home-section {
+			background-position: 15% 50%;
+		}
+	}
+/*** END PARALLAX HOME SECTION ***/
+
+
+
+/*** ARCHIVE PRODUCT ***/
+h4,
+.widget-title {
+    font-family: HelveticaNeueCyr-Bold;
+    color: #4b4b4b;
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+    text-transform: uppercase;
+}
+
+.form-check-label,
+.cat-item a,
+.woocommerce-widget-layered-nav-list__item.wc-layered-nav-term a {
+	font-family: HelveticaNeueCyr-Roman;
+	color: #323232;
+	font-size: 16px;
+	margin-bottom: 0;
+	text-decoration: none;
+	/*text-transform: uppercase;*/
+}
+
+.form-check-label:hover,
+.cat-item a:hover,
+.woocommerce-widget-layered-nav-list__item.wc-layered-nav-term a:hover,
+.cat-item.current-cat a,
+.cat-item.current-cat span {
+	color: #ff5200;
+}
+
+.woocommerce-widget-layered-nav-list {
+	list-style: none;
+	padding-left: 0;
+}
+
+.woocommerce-widget-layered-nav-list li {
+	position: relative;
+}
+
+
+.woocommerce-widget-layered-nav-list__item.wc-layered-nav-term a:before,
+.woocommerce-widget-layered-nav-list__item.wc-layered-nav-term a:focus:before,
+.woocommerce-widget-layered-nav-list__item.wc-layered-nav-term.woocommerce-widget-layered-nav-list__item--chosen.chosen a:before {
+	content: '';
+	display: inline-block;
+	width: 18px;
+    height: 18px;
+    border: 1px solid #dddddd;
+	margin-right: 8px;
+	position: relative;
+	top: 3px;
+	
+}
+
+.woocommerce-widget-layered-nav-list__item.wc-layered-nav-term a:focus:after,
+.woocommerce-widget-layered-nav-list__item.wc-layered-nav-term.woocommerce-widget-layered-nav-list__item--chosen.chosen a:after {
+	content: '';
+	display: inline-block;
+    width: 10px;
+    height: 10px;
+	background-color: var(--corporate-color-1);
+	margin-right: 8px;
+	position: absolute;
+	left: 4px;
+    top: 11px;
+}
+
+.woocommerce-widget-layered-nav-list__item.wc-layered-nav-term.woocommerce-widget-layered-nav-list__item--chosen.chosen a:focus:after,
+.woocommerce-widget-layered-nav-list__item.wc-layered-nav-term.woocommerce-widget-layered-nav-list__item--chosen.chosen a:active:after {
+	opacity: 0;
+}
+
+
+ul.product-categories {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+
+.price,
+ins {
+	font-family: HelveticaNeueCyr-Medium;
+	font-size: 28px;
+	color: var(--corporate-color-1);
+	text-decoration: none;
+	line-height: 115%;
+}
+
+.old-price,
+del {
+	font-family: HelveticaNeueCyr-Light;
+	font-size: 22px;
+	color: #7d7d7d;
+	line-height: 10px;
+	display: block;
+	line-height: 115%;
+}
+/*** END ARCHIVE PRODUCT ***/
