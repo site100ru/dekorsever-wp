@@ -433,8 +433,17 @@
 							</div>
 						</div>
 					</div>
+
 					<div class="modal-footer">
-						<button type="submit" class="btn btn-corporate-color-1 mx-auto">Оставить заявку</button>
+						<div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="gridCheck" checked>
+								<label class="form-check-label" for="gridCheck">
+									<p class="mb-0"><small>Даю согласие на обработку персональных данных. Подробнее об обработке персональных данных в <a href="<?php echo get_template_directory_uri(); ?>/docs/Privacy-Policy.pdf" target="_blank">Политике конфиденциальности.</a></small></p>
+								</label>
+							</div>
+						</div>
+						<button type="submit" class="btn btn-corporate-color-1 mx-auto">Жду звонка</button>
 					</div>
 				</form>
 			</div>
@@ -465,9 +474,18 @@
 							</div>
 						</div>
 					</div>
+
 					<div class="modal-footer">
+						<div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="gridCheck-2" checked>
+								<label class="form-check-label" for="gridCheck-2">
+									<p class="mb-0"><small>Даю согласие на обработку персональных данных. Подробнее об обработке персональных данных в <a href="<?php echo get_template_directory_uri(); ?>/docs/Privacy-Policy.pdf" target="_blank">Политике конфиденциальности.</a></small></p>
+								</label>
+							</div>
+						</div>
 						<input type="hidden" id="g-recaptcha-response-callback" name="g-recaptcha-response">
-						<button type="submit" class="btn btn-corporate-color-1 mx-auto">Перезвонить</button>
+						<button type="submit" class="btn btn-corporate-color-1 me-auto">Перезвонить</button>
 					</div>
 				</form>
 			</div>
@@ -519,9 +537,18 @@
 							</div>
 						</div>
 					</div>
+
 					<div class="modal-footer">
+						<div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="gridCheck-2" checked>
+								<label class="form-check-label" for="gridCheck-2">
+									<p class="mb-0"><small>Даю согласие на обработку персональных данных. Подробнее об обработке персональных данных в <a href="<?php echo get_template_directory_uri(); ?>/docs/Privacy-Policy.pdf" target="_blank">Политике конфиденциальности.</a></small></p>
+								</label>
+							</div>
+						</div>
 						<input type="hidden" id="g-recaptcha-response-get-measurer" name="g-recaptcha-response">
-						<button type="submit" class="btn btn-corporate-color-1 mx-auto">Вызвать</button>
+						<button type="submit" class="btn btn-corporate-color-1 me-auto">Вызвать</button>
 					</div>
 				</form>
 			</div>
@@ -550,8 +577,17 @@
 							</div>
 						</div>
 					</div>
+
 					<div class="modal-footer">
-						<button type="submit" class="btn btn-corporate-color-1 mx-auto">Отправить</button>
+						<div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="gridCheck-2" checked>
+								<label class="form-check-label" for="gridCheck-2">
+									<p class="mb-0"><small>Даю согласие на обработку персональных данных. Подробнее об обработке персональных данных в <a href="<?php echo get_template_directory_uri(); ?>/docs/Privacy-Policy.pdf" target="_blank">Политике конфиденциальности.</a></small></p>
+								</label>
+							</div>
+						</div>
+						<button type="submit" class="btn btn-corporate-color-1 me-auto">Отправить</button>
 					</div>
 				</form>
 			</div>
@@ -577,8 +613,17 @@
 							</div>
 						</div>
 					</div>
+
 					<div class="modal-footer">
-						<button type="submit" class="btn btn-corporate-color-1 mx-auto">Отправить</button>
+						<div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="gridCheck-2" checked>
+								<label class="form-check-label" for="gridCheck-2">
+									<p class="mb-0"><small>Даю согласие на обработку персональных данных. Подробнее об обработке персональных данных в <a href="<?php echo get_template_directory_uri(); ?>/docs/Privacy-Policy.pdf" target="_blank">Политике конфиденциальности.</a></small></p>
+								</label>
+							</div>
+						</div>
+						<button type="submit" class="btn btn-corporate-color-1 me-auto">Отправить</button>
 					</div>
 				</form>
 			</div>
@@ -617,11 +662,19 @@
 							<div class="col-md-6 mb-3">
 								<input type="text" name="tel" class="form-control form-control-corporate-color-1 telMask" placeholder="Ваш телефон*" required>
 							</div>
-							<div class="col-md-6">
-								<input type="hidden" id="g-recaptcha-response-calculatePriceWithDownload" name="g-recaptcha-response">
-								<button type="submit" class="btn btn-corporate-color-1">Отправить</button>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="gridCheck-2" checked>
+								<label class="form-check-label" for="gridCheck-2">
+									<p class="mb-0"><small>Даю согласие на обработку персональных данных. Подробнее об обработке персональных данных в <a href="<?php echo get_template_directory_uri(); ?>/docs/Privacy-Policy.pdf" target="_blank">Политике конфиденциальности.</a></small></p>
+								</label>
 							</div>
 						</div>
+						<input type="hidden" id="g-recaptcha-response-calculatePriceWithDownload" name="g-recaptcha-response">
+						<button type="submit" class="btn btn-corporate-color-1 me-auto">Отправить</button>
 					</div>
 				</form>
 			</div>
@@ -651,11 +704,20 @@
 							<div class="col-md-6 mb-3">
 								<input type="text" name="tel" class="form-control form-control-corporate-color-1 telMask" placeholder="Ваш телефон*" required>
 							</div>
-							<div class="col-md-6">
-								<input type="hidden" id="g-recaptcha-response-calculatePriceWithoutDownload" name="g-recaptcha-response">
-								<button type="submit" class="btn btn-corporate-color-1">Отправить</button>
+						</div>
+					</div>
+
+					<div class="modal-footer">
+						<div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="gridCheck-2" checked>
+								<label class="form-check-label" for="gridCheck-2">
+									<p class="mb-0"><small>Даю согласие на обработку персональных данных. Подробнее об обработке персональных данных в <a href="<?php echo get_template_directory_uri(); ?>/docs/Privacy-Policy.pdf" target="_blank">Политике конфиденциальности.</a></small></p>
+								</label>
 							</div>
 						</div>
+						<input type="hidden" id="g-recaptcha-response-calculatePriceWithoutDownload" name="g-recaptcha-response">
+						<button type="submit" class="btn btn-corporate-color-1 me-auto">Отправить</button>
 					</div>
 				</form>
 			</div>
