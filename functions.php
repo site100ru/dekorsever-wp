@@ -870,7 +870,7 @@
 		$output .= "Disallow: *?query_type_*\n";
 		$output .= "Disallow: *?etext=*\n";
 		$output .= "Disallow: *?add-to-cart=*\n";
-		$output .= "Disallow: */portfolio/*\n";
+		$output .= "Disallow: */portfolio/*/*\n";
 		return $output;
 	}
 	/*** END ДЕЛАЕМ ФАЙЛ ROBOTS.TXT ***/
