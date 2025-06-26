@@ -1072,6 +1072,13 @@ do_action( 'woocommerce_before_main_content' );
 									
 									<input type="hidden" id="g-recaptcha-response-calculate-kitchen-price" name="g-recaptcha-response">
 									<input type="submit" class="btn btn-corporate-color-1" value="Отправить">
+
+									<div class="form-check mt-3">
+										<input class="form-check-input" type="checkbox" id="gridCheck-3" checked>
+										<label class="form-check-label" for="gridCheck-3">
+											<p class="mb-0"><small>Даю согласие на обработку персональных данных. Подробнее об обработке персональных данных в <a href="<?php echo get_template_directory_uri(); ?>/docs/Privacy-Policy.pdf" target="_blank">Политике конфиденциальности.</a></small></p>
+										</label>
+									</div>		
 								</div>
 							</div>
 						</form>
@@ -1490,6 +1497,13 @@ do_action( 'woocommerce_before_main_content' );
 									
 									<input type="hidden" id="g-recaptcha-response-calculate-closet-price" name="g-recaptcha-response">
 									<input type="submit" class="btn btn-corporate-color-1" value="Отправить">
+
+									<div class="form-check mt-3">
+										<input class="form-check-input" type="checkbox" id="gridCheck-4" checked>
+										<label class="form-check-label" for="gridCheck-4">
+											<p class="mb-0"><small>Даю согласие на обработку персональных данных. Подробнее об обработке персональных данных в <a href="<?php echo get_template_directory_uri(); ?>/docs/Privacy-Policy.pdf" target="_blank">Политике конфиденциальности.</a></small></p>
+										</label>
+									</div>		
 								</div>
 							</div>
 						</form>
@@ -1910,6 +1924,13 @@ do_action( 'woocommerce_before_main_content' );
 									
 									<input type="hidden" id="g-recaptcha-response-calculate-kitchen-price" name="g-recaptcha-response">
 									<input type="submit" class="btn btn-corporate-color-1" value="Отправить">
+
+									<div class="form-check mt-3">
+										<input class="form-check-input" type="checkbox" id="gridCheck-5" checked>
+										<label class="form-check-label" for="gridCheck-5">
+											<p class="mb-0"><small>Даю согласие на обработку персональных данных. Подробнее об обработке персональных данных в <a href="<?php echo get_template_directory_uri(); ?>/docs/Privacy-Policy.pdf" target="_blank">Политике конфиденциальности.</a></small></p>
+										</label>
+									</div>		
 								</div>
 							</div>
 						</form>
@@ -2323,6 +2344,13 @@ do_action( 'woocommerce_before_main_content' );
 									
 									<input type="hidden" id="g-recaptcha-response-calculate-closet-price" name="g-recaptcha-response">
 									<input type="submit" class="btn btn-corporate-color-1" value="Отправить">
+
+									<div class="form-check mt-3">
+										<input class="form-check-input" type="checkbox" id="gridCheck-6" checked>
+										<label class="form-check-label" for="gridCheck-6">
+											<p class="mb-0"><small>Даю согласие на обработку персональных данных. Подробнее об обработке персональных данных в <a href="<?php echo get_template_directory_uri(); ?>/docs/Privacy-Policy.pdf" target="_blank">Политике конфиденциальности.</a></small></p>
+										</label>
+									</div>		
 								</div>
 							</div>
 						</form>
