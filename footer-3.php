@@ -576,10 +576,10 @@
 				
 		<!-- Всплывающая форма Политики конфиденциальности -->
 		<div class="popup-form " id="popupForm">
-			<div class="form-content container py-0">
+			<div class="form-content container p-0">
 				<div class="row justify-content-center align-items-center">
 					<div class="col-md-9">
-						<p class="mb-md-0">На на нашем сайте используются cookie-файлы, в том числе сервисов веб-аналитики. Используя сайт, вы соглашаетесь на <a href="docs/Consent-to-the-processing-of-personal-data.pdf" target="blank">обработку персональных данных</a> при помощи cookie-файлов. Подробнее об обработке персональных данных вы можете узнать в <a href="<?php echo get_template_directory_uri(); ?>/docs/Privacy-Policy.pdf" target="blank">Политике конфиденциальности.</a></p>
+						<p class="mb-md-0">На на нашем сайте используются cookie-файлы, в том числе сервисов веб-аналитики. Используя сайт, вы соглашаетесь на <a href="<?php echo get_template_directory_uri(); ?>/docs/Consent-to-the-processing-of-personal-data.pdf" target="blank">обработку персональных данных</a> при помощи cookie-файлов. Подробнее об обработке персональных данных вы можете узнать в <a href="<?php echo get_template_directory_uri(); ?>/docs/Privacy-Policy.pdf" target="blank">Политике конфиденциальности.</a></p>
 					</div>
 					<div class="col-md-3 text-md-center">
 						<button id="closeBtn" class="btn btn-corporate-color-1">Понятно</button>
