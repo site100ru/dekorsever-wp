@@ -313,7 +313,10 @@
 					<div class="row">
 						<div class="col text-start text-md-center">
 							<div id="company-in-footer">©<?php echo date( 'Y' ); ?> ООО «Декор-Север»</div>
-							<div id="im-in-footer">Создание, продвижение, поддержка: <a href="https://site100.ru" class="text-light">site100.ru</a></div>
+							<div id="im-in-footer">Создание, продвижение, поддержка: <a href="https://site100.ru" class="text-light">сайт100.рф</a></div>
+							<div class="policy-in-footer">
+								<a href="docs/Privacy-Policy.pdf" target="_blank">Политика конфиденциальности</a> | <a href="docs/Consent-to-the-processing-of-personal-data.pdf" target="_blank">Согласие на обработку персональных данных</a>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -458,6 +461,14 @@
 						</div>
 					</div>
 					<div class="modal-footer">
+						<div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="gridCheck" checked>
+								<label class="form-check-label" for="gridCheck">
+									<p class="mb-0"><small>Даю согласие на обработку персональных данных. Подробнее об обработке персональных данных в <a href="docs/Privacy-Policy.pdf" target="_blank">Политике конфиденциальности.</a></small></p>
+								</label>
+							</div>
+						</div>
 						<input type="hidden" id="g-recaptcha-response-callback" name="g-recaptcha-response">
 						<button type="submit" class="btn btn-corporate-color-1 mx-auto">Жду звонка</button>
 					</div>
@@ -499,12 +510,20 @@
 							<div class="col-md-6 mb-3">
 								<input type="text" name="tel" class="form-control form-control-corporate-color-1 telMask" placeholder="Ваш телефон*" required>
 							</div>
-							<div class="col-md-6">
-								<input type="hidden" id="g-recaptcha-response-calculatePriceWithDownload" name="g-recaptcha-response">
-								<button type="submit" class="btn btn-corporate-color-1">Отправить</button>
-							</div>
 						</div>
 					</div>
+					<div class="modal-footer">
+						<div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="gridCheck-2" checked>
+								<label class="form-check-label" for="gridCheck-2">
+									<p class="mb-0"><small>Даю согласие на обработку персональных данных. Подробнее об обработке персональных данных в <a href="docs/Privacy-Policy.pdf" target="_blank">Политике конфиденциальности.</a></small></p>
+								</label>
+							</div>
+						</div>
+						<input type="hidden" id="g-recaptcha-response-calculatePriceWithDownload" name="g-recaptcha-response">
+						<button type="submit" style="border-radius: 0.5rem; background-color: var(--corporate-color-1); border-color: var(--corporate-color-1);" class="btn-lg btn btn-corporate-color-1 me-auto">Отправить</button>
+					</div>	
 				</form>
 			</div>
 		</div>
@@ -533,17 +552,78 @@
 							<div class="col-md-6 mb-3">
 								<input type="text" name="tel" class="form-control form-control-corporate-color-1 telMask" placeholder="Ваш телефон*" required>
 							</div>
-							<div class="col-md-6">
-								<input type="hidden" id="g-recaptcha-response-calculatePriceWithoutDownload" name="g-recaptcha-response">
-								<button type="submit" class="btn btn-corporate-color-1">Отправить</button>
-							</div>
 						</div>
 					</div>
+
+					<div class="modal-footer">
+						<div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="gridCheck-3" checked>
+								<label class="form-check-label" for="gridCheck-3">
+									<p class="mb-0"><small>Даю согласие на обработку персональных данных. Подробнее об обработке персональных данных в <a href="docs/Privacy-Policy.pdf" target="_blank">Политике конфиденциальности.</a></small></p>
+								</label>
+							</div>
+						</div>
+						<input type="hidden" id="g-recaptcha-response-calculatePriceWithoutDownload" name="g-recaptcha-response">
+						<button type="submit" style="border-radius: 0.5rem; background-color: var(--corporate-color-1); border-color: var(--corporate-color-1);" class="btn-lg btn btn-corporate-color-1">Отправить</button>
+					</div>	
 				</form>
 			</div>
 		</div>
 		<!-- /Рассчитать стоимость без загрузки изображения -->
 
+
+				
+		<!-- Всплывающая форма Политики конфиденциальности -->
+		<div class="popup-form " id="popupForm">
+			<div class="form-content container py-0">
+				<div class="row justify-content-center align-items-center">
+					<div class="col-md-9">
+						<p class="mb-md-0">На на нашем сайте используются cookie-файлы, в том числе сервисов веб-аналитики. Используя сайт, вы соглашаетесь на <a href="docs/Consent-to-the-processing-of-personal-data.pdf" target="blank">обработку персональных данных</a> при помощи cookie-файлов. Подробнее об обработке персональных данных вы можете узнать в <a href="docs/Privacy-Policy.pdf" target="blank">Политике конфиденциальности.</a></p>
+					</div>
+					<div class="col-md-3 text-md-center">
+						<button id="closeBtn" class="btn btn-corporate-color-1">Понятно</button>
+					</div>
+				</div>	
+			</div>
+		</div>
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				const popupForm = document.getElementById('popupForm');
+				const closeBtn = document.getElementById('closeBtn');
+				
+				// Проверяем нужно ли показывать форму
+				function shouldShowPopup() {
+					const lastClosed = localStorage.getItem('popupLastClosed');
+					
+					// Если пользователь никогда не закрывал форму
+					if (!lastClosed) return true;
+					
+					// Если прошло более 1 часа (3600000 миллисекунд) с последнего закрытия
+					const now = new Date().getTime();
+					return (now - parseInt(lastClosed)) > 3600000;
+				}
+				
+				// Показываем форму если нужно
+				if (shouldShowPopup()) {
+					setTimeout(() => {
+						popupForm.classList.add('active');
+					}, 3000);
+				}
+				
+				// Функция закрытия формы
+				function closePopup() {
+					popupForm.classList.remove('active');
+					
+					// Сохраняем время закрытия
+					localStorage.setItem('popupLastClosed', new Date().getTime().toString());
+				}
+				
+				// Закрытие по кнопке
+				closeBtn.addEventListener('click', closePopup);
+			});
+		</script>
+		<!-- /Всплывающая форма Политики конфиденциальности -->
 
 		
 		<!-- Measurer Modal --
