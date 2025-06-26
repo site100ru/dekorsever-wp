@@ -289,7 +289,10 @@
 						<div class="col text-start text-md-center">
 							<div id="company-in-footer">©<?php echo date( 'Y' ); ?> ООО «Декор-Север»</div>
 							<div id="im-in-footer">Создание, продвижение и поддержка сайтов:
-								<a href="https://site100.ru" class="text-light">site100.ru</a>
+								<a href="https://сайт100.рф" class="text-light">сайт100.рф</a>
+							</div>
+							<div class="policy-in-footer">
+								<a href="<?php echo get_template_directory_uri(); ?>/docs/Privacy-Policy.pdf" target="_blank">Политика конфиденциальности</a> | <a href="<?php echo get_template_directory_uri(); ?>/docs/Consent-to-the-processing-of-personal-data.pdf" target="_blank">Согласие на обработку персональных данных</a>
 							</div>
 						</div>
 					</div>
