@@ -554,6 +554,57 @@
 			</div>
 		</div>
 		<!-- /Measurer Modall -->
+
+		<!-- Всплывающая форма Политики конфиденциальности -->
+		<div class="popup-form " id="popupForm">
+			<div class="form-content container p-0">
+				<div class="row justify-content-center align-items-center">
+					<div class="col-md-9">
+						<p class="mb-md-0">На на нашем сайте используются cookie-файлы, в том числе сервисов веб-аналитики. Используя сайт, вы соглашаетесь на <a href="<?php echo get_template_directory_uri(); ?>/docs/Consent-to-the-processing-of-personal-data.pdf" target="blank">обработку персональных данных</a> при помощи cookie-файлов. Подробнее об обработке персональных данных вы можете узнать в <a href="<?php echo get_template_directory_uri(); ?>/docs/Privacy-Policy.pdf" target="blank">Политике конфиденциальности.</a></p>
+					</div>
+					<div class="col-md-3 text-md-center">
+						<button id="closeBtn" class="btn btn-corporate-color-1">Понятно</button>
+					</div>
+				</div>	
+			</div>
+		</div>
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				const popupForm = document.getElementById('popupForm');
+				const closeBtn = document.getElementById('closeBtn');
+				
+				// Проверяем нужно ли показывать форму
+				function shouldShowPopup() {
+					const lastClosed = localStorage.getItem('popupLastClosed');
+					
+					// Если пользователь никогда не закрывал форму
+					if (!lastClosed) return true;
+					
+					// Если прошло более 1 часа (3600000 миллисекунд) с последнего закрытия
+					const now = new Date().getTime();
+					return (now - parseInt(lastClosed)) > 3600000;
+				}
+				
+				// Показываем форму если нужно
+				if (shouldShowPopup()) {
+					setTimeout(() => {
+						popupForm.classList.add('active');
+					}, 3000);
+				}
+				
+				// Функция закрытия формы
+				function closePopup() {
+					popupForm.classList.remove('active');
+					
+					// Сохраняем время закрытия
+					localStorage.setItem('popupLastClosed', new Date().getTime().toString());
+				}
+				
+				// Закрытие по кнопке
+				closeBtn.addEventListener('click', closePopup);
+			});
+		</script>
+		<!-- /Всплывающая форма Политики конфиденциальности -->
 		
 		
 		<!-- Message Modal -->
