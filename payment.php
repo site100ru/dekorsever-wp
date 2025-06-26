@@ -309,6 +309,12 @@
 					</div>
 					<div class="row">
 						<div class="col-8 col-lg-4">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="gridCheck-2" checked>
+								<label class="form-check-label" for="gridCheck-2">
+									<p class="mb-0"><small>Даю согласие на обработку персональных данных. Подробнее об обработке персональных данных в <a href="<?php echo get_template_directory_uri(); ?>/docs/Privacy-Policy.pdf" target="_blank">Политике конфиденциальности.</a></small></p>
+								</label>
+							</div>
 							<button type="button" class="btn btn-lg btn-corporate-color-1 w-100 mt-3">Хорошо, жду звонка</button>
 						</div>
 					</div>
