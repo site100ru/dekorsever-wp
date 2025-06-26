@@ -871,7 +871,7 @@
 		$output .= "Disallow: *?etext=*\n";
 		$output .= "Disallow: *?add-to-cart=*\n";
 		
-		$output .= "Allow: */portfolio/*\n";
+		$output .= "Allow: */portfolio/\n";
 		$output .= "Disallow: */portfolio/*/*\n";
 		return $output;
 	}
