@@ -2391,6 +2391,13 @@ do_action( 'woocommerce_before_main_content' );
 									<input type="hidden" id="g-recaptcha-response-calculate-other-price" name="g-recaptcha-response">
 									<input type="submit" value="Отправить" class="btn btn-corporate-color-1">
 								</div>
+
+								<div class="form-check mt-3">
+									<input class="form-check-input" type="checkbox" id="gridCheck-6" checked>
+									<label class="form-check-label" for="gridCheck-6">
+										<p class="mb-0"><small>Даю согласие на обработку персональных данных. Подробнее об обработке персональных данных в <a href="<?php echo get_template_directory_uri(); ?>/docs/Privacy-Policy.pdf" target="_blank">Политике конфиденциальности.</a></small></p>
+									</label>
+								</div>
 							</div>
 						</form>
 					</div><!-- /ВОПРОСЫ ПО ДРУГОЙ МЕБЕЛИ -->			
