@@ -1,12 +1,10 @@
 <?php
-	//ini_set('error_reporting', E_ALL);
-	//ini_set('display_errors', 1);
-	//ini_set('display_startup_errors', 1);
+
 	session_start();
 	$win = "true";
 	
 	// Вспомогательная функция для отправки почтового сообщения с вложением 
-	function send_mail($to, $thm, $html, $path) {
+	function send_mail($to, $subject, $html, $path) {
 		$fp = fopen($path,"r"); 
 		
 		/* Если нет файла */
@@ -50,7 +48,7 @@
 
 
 		/**/
-		if ( !mail( $to, $thm, $multipart, $headers ) ) { 
+		if ( !mail( $to, $subject, $multipart, $headers ) ) { 
 			echo "К сожалению, письмо не отправлено"; 
 			exit();
 		}
@@ -65,7 +63,7 @@
 	
 	$picture = "";
 	$mail_to = "mebel-dsever@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru"; // Адрес доставки почты
-	$thm = "Зявка на распил с сайта dekorsever.ru"; // Тема письма
+	$subject = '=?utf-8?B?' . base64_encode("Зявка на распил с сайта dekorsever.ru") . '?='; // Тема письма
 	
 	$file_type = $_FILES['mail_file']['type'];
 	$file_size = $_FILES['mail_file']['size'];
@@ -110,10 +108,10 @@
 			<strong>Телефон:</strong> ".$tel."<br><br>
 			<strong>Сообщение:</strong> ".$mes."<br><br>
 		";
-		mail( $mail_to, $thm, $msg, $headers );
+		mail( $mail_to, $subject, $msg, $headers );
 	} else {
 		$msg = "Заявка на распил.";
-		send_mail($mail_to, $thm, $msg, $picture);
+		send_mail($mail_to, $subject, $msg, $picture);
 	}
 	
 	$_SESSION['win'] = 1;
