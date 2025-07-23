@@ -2845,3 +2845,26 @@ footer {
 	color: #f5f5f5;
 	font-size: 14px;
 }
+
+/* Pagination */
+.page-link {
+	color: var(--corporate-color-1);
+	border-color: rgba(255,81,71,.125);
+	background-color: rgba(255,82,0,0);
+}
+
+.page-link:hover,
+.pagination .page-link.current {
+	color: var(--corporate-color-1);
+	border-color: rgba(255,81,71,.125);
+	background-color: rgba(255,81,71,.125);
+} 
+
+.page-link:focus {
+    z-index: 3;
+    color: var(--corporate-color-1);
+    background-color: rgba(255,81,71,.125);
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(255, 81, 71, 0.3);
+}
+/* End pagination */
