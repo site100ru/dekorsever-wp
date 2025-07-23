@@ -1109,6 +1109,19 @@ a.navbar-brand {
 	max-width: 100%;
 }
 
+
+.popup-form p,
+.form-check p small {
+	font-size: 16px;
+}
+
+@media (max-width: 768px) {
+		.popup-form p,
+		.form-check p small {
+			font-size: 14px;
+	}
+}
+
 .popup-form.active {
 	bottom: 0; /* Форма появляется снизу */
 }
@@ -1116,6 +1129,10 @@ a.navbar-brand {
 
 
 /*** CHECKBOX ***/
+.form-check p {
+	line-height: normal;
+}
+
 .form-check-input {
 	margin-top: 6px;
 }
