@@ -20,7 +20,7 @@
 			$name = $_POST[ 'name' ];	
 			$phone = $_POST[ 'phone' ];
 			
-			mail( "mebel-dsever@yandex.ru, vasilyev-r@mail.ru", "Заявка с сайта dekorsever.ru", "
+			mail( "mebel-dsever@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru", "Заявка с сайта dekorsever.ru", "
 				Клиент: " . $name ."\n
 				Телефон: " . $phone
 			); 	

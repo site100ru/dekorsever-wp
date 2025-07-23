@@ -34,7 +34,7 @@
 			/* Проверям что заполнено поле с телефоном */
 			if ( $_POST['phone'] ) {
 				// Если поле с телефоно заполненно
-				mail( "mebel-dsever@yandex.ru, vasilyev-r@mail.ru", "Заявка на расчет мебели с сайта dekorsever.ru", "
+				mail( "mebel-dsever@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru", "Заявка на расчет мебели с сайта dekorsever.ru", "
 					Тип мебели: " . $answer1 ."\n
 					Планировка: " . $answer2 ."\n
 					Размер 1: " . $answer3_1 ."\n

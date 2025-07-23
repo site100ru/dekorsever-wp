@@ -20,7 +20,7 @@
 			$name = $_POST['name'];
 			$email = $_POST['email'];
 			$mes = $_POST['mes'];
-			mail("mebel-dsever@yandex.ru,  vasilyev-r@mail.ru", "Вопрос с сайта dekorsever.ru", "
+			mail("mebel-dsever@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru", "Вопрос с сайта dekorsever.ru", "
 				Клиент: ".$name."\n
 				Email: ".$email."\n
 				Вопрос: ".$mes."\n

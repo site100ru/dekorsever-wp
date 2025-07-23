@@ -23,7 +23,7 @@
 			/* Проверям что заполнено поле с телефоном */
 			if ( $_POST['tel'] ) {
 				// Если поле с телефоно заполненно
-				mail( "mebel-dsever@yandex.ru, vasilyev-r@mail.ru", "Заказ обратного звонка с сайта dekorsever.ru", "
+				mail( "mebel-dsever@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru", "Заказ обратного звонка с сайта dekorsever.ru", "
 					Клиент: " . $name ."\n
 					Телефон: " . $tel
 				);
