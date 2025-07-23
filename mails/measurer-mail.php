@@ -22,9 +22,10 @@
 			$tel = $_POST['tel'];
 			$adr = $_POST['adr'];
 			$mes = $_POST['mes'];
+			$subject = '=?utf-8?B?' . base64_encode("Заявка на вызов замерщика с сайта dekorsever.ru") . '?='; // Тема письма
 			
 			if ( isset( $_POST['shtory-order'] ) ) {
-				mail( "mebel-dsever@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru", "Заявка на вызов замерщика с сайта dekorsever.ru", "
+				mail( "mebel-dsever@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru", $subject, "
 					Клиент ".$name."\n
 					Телефон: ".$tel."\n
 					Адрес: ".$adr."\n
@@ -32,7 +33,7 @@
 					Заявка со страницы штор."
 				);
 			} else {
-				mail( "mebel-dsever@yandex.ru,  vasilyev-r@mail.ru", "Заявка на вызов замерщика с сайта dekorsever.ru", "
+				mail( "mebel-dsever@yandex.ru,  vasilyev-r@mail.ru", $subject, "
 					Клиент ".$name."\n
 					Телефон: ".$tel."\n
 					Адрес: ".$adr."\n

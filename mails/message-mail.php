@@ -20,7 +20,9 @@
 			$name = $_POST['name'];
 			$email = $_POST['email'];
 			$mes = $_POST['mes'];
-			mail("mebel-dsever@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru", "Вопрос с сайта dekorsever.ru", "
+			$subject = '=?utf-8?B?' . base64_encode("Вопрос с сайта dekorsever.ru") . '?='; // Тема письма
+			
+			mail("mebel-dsever@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru", $subject, "
 				Клиент: ".$name."\n
 				Email: ".$email."\n
 				Вопрос: ".$mes."\n
