@@ -112,7 +112,7 @@
 											</a>
 										</li>
 										<li class="nav-item">
-											<a href="#" class="nav-link ps-0 py-2">
+											<a href="#" class="nav-link ps-0 py-2" data-bs-toggle="modal" data-bs-target="#callbackModal">
 												<div style="display: flex;" class="align-items-center">
 													<div class="nav-li-float-left">
 														<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/callback-ico.svg" >
@@ -581,9 +581,9 @@
 					// Если пользователь никогда не закрывал форму
 					if (!lastClosed) return true;
 					
-					// Если прошло более 1 часа (3600000 миллисекунд) с последнего закрытия
+					// Если прошло более 12 часов (43200000 миллисекунд) с последнего закрытия
 					const now = new Date().getTime();
-					return (now - parseInt(lastClosed)) > 3600000;
+					return (now - parseInt(lastClosed)) > 43200000;
 				}
 				
 				// Показываем форму если нужно

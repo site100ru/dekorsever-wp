@@ -18,7 +18,7 @@
 				<h1 class="woocommerce-products-header__title page-title mb-3">Наши работы</h1>
 				<p class="home-description mb-0">На фото представлены наши работы выполненные на собственном производстве и установленные нашими монтажниками. Любое из понравившихся предметов мы сделаем для Вас с дополнительной скидкой!</p>
 				<!--button type="button" class="btn btn-lg btn-orange mt-4">Вызвать замерщика</button-->
-				<button type="button" class="btn btn-lg btn-corporate-color-1 mt-3 text-light" data-bs-toggle="modal" data-bs-target="#measurerModal">Вызвать замерщика<!--дизайнера(бесплатно)--></button>
+				<button type="button" class="btn btn-lg btn-corporate-color-1 mt-3 text-light" data-bs-toggle="modal" data-bs-target="#callbackModal">Вызвать замерщика<!--дизайнера(бесплатно)--></button>
 			</div>
 		</div>
 	</div>

@@ -91,7 +91,7 @@
 											</a>
 										</li>
 										<li class="nav-item">
-											<a href="#" class="nav-link ps-0 py-2">
+											<a href="#" class="nav-link ps-0 py-2" data-bs-toggle="modal" data-bs-target="#callbackModal">
 												<div style="display: flex;" class="align-items-center">
 													<div class="nav-li-float-left">
 														<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/callback-ico.svg" >
@@ -602,9 +602,9 @@
 					// Если пользователь никогда не закрывал форму
 					if (!lastClosed) return true;
 					
-					// Если прошло более 1 часа (3600000 миллисекунд) с последнего закрытия
+					// Если прошло более 12 часов (43200000 миллисекунд) с последнего закрытия
 					const now = new Date().getTime();
-					return (now - parseInt(lastClosed)) > 3600000;
+					return (now - parseInt(lastClosed)) > 43200000;
 				}
 				
 				// Показываем форму если нужно
@@ -674,6 +674,68 @@
 					</div>
 					<div class="modal-footer">
 						<button type="submit" class="btn btn-corporate-color-1 mx-auto">Вызвать</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- /Measurer Modall -->
+
+		<!-- Measurer Modal -->
+		<div class="modal fade" id="measurerModal" tabindex="-1" aria-labelledby="measurerModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<form method="post" action="<?php echo get_stylesheet_directory_uri(); ?>/mails/measurer-mail.php" class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="measurerModalLabel">Вызов замерщика <!--дизайнера (бесплатно)--></h5>
+						
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col">
+								<p><small>Наш специалист приедет в удобное для Вас время, произведет замеры, ознакомит с продукцией и материалами, <!--cделает 3d дизайн-проект,--> проконсультирует по всем вопросам! Для связи с замерщиком<!--дизайнером--> введите Ваше имя и телефон.</small></p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<input type="text" name="name" class="form-control" placeholder="Ваше имя">
+							</div>
+							<div class="col-md-6 mb-3">
+								<input type="text" name="tel" class="form-control telMask" placeholder="Ваш телефон*">
+							</div>
+							<div class="col-12 mb-3">
+								<input type="text" name="adr" class="form-control" placeholder="Адрес объекта*">
+							</div>
+							<div class="col-12 mb-3">
+								<textarea type="text" name="mes" class="form-control" placeholder="Дополнительная информация"></textarea>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-6">
+								<p class="mb-0">
+									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/advantage-1.svg" class="me-1" style="width: 25px;">
+									<small>Изготовление от 10 дней!</small>
+								</p>
+							</div>
+							<div class="col-6">
+								<p class="mb-0">
+									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/advantage-3.svg" class="me-1" style="width: 20px;">
+									<small>Гарантия 2 года!</small>
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="modal-footer">
+						<div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="gridCheck-2" checked>
+								<label class="form-check-label" for="gridCheck-2">
+									<p class="mb-0"><small>Даю согласие на обработку персональных данных. Подробнее об обработке персональных данных в <a href="<?php echo get_template_directory_uri(); ?>/docs/Privacy-Policy.pdf" target="_blank">Политике конфиденциальности.</a></small></p>
+								</label>
+							</div>
+						</div>
+						<input type="hidden" id="g-recaptcha-response-get-measurer" name="g-recaptcha-response">
+						<button type="submit" class="btn btn-corporate-color-1 me-auto">Вызвать</button>
 					</div>
 				</form>
 			</div>
