@@ -24,7 +24,7 @@
 			$mes = $_POST['mes'];
 
 			
-			$to 	 = 'mebel-dsever@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru';
+			$to 	 = 'mebel-dsever@yandex.ru, vika5383@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru';
 			$from 	 = 'info@dekorsever.ru';
 			$subject = 'Заявка на расчет стоимости с сайта dekorsever.ru (здесь исправил)';
 			 

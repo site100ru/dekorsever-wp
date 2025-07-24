@@ -62,7 +62,7 @@
 	//$mes = $_POST['mes'];
 	
 	$picture = "";
-	$mail_to = "mebel-dsever@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru"; // Адрес доставки почты
+	$mail_to = "mebel-dsever@yandex.ru, vika5383@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru"; // Адрес доставки почты
 	$subject = '=?utf-8?B?' . base64_encode("Зявка на распил с сайта dekorsever.ru") . '?='; // Тема письма
 	
 	$file_type = $_FILES['mail_file']['type'];
