@@ -336,11 +336,11 @@
 					<div class="row">
 						<div class="col-8 col-lg-4">
 							<label for="exampleFormControlInput1" class="form-label">Ваше имя</label>
-							<input type="text" class="form-control mb-3 mb-md-0" id="exampleFormControlInput1">
+							<input type="text" name="name" class="form-control mb-3 mb-md-0" id="exampleFormControlInput1">
 						</div>
 						<div class="col-8 col-lg-4">
 							<label for="exampleFormControlInput2" class="form-label">Ваш телефон</label>
-							<input type="text" class="form-control mb-3 mb-md-0 telMask" id="exampleFormControlInput2">
+							<input type="text" name="phone" class="form-control mb-3 mb-md-0 telMask" id="exampleFormControlInput2">
 						</div>
 					</div>
 					<div class="row">
