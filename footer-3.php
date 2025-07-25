@@ -801,6 +801,14 @@
 					if ( document.getElementById('g-recaptcha-response-calculate-other-price') ) {
 						document.getElementById('g-recaptcha-response-calculate-other-price').value=token;
 					}
+					// message-modal
+					if ( document.getElementById('g-recaptcha-message-modal') ) {
+						document.getElementById('g-recaptcha-message-modal').value=token;
+					}
+					// calculatePriceModal
+					if ( document.getElementById('g-recaptcha-calculate-price-modal') ) {
+						document.getElementById('g-recaptcha-calculate-price-modal').value=token;
+					}
 				});
 			});
 		</script>

@@ -860,6 +860,7 @@ do_action( 'woocommerce_before_main_content' );
 									<input type="hidden" id="answer5-1" name="answer5">
 									<input type="hidden" id="answer6-1" name="answer6">
 									<input type="button" value="Назад" class="btn btn-corporate-color-1-outline" onclick="previousQuostion( '7-1' );">
+									<input type="hidden" id="g-recaptcha-response-calculate-kitchen-price" name="g-recaptcha-response">
 									<input type="submit" class="btn btn-corporate-color-1" value="Отправить">
 
 									<div class="form-check mt-3">
@@ -1283,6 +1284,7 @@ do_action( 'woocommerce_before_main_content' );
 									<input type="hidden" id="answer5-2" name="answer5">
 									<input type="hidden" id="answer6-2" name="answer6">
 									<input type="button" value="Назад" class="btn btn-corporate-color-1-outline" onclick="previousQuostion( '7-2' );">
+									<input type="hidden" id="g-recaptcha-response-calculate-closet-price" name="g-recaptcha-response">
 									<input type="submit" class="btn btn-corporate-color-1" value="Отправить">
 
 									<div class="form-check mt-3">
@@ -1708,6 +1710,7 @@ do_action( 'woocommerce_before_main_content' );
 									<input type="hidden" id="answer5-1" name="answer5">
 									<input type="hidden" id="answer6-1" name="answer6">
 									<input type="button" value="Назад" class="btn btn-corporate-color-1-outline" onclick="previousQuostion( '7-1' );">
+									<input type="hidden" id="g-recaptcha-response-calculate-kitchen-price" name="g-recaptcha-response">
 									<input type="submit" class="btn btn-corporate-color-1" value="Отправить">
 
 									<div class="form-check mt-3">
@@ -2126,6 +2129,7 @@ do_action( 'woocommerce_before_main_content' );
 									<input type="hidden" id="answer5-2" name="answer5">
 									<input type="hidden" id="answer6-2" name="answer6">
 									<input type="button" value="Назад" class="btn btn-corporate-color-1-outline" onclick="previousQuostion( '7-2' );">
+									<input type="hidden" id="g-recaptcha-response-calculate-closet-price" name="g-recaptcha-response">
 									<input type="submit" class="btn btn-corporate-color-1" value="Отправить">
 
 									<div class="form-check mt-3">
@@ -2170,6 +2174,7 @@ do_action( 'woocommerce_before_main_content' );
 							<div class="row justify-content-center">
 								<div class="col text-center" style="margin-top: 35px;">
 									<input type="button" value="Назад" class="btn btn-corporate-color-1-outline" onclick="previousQuostion( '2-3' );">
+									<input type="hidden" id="g-recaptcha-response-calculate-other-price" name="g-recaptcha-response">
 									<input type="submit" value="Отправить" class="btn btn-corporate-color-1">
 								</div>
 

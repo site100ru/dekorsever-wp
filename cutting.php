@@ -195,6 +195,7 @@
 							<div class="row pt-3">
 								<div class="col">
 									<h3>Отправить бланк заявки</h3>
+									<input type="hidden" id="g-recaptcha-response-calculate-other-price" name="g-recaptcha-response">
 									<button type="submit" class="btn btn-lg btn-corporate-color-1 ps-4 pe-4 mt-3 mt-md-6" style="width: 170px;">
 										<img src="<?php echo get_template_directory_uri(); ?>/img/ico/doc-ico.png" class="img-fluid">&nbsp;
 										Отправить
