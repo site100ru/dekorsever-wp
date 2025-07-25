@@ -354,7 +354,8 @@
 						</div>
 
 						<div class="col-8 col-lg-4">
-							<button type="button" class="btn btn-lg btn-corporate-color-1 w-100 mt-3">Хорошо, жду звонка</button>
+							<input type="hidden" id="g-recaptcha-response-order" name="g-recaptcha-response">
+							<button type="submit" class="btn btn-lg btn-corporate-color-1 w-100 mt-3">Хорошо, жду звонка</button>
 						</div>
 					</div>
 				</form>

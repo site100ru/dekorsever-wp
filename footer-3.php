@@ -769,14 +769,37 @@
 		<script>
 			grecaptcha.ready(function() {
 				grecaptcha.execute('6LdV1IcUAAAAADRQAhpGL8dVj5_t0nZDPh9m_0tn', {action: 'action_name'}).then(function(token) {
+					// Callback
 					if ( document.getElementById('g-recaptcha-response-callback') ) {
 						document.getElementById('g-recaptcha-response-callback').value=token;
 					}
+					// Calculate price with download
 					if ( document.getElementById('g-recaptcha-response-calculatePriceWithDownload') ) {
 						document.getElementById('g-recaptcha-response-calculatePriceWithDownload').value=token;
 					}
+					// Calculate price without download
 					if ( document.getElementById('g-recaptcha-response-calculatePriceWithoutDownload') ) {
 						document.getElementById('g-recaptcha-response-calculatePriceWithoutDownload').value=token;
+					}
+					// Get measurer
+					if ( document.getElementById('g-recaptcha-response-get-measurer') ) {
+						document.getElementById('g-recaptcha-response-get-measurer').value=token;
+					}
+					// Order
+					if ( document.getElementById('g-recaptcha-response-order') ) {
+						document.getElementById('g-recaptcha-response-order').value=token;
+					}
+					// Calculate kitchen price
+					if ( document.getElementById('g-recaptcha-response-calculate-kitchen-price') ) {
+						document.getElementById('g-recaptcha-response-calculate-kitchen-price').value=token;
+					}
+					// Calculate closet price
+					if ( document.getElementById('g-recaptcha-response-calculate-closet-price') ) {
+						document.getElementById('g-recaptcha-response-calculate-closet-price').value=token;
+					}
+					// Calculate other price
+					if ( document.getElementById('g-recaptcha-response-calculate-other-price') ) {
+						document.getElementById('g-recaptcha-response-calculate-other-price').value=token;
 					}
 				});
 			});
