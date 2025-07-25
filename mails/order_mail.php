@@ -21,7 +21,7 @@
 			$phone = $_POST[ 'phone' ];
 			$subject = '=?utf-8?B?' . base64_encode("Заявка с сайта dekorsever.ru") . '?='; // Тема письма
 			
-			mail( "mebel-dsever@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru", $subject, "
+			mail( "mebel-dsever@yandex.ru, vika5383@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru", $subject, "
 				Клиент: " . $name ."\n
 				Телефон: " . $phone
 			); 	

@@ -24,7 +24,7 @@
 			/* Проверям что заполнено поле с телефоном */
 			if ( $_POST['tel'] ) {
 				// Если поле с телефоно заполненно
-				mail( "mebel-dsever@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru", $subject, "
+				mail( "mebel-dsever@yandex.ru, vika5383@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru", $subject, "
 					Клиент: " . $name ."\n
 					Телефон: " . $tel
 				);
