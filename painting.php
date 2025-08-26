@@ -10,8 +10,8 @@
 ?>
 <!-- Home section -->
 <div id="sp-home" class="scroll-points"></div>
-<section class="main-home-section painting-home-section">
-	<div class="parallax-home-section" style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/img/painting.jpg);"></div>
+<section class="main-home-section painting-home-section painting-home-section-painting">
+	<div class="parallax-home-section parallax-home-section-painting" style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/img/painting.jpg);"></div>
 	<header class="d-none d-lg-block">
 		<!-- Header nav top -->
 		<nav class="header-nav-top navbar navbar-expand-lg navbar-light d-none d-lg-block py-0">
@@ -413,7 +413,7 @@
 				<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/section-title-dec.svg" class="mb-5">	
 			</div>
 		</div>
-		<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+		<div id="carouselExample" class="carousel slide slides" data-bs-ride="carousel">
 		  <div class="carousel-inner">
 			<div class="carousel-item active">
 			  <div class="row">
