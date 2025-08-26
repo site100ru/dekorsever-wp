@@ -45,7 +45,7 @@ $wrapper_classes   = apply_filters(
 			foreach ( $attachment_ids as $attachment_id ) {
 		?>
 			<div class="carousel-item<?php if ( $count == false ) { echo ' active'; $count = true; } ?>" data-bs-interval="9999">
-				<a href="#" onClick="galleryOn('gallery-<?php the_ID(); ?>');">
+				<a onClick="galleryOn('gallery-<?php the_ID(); ?>');">
 					<div class="single-product-img approximation">
 						<img src="<?php echo wp_get_attachment_url( $attachment_id ); ?>" class="d-block w-100" loading="lazy" alt="...">
 						<div class="magnifier"></div>
