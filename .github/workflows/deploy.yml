@@ -15,5 +15,12 @@ jobs:
           username: ${{ secrets.REGRU_USER }}
           key: ${{ secrets.REGRU_KEY }}
           script: |
+            #cd /var/www/u1538455/data/www/dekorsever.ru/wp-content/themes/dekorsever-wp
+            #git pull
+            
             cd /var/www/u1538455/data/www/dekorsever.ru/wp-content/themes/dekorsever-wp
-            git pull
+            echo "Сбрасываем локальные изменения..."
+            git reset --hard HEAD
+            echo "Получаем обновления из репозитория..."
+            git pull origin main
+            echo "Обновление завершено!"
