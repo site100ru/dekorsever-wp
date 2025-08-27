@@ -2953,3 +2953,7 @@
 					display: none;
 			}
 	}
+
+.slides .carousel-item {
+	background: none;
+}
