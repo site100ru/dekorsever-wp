@@ -917,6 +917,9 @@
 		$output .= "Disallow: */uncategorized/*\n";
 		$output .= "Disallow: */author/*\n";
 		$output .= "Disallow: */payment/*\n";
+		$output .= "Disallow: */cart/*\n";
+		$output .= "Disallow: */my-account/*\n";
+		$output .= "Disallow: */actions/*\n";
 		return $output;
 	}
 	/*** END ДЕЛАЕМ ФАЙЛ ROBOTS.TXT ***/
