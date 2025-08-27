@@ -913,7 +913,7 @@
 		
 		$output .= "Allow: */portfolio/\n";
 		$output .= "Disallow: */portfolio/*/*\n";
-		$output .= "Disallow: */page/*\n";
+		$output .= "Disallow: */page/*/*\n";
 		return $output;
 	}
 	/*** END ДЕЛАЕМ ФАЙЛ ROBOTS.TXT ***/
