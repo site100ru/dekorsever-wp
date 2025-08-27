@@ -813,6 +813,20 @@
 	
 	
 	
+	/*** ДЕЛАЕМ ПРАВИЛЬНЫЙ TITLE ДЛЯ КАЖДОЙ СТРАНИЦЫ ***/
+	function echo_title() {
+		// Если страница портфолио
+		if ( is_post_type_archive( 'portfolio' ) ) {
+			echo 'Наши выполненные работы';
+		} else {
+			echo wp_get_document_title();
+		}
+	}
+	/*** END ДЕЛАЕМ ПРАВИЛЬНЫЙ TITLE ДЛЯ КАЖДОЙ СТРАНИЦЫ ***/
+	
+	
+	
+	
 	/*** ДЕЛАЕМ ПРАВИЛЬНЫЙ DESCRIPTION ДЛЯ КАЖДОЙ СТРАНИЦЫ ***/
 	function echo_description() {
 		
