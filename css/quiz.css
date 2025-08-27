@@ -124,7 +124,7 @@
     white-space: nowrap;
     background-color: var(--corporate-color-1);
     border: 1px solid var(--corporate-color-1);
-    border-radius: 0.25rem;
+    border-radius: 0.5rem !important;
 	color: #ffff;
 	/* font-family: Gilroy-Regular; */
 	font-size: 20px;

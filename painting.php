@@ -10,8 +10,8 @@
 ?>
 <!-- Home section -->
 <div id="sp-home" class="scroll-points"></div>
-<section class="main-home-section painting-home-section">
-	<div class="parallax-home-section" style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/img/painting.jpg);"></div>
+<section class="main-home-section painting-home-section painting-home-section-painting">
+	<div class="parallax-home-section parallax-home-section-painting" style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/img/painting.jpg);"></div>
 	<header class="d-none d-lg-block">
 		<!-- Header nav top -->
 		<nav class="header-nav-top navbar navbar-expand-lg navbar-light d-none d-lg-block py-0">
@@ -281,7 +281,7 @@
 		</div>
 		<div class="row text-start">
 			<div class="col-md-3 mb-3">
-				<a href="#">
+				<a >
 					<div class="approximation project-container-2 rounded">
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/card5.jpg" class="img-fluid" alt="" decoding="async" />
 						<div class="card-wrapper project-container-2-footer">
@@ -295,7 +295,7 @@
 				</a>
 			</div>
 			<div class="col-md-3 mb-3">	
-				<a href="#">
+				<a >
 					<div class="approximation project-container-2 rounded">
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/card6.jpg" class="img-fluid" alt="" decoding="async" />	
 						<div class="card-wrapper project-container-2-footer">
@@ -309,7 +309,7 @@
 				</a>
 			</div>
 			<div class="col-md-3 mb-3">
-				<a href="#">
+				<a >
 					<div class="approximation project-container-2 rounded">
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/card7.jpg" class="img-fluid" alt="" decoding="async" fetchpriority="high" />
 						<div class="card-wrapper project-container-2-footer">
@@ -323,7 +323,7 @@
 				</a>
 			</div>
 			<div class="col-md-3 mb-3">
-				<a href="#">
+				<a >
 					<div class="approximation project-container-2 rounded">
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/card8.jpg" class="img-fluid" alt="" decoding="async" />
 						<div class="card-wrapper project-container-2-footer">
@@ -345,7 +345,7 @@
 		</div>
 		<div class="row text-start">
 			<div class="col-md-3 mb-3">
-				<a href="#">
+				<a >
 					<div class="approximation project-container-2 rounded">
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/card9.jpg" class="img-fluid" alt="" decoding="async" />
 						<div class="card-wrapper project-container-2-footer">
@@ -359,7 +359,7 @@
 				</a>
 			</div>
 			<div class="col-md-3 mb-3">	
-				<a href="#">
+				<a >
 					<div class="approximation project-container-2 rounded">
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/card10.jpg" class="img-fluid" alt="" decoding="async" />	
 						<div class="card-wrapper project-container-2-footer">
@@ -373,7 +373,7 @@
 				</a>
 			</div>
 			<div class="col-md-3 mb-3">
-				<a href="#">
+				<a >
 					<div class="approximation project-container-2 rounded">
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/card11.jpg" class="img-fluid" alt="" decoding="async" fetchpriority="high" />
 						<div class="card-wrapper project-container-2-footer">
@@ -387,7 +387,7 @@
 				</a>
 			</div>
 			<div class="col-md-3 mb-3">
-				<a href="#">
+				<a >
 					<div class="approximation project-container-2 rounded">
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/card12.jpg" class="img-fluid" alt="" decoding="async" />
 						<div class="card-wrapper project-container-2-footer">
@@ -413,7 +413,7 @@
 				<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/section-title-dec.svg" class="mb-5">	
 			</div>
 		</div>
-		<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+		<div id="carouselExample" class="carousel slide slides" data-bs-ride="carousel">
 		  <div class="carousel-inner">
 			<div class="carousel-item active">
 			  <div class="row">
@@ -476,7 +476,7 @@
 			</button>
 		</div>
 		<div class="slider_btn_block">
-			<a href="#" type="button" class="slider_btn btn btn-lg btn-corporate-color-1" data-bs-toggle="modal" data-bs-target="">Все наши работы</a>
+			<a href="/portfolio" class="slider_btn btn btn-lg btn-corporate-color-1">Все наши работы</a>
 		</div>
 	</div>	
 </section>
@@ -537,7 +537,7 @@
 				<h2 class="mb-3">О нас</h2>
 				<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/section-title-dec.svg" class="mb-5">
 				<p class="text-start" style="line-height: 27px; margin-bottom: 60px;">За много лет работы компании «Декор-Север» нами накоплен большой практический опыт в покраске деревянных изделий. Мы тщательно подобрали профессиональное оборудование и полностью укомплектованы высококлассными специалистами, в совершенстве владеющими различными технологическими приемами и изучившими мельчайшие нюансы своего дела. Нашим клиентам гарантирована качественная покраска древесины любого вида, всеми возможными из выпускающихся лакокрасочных материалов, в самые короткие сроки и по очень привлекательным расценкам, которые оговариваются при заказе требуемой услуги.</p>
-				<a href="#" type="button" style="padding: 8px 40px;" class="btn btn-lg btn-corporate-color-1" data-bs-toggle="modal" data-bs-target="">Узнать больше</a>
+				<a href="/about-us" style="padding: 8px 40px;" class="btn btn-lg btn-corporate-color-1" >Узнать больше</a>
 			</div>
 		</div>
 	</div>	

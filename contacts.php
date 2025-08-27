@@ -12,7 +12,7 @@
 
 <!-- Header -->
 <header id="header-contacts" class="woocommerce-products-header">
-	<div class="container">
+	<div class="container" style="margin-top: 100px">
 		<div class="row align-items-center text-start">
 			<div class="col-lg-10 py-5">
 				<h1>Контакты</h1>

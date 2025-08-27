@@ -183,10 +183,10 @@
 								<div class="col">
 									<h3>Загрузить бланк заявки</h3>
 									<div class="input-group custom-file-button pe-4 mt-3 mt-md-6" >
-										<label class="input-group-text btn-corporate-color-1"  for="inputGroupFile" style="width: 170px; margin-top: 10px; padding-left: 1rem; font-size: 16px;">
+										<label class="input-group-text btn-corporate-color-1"  for="inputGroupFile-two" style="width: 170px; margin-top: 10px; padding-left: 1rem; font-size: 16px;">
 											<img src="<?php echo get_template_directory_uri(); ?>/img/ico/doc-ico.png" class="img-fluid" style="padding: 5px 0;"> &nbsp; Выбрать файл
 										</label>
-										<input type="file" name="mail_file" accept=".xls, .xlsx" class="form-control" id="inputGroupFile" required style="background-color: transparent; padding-top: 13px; font-size: 14px; margin-left: 10px; border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem; height: 45px; margin-top: 12px;">
+										<input type="file" name="mail_file" accept=".xls, .xlsx" class="form-control" id="inputGroupFile-two" required style="background-color: transparent; padding-top: 13px; font-size: 14px; margin-left: 10px; border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem; height: 45px; margin-top: 12px;">
 									</div>							
 								</div>
 							</div>
@@ -195,6 +195,7 @@
 							<div class="row pt-3">
 								<div class="col">
 									<h3>Отправить бланк заявки</h3>
+									<input type="hidden" id="g-recaptcha-response-calculate-other-price" name="g-recaptcha-response">
 									<button type="submit" class="btn btn-lg btn-corporate-color-1 ps-4 pe-4 mt-3 mt-md-6" style="width: 170px;">
 										<img src="<?php echo get_template_directory_uri(); ?>/img/ico/doc-ico.png" class="img-fluid">&nbsp;
 										Отправить

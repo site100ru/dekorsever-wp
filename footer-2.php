@@ -444,6 +444,7 @@
 								</label>
 							</div>
 						</div>
+						<input type="hidden" id="'g-recaptcha-response-order" name="g-recaptcha-response">
 						<button type="submit" class="btn btn-corporate-color-1 mx-auto">Жду звонка</button>
 					</div>
 				</form>
@@ -639,6 +640,7 @@
 								</label>
 							</div>
 						</div>
+						<input type="hidden" id="g-recaptcha-message-modal" name="g-recaptcha-response">
 						<button type="submit" class="btn btn-corporate-color-1 me-auto">Отправить</button>
 					</div>
 				</form>
@@ -675,6 +677,7 @@
 								</label>
 							</div>
 						</div>
+						<input type="hidden" id="g-recaptcha-calculate-price-modal" name="g-recaptcha-response">
 						<button type="submit" class="btn btn-corporate-color-1 me-auto">Отправить</button>
 					</div>
 				</form>
@@ -837,6 +840,14 @@
 					// Calculate other price
 					if ( document.getElementById('g-recaptcha-response-calculate-other-price') ) {
 						document.getElementById('g-recaptcha-response-calculate-other-price').value=token;
+					}
+					// message-modal
+					if ( document.getElementById('g-recaptcha-message-modal') ) {
+						document.getElementById('g-recaptcha-message-modal').value=token;
+					}
+					// calculatePriceModal
+					if ( document.getElementById('g-recaptcha-calculate-price-modal') ) {
+						document.getElementById('g-recaptcha-calculate-price-modal').value=token;
 					}
 				});
 			});
