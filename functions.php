@@ -195,7 +195,7 @@
         } else if ( is_tax( 'portfolio-cat' ) ) {
 			$new_breadcrumb = [
                 _x( 'Наши работы', 'breadcrumb', 'woocommerce' ), //Title
-                'https://dekorsever/portfolio/' // URL
+                'https://dekorsever.ru/portfolio/' // URL
             ];
             array_splice( $crumbs, 0, 1, [ $new_breadcrumb ] ); //Insert a new breadcrumb after the 'Home' crumb
 		}
@@ -814,10 +814,16 @@
 	
 	/*** ДЕЛАЕМ ПРАВИЛЬНЫЙ TITLE ДЛЯ КАЖДОЙ СТРАНИЦЫ ***/ 
 	function echo_title() {
+		
 		// Если страница портфолио
 		if ( is_post_type_archive( 'portfolio' ) ) {
-			echo 'Наши выполненные работы';
-		} else {
+			echo 'Наши выполненные работы - Декор-Север';
+		
+		// Если страница категорий портфолио
+		} elseif ( is_tax( 'portfolio-cat' ) ) {
+			$term = get_queried_object(); // Получаем текущий термин
+			echo $term->title . " - Декор-Север";
+		else {
 			echo wp_get_document_title();
 		}
 	}
@@ -852,13 +858,12 @@
 		
 		// Если страница портфолио
 		} elseif ( is_post_type_archive( 'portfolio' ) ) {
-			echo 'Наши выполненные работы';
+			echo 'Наши выполненные работы - Декор-Север';
 		
 		// Если страница категорий портфолио
 		} elseif ( is_tax( 'portfolio-cat' ) ) {
 			$term = get_queried_object(); // Получаем текущий термин
 			echo $term->description;
-			//echo 'Категория портфолио';
 		
 		// Если страница магазина	
 		} elseif ( is_shop() ) {
