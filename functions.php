@@ -822,6 +822,13 @@
 					if ( $term->name ) {
 						if ( $term->name == "Кухни" ) {
 							echo "Каталог кухонь &#8212; Декор-Север"; // Product category name
+						
+						if ( $term->name == "Шкафы" ) {
+							echo "Каталог шкафов &#8212; Декор-Север"; // Product category name
+							
+						if ( $term->name == "Корпусная мебель" ) {
+							echo "Каталог корпусной мебели &#8212; Декор-Север"; // Product category name
+						
 						} else {
 							echo $term->name; // Product category name
 						}
