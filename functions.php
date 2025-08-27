@@ -823,7 +823,8 @@
 		} elseif ( is_tax( 'portfolio-cat' ) ) {
 			$term = get_queried_object(); // Получаем текущий термин
 			echo $term->title . " - Декор-Север";
-		else {
+		
+		} else {
 			echo wp_get_document_title();
 		}
 	}
