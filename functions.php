@@ -822,7 +822,7 @@
 		// Если страница категорий портфолио
 		} elseif ( is_tax( 'portfolio-cat' ) ) {
 			$term = get_queried_object(); // Получаем текущий термин
-			echo $term->name . " &#8212; Декор-Север";
+			echo "Наши работы: " . $term->name . " &#8212; Декор-Север";
 		
 		} else {
 			echo wp_get_document_title();
