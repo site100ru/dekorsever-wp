@@ -815,14 +815,28 @@
 	/*** ДЕЛАЕМ ПРАВИЛЬНЫЙ TITLE ДЛЯ КАЖДОЙ СТРАНИЦЫ ***/ 
 	function echo_title() {
 		
+		// Если страница категории продукта woocommerce
+		} elseif ( is_product_category() ) {
+			foreach( wp_get_post_terms( get_the_id(), 'product_cat' ) as $term ){
+				if( $term ){
+					if ( $term->name ) {
+						if ( $term->name == "Кухни" ) {
+							echo "Каталог кухонь"; // Product category name
+						} else {
+							echo $term->name; // Product category name
+						}
+					}
+				}
+			}
+		
 		// Если страница портфолио
-		if ( is_post_type_archive( 'portfolio' ) ) {
+		} elseif ( is_post_type_archive( 'portfolio' ) ) {
 			echo 'Наши выполненные работы &#8212; Декор-Север';
 		
 		// Если страница категорий портфолио
 		} elseif ( is_tax( 'portfolio-cat' ) ) {
 			$term = get_queried_object(); // Получаем текущий термин
-			echo "Наши работы: " . $term->name . " &#8212; Декор-Север";
+			echo "Наши работы: <span style='text-transform: lowercase;'>" . $term->name . "</span> &#8212; Декор-Север";
 		
 		} else {
 			echo wp_get_document_title();
