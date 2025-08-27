@@ -817,12 +817,12 @@
 		
 		// Если страница портфолио
 		if ( is_post_type_archive( 'portfolio' ) ) {
-			echo 'Наши выполненные работы - Декор-Север';
+			echo 'Наши выполненные работы &#8212; Декор-Север';
 		
 		// Если страница категорий портфолио
 		} elseif ( is_tax( 'portfolio-cat' ) ) {
 			$term = get_queried_object(); // Получаем текущий термин
-			echo $term->title . " - Декор-Север";
+			echo $term->name . " &#8212; Декор-Север";
 		
 		} else {
 			echo wp_get_document_title();
