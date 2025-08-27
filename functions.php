@@ -910,10 +910,13 @@
 		$output .= "Disallow: *?query_type_*\n";
 		$output .= "Disallow: *?etext=*\n";
 		$output .= "Disallow: *?add-to-cart=*\n";
-		
 		$output .= "Allow: */portfolio/\n";
 		$output .= "Disallow: */portfolio/*/*\n";
+		
 		$output .= "Disallow: */page/*/*\n";
+		$output .= "Disallow: */uncategorized/*\n";
+		$output .= "Disallow: */author/*\n";
+		$output .= "Disallow: */payment/*\n";
 		return $output;
 	}
 	/*** END ДЕЛАЕМ ФАЙЛ ROBOTS.TXT ***/
