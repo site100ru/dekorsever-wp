@@ -816,7 +816,7 @@
 	function echo_title() {
 		
 		// Если страница категории продукта woocommerce
-		} elseif ( is_product_category() ) {
+		if ( is_product_category() ) {
 			foreach( wp_get_post_terms( get_the_id(), 'product_cat' ) as $term ){
 				if( $term ){
 					if ( $term->name ) {
