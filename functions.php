@@ -821,7 +821,7 @@
 				if( $term ){
 					if ( $term->name ) {
 						if ( $term->name == "Кухни" ) {
-							echo "Каталог кухонь"; // Product category name
+							echo "Каталог кухонь &#8212; Декор-Север"; // Product category name
 						} else {
 							echo $term->name; // Product category name
 						}
