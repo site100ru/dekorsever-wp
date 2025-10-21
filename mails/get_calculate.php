@@ -79,7 +79,9 @@
 			if ( isset( $_POST[ 'mes' ] ) ) { $mes = $_POST['mes']; } else { $mes = ''; }
 			
 			$picture = "";
-			$mail_to = "mebel-dsever@yandex.ru, vika5383@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru"; // Адрес доставки почты
+			// $mail_to = "mebel-dsever@yandex.ru, vika5383@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru"; // Адрес доставки почты
+            $mail_to = "sidorov-vv3@mail.ru, vasilyev-r@mail.ru"; // Адрес доставки почты
+
 			$subject = '=?utf-8?B?' . base64_encode("Зявка на расчет прочей корпусной мебели с сайта dekorsever.ru") . '?='; // Тема письма
 			
 			

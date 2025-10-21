@@ -401,12 +401,10 @@
 	// Подключаем функцию активации мета блока (my_extra_fields)
 	add_action('add_meta_boxes', 'my_extra_fields', 1);
 
-	/*
 	function my_extra_fields() {
 		add_meta_box( 'extra_fields', 'Галерея наших работ', 'extra_fields_box_func', 'portfolio', 'side', 'high' );
-	}*/
-
-	/* Код блока галереи
+	}
+	// Код блока галереи
 	function extra_fields_box_func( $post ){
 		for ($i=1; $i<=9; $i++) { ?>
 			<label>URL&#160;изображения <?php echo $i; ?>:</label>
@@ -420,8 +418,7 @@
 	// включаем обновление полей при сохранении
 	add_action( 'save_post', 'my_extra_fields_update', 0 );
 
-	/* Сохраняем данные, при сохранении поста
-	function my_extra_fields_update( $post_id ){
+    function my_extra_fields_update( $post_id ){
 		// базовая проверка
 		if (
 			   empty( $_POST['extra'] )
