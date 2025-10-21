@@ -1,45 +1,14 @@
 <?php
 	
-	session_start();
-	if ( isset( $_SESSION['win'] ) ) {
-		unset( $_SESSION['win'] );
-		$_SESSION['display'] = "block";
-	} else { $_SESSION['display'] = "none"; }
-	
 	/**
-	 * Template Name: Кухни на заказ (с примерами из продуктов с тегом portfolio).
+	 * Template Name: Кухни на заказ (с примерами из портфолио).
+	 * Description:
 	 * Template Post Type: page.
 	 */
-	 
+	
+	get_header( '3' );
+	
 ?>
-<!DOCTYPE html>
-<html lang="ru">
-	<head>
-		<!-- Required meta tags -->
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-
-		<!-- Bootstrap CSS -->
-		<link href="<?php echo get_stylesheet_directory_uri(); ?>/css/bootstrap.min.css" rel="stylesheet">
-		
-		<!-- Theme CSS -->
-		<link href="<?php echo get_stylesheet_directory_uri(); ?>/css/theme.css" rel="stylesheet">
-		
-		<!-- Style CSS -->
-		<link href="<?php echo get_stylesheet_directory_uri(); ?>/style.css" rel="stylesheet">
-		
-		<!-- Quiz CSS -->
-		<link href="<?php echo get_stylesheet_directory_uri(); ?>/css/quiz.css" rel="stylesheet">
-
-		<title>Декор-Север - изготовление кухонь, шкафов и другой корпусной мебели</title>
-		
-		<title><?php echo wp_get_document_title(); ?></title>
-		<?php if ( $counter_head = get_theme_mod( 'mytheme_counter_head' ) ) : ?>
-			<!-- Код счетчика (head) -->
-			<?php echo $counter_head; ?>
-		<?php endif; ?>
-	</head>
-	<body>
 
 		
 <!-- Home section -->
@@ -47,6 +16,7 @@
 <section class="main-home-section">
 	<div class="parallax-home-section"></div>
 	<header class="d-none d-lg-block">
+		
 		<!-- Header nav top -->
 		<nav class="header-nav-top navbar navbar-expand-lg navbar-light d-none d-lg-block py-0">
 			<div class="container">
@@ -134,14 +104,16 @@
 		<!-- /Header nav top -->
 		
 		<!-- Header nav bottom -->
-		<nav id="top-menu-2" class="header-nav-bottom navbar navbar-expand-lg navbar-light py-0">
+		<nav id="top-menu-1" class="header-nav-bottom navbar navbar-expand-lg navbar-light py-0">
 			<div class="container">
 				<a class="navbar-brand" href="#">
 					<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/logo-transparent.svg">
 				</a>
+				
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobail-header-collapse" aria-controls="mobail-header-collapse" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
+				
 				<div class="collapse navbar-collapse" id="mobail-header-collapse">
 					<?php
 						wp_nav_menu(array(
@@ -243,7 +215,7 @@
 		</nav>
 		<!-- /Header nav bottom -->
 	</header>
-	<div class="container">
+    <div class="container">
 		<div class="row align-items-center home-section-height">
 			<div class="col-xl-10 col-xxl-9">
 				<h1 class="home-title mb-3">Кухни по индивидуальным размерам на&#160;заказ от&#160;производителя</h1>
