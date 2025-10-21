@@ -43,7 +43,7 @@
 				<div class="row">
 					<div class="col text-center mb-4">
 						<div class="nav-scroller mb-0" id="navbarSupportedContent3">
-							<ul class="nav justify-content-center d-flex m-auto">
+							<ul class="nav justify-content-md-center d-flex m-auto">
 								<li class="nav-item">
 									<a class="nav-link" href="/portfolio/">Все</a>
 								</li>
