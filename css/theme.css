@@ -2076,7 +2076,7 @@
 
 
 
-	/*** NAV SCROLLER ***
+	/*** NAV SCROLLER ***/
 	.nav-scroller {
 			position: relative;
 			z-index: 2;
@@ -2094,7 +2094,7 @@
 			white-space: nowrap;
 			-webkit-overflow-scrolling: touch;
 	}
-	/*** END NAV SCROLLER ***
+	/*** END NAV SCROLLER ***/
 
 
 	/*** PORTFOLIO SLIDER ***
