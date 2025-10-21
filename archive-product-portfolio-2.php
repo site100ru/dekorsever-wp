@@ -103,7 +103,7 @@
 		<!-- /Header nav top -->
 		
 		<!-- Header nav bottom -->
-		<nav class="header-nav-bottom navbar navbar-expand-lg navbar-light py-0">
+		<nav id="top-menu-2" class="header-nav-bottom navbar navbar-expand-lg navbar-light py-0">
 			<div class="container">
 				<a class="navbar-brand" href="#">
 					<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/logo-transparent.svg">
@@ -155,7 +155,7 @@
 	
 	<header id="sliding-header" class="shadow">
 		<!-- Header nav bottom -->
-		<nav id="top-menu-2" class="header-nav-bottom navbar navbar-expand-lg navbar-light py-1 py-lg-0">
+		<nav class="header-nav-bottom navbar navbar-expand-lg navbar-light py-1 py-lg-0">
 			<div class="container">
 				<a class="navbar-brand" href="#">
 					<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/logo.svg">
