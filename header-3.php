@@ -39,7 +39,7 @@
 		
 		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/img/ico/favicon.svg" type="image/svg+xml">
 
-		<title><?php echo wp_get_document_title(); ?></title>
+		<title><?php echo echo_title(); ?></title>
 		
 		<?php if ( $counter_head = get_theme_mod( 'mytheme_counter_head' ) ) : ?>
 			<!-- Код счетчика (head) -->

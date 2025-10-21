@@ -203,7 +203,7 @@
         } else if ( is_tax( 'portfolio-cat' ) ) {
 			$new_breadcrumb = [
                 _x( 'Наши работы', 'breadcrumb', 'woocommerce' ), //Title
-                'https://dekorsever/portfolio/' // URL
+                'https://dekorsever.ru/portfolio/' // URL
             ];
             array_splice( $crumbs, 0, 1, [ $new_breadcrumb ] ); //Insert a new breadcrumb after the 'Home' crumb
 		}
@@ -401,12 +401,12 @@
 	// Подключаем функцию активации мета блока (my_extra_fields)
 	add_action('add_meta_boxes', 'my_extra_fields', 1);
 
-	// 
+	/*
 	function my_extra_fields() {
 		add_meta_box( 'extra_fields', 'Галерея наших работ', 'extra_fields_box_func', 'portfolio', 'side', 'high' );
-	}
-// 
-	// Код блока галереи
+	}*/
+
+	/* Код блока галереи
 	function extra_fields_box_func( $post ){
 		for ($i=1; $i<=9; $i++) { ?>
 			<label>URL&#160;изображения <?php echo $i; ?>:</label>
@@ -420,7 +420,7 @@
 	// включаем обновление полей при сохранении
 	add_action( 'save_post', 'my_extra_fields_update', 0 );
 
-	//  Сохраняем данные, при сохранении поста
+	/* Сохраняем данные, при сохранении поста
 	function my_extra_fields_update( $post_id ){
 		// базовая проверка
 		if (
@@ -831,6 +831,48 @@
 	
 	
 	
+	/*** ДЕЛАЕМ ПРАВИЛЬНЫЙ TITLE ДЛЯ КАЖДОЙ СТРАНИЦЫ ***/ 
+	function echo_title() {
+		
+		// Если страница категории продукта woocommerce
+		if ( is_product_category() ) {
+			foreach( wp_get_post_terms( get_the_id(), 'product_cat' ) as $term ){
+				if( $term ){
+					if ( $term->name ) {
+						if ( $term->name == "Кухни" ) {
+							echo "Каталог кухонь &#8212; Декор-Север"; // Product category name
+						
+						} elseif ( $term->name == "Шкафы" ) {
+							echo "Каталог шкафов &#8212; Декор-Север"; // Product category name
+							
+						} elseif ( $term->name == "Корпусная мебель" ) {
+							echo "Каталог корпусной мебели &#8212; Декор-Север"; // Product category name
+						
+						} else {
+							echo $term->name; // Product category name
+						}
+					}
+				}
+			}
+		
+		// Если страница портфолио
+		} elseif ( is_post_type_archive( 'portfolio' ) ) {
+			echo 'Наши выполненные работы &#8212; Декор-Север';
+		
+		// Если страница категорий портфолио
+		} elseif ( is_tax( 'portfolio-cat' ) ) {
+			$term = get_queried_object(); // Получаем текущий термин
+			echo "Наши работы: " . $term->name . " &#8212; Декор-Север";
+		
+		} else {
+			echo wp_get_document_title();
+		}
+	}
+	/*** END ДЕЛАЕМ ПРАВИЛЬНЫЙ TITLE ДЛЯ КАЖДОЙ СТРАНИЦЫ ***/
+	
+	
+	
+	
 	/*** ДЕЛАЕМ ПРАВИЛЬНЫЙ DESCRIPTION ДЛЯ КАЖДОЙ СТРАНИЦЫ ***/
 	function echo_description() {
 		
@@ -857,13 +899,12 @@
 		
 		// Если страница портфолио
 		} elseif ( is_post_type_archive( 'portfolio' ) ) {
-			echo 'Наши выполненные работы';
+			echo 'Наши выполненные работы - Декор-Север';
 		
 		// Если страница категорий портфолио
 		} elseif ( is_tax( 'portfolio-cat' ) ) {
 			$term = get_queried_object(); // Получаем текущий термин
 			echo $term->description;
-			//echo 'Категория портфолио';
 		
 		// Если страница магазина	
 		} elseif ( is_shop() ) {
@@ -879,20 +920,25 @@
 	
 	
 	
+
+/*** ДЕЛАЕМ ФАЙЛ ROBOTS.TXT ***/
+add_filter('robots_txt', 'custom_robots_txt');
+function custom_robots_txt($output) {
+	$output = "User-agent: *\n";
+	$output .= "Disallow: *?filter_*\n";
+	$output .= "Disallow: *?query_type_*\n";
+	$output .= "Disallow: *?etext=*\n";
+	$output .= "Disallow: *?add-to-cart=*\n";
+	$output .= "Allow: */portfolio/\n";
+	$output .= "Disallow: */portfolio/*/*\n";
 	
-	/*** ДЕЛАЕМ ФАЙЛ ROBOTS.TXT ***/
-	add_filter('robots_txt', 'custom_robots_txt');
-	function custom_robots_txt($output) {
-		$output = "User-agent: *\n";
-		$output .= "Disallow: *?filter_*\n";
-		$output .= "Disallow: *?query_type_*\n";
-		$output .= "Disallow: *?etext=*\n";
-		$output .= "Disallow: *?add-to-cart=*\n";
-		
-		$output .= "Allow: */portfolio/\n";
-		$output .= "Disallow: */portfolio/*/*\n";
-		return $output;
-	}
-	/*** END ДЕЛАЕМ ФАЙЛ ROBOTS.TXT ***/
-	
-?>
+	$output .= "Disallow: */page/*/*\n";
+	$output .= "Disallow: */uncategorized/*\n";
+	$output .= "Disallow: */author/*\n";
+	$output .= "Disallow: */payment/*\n";
+	$output .= "Disallow: */cart/*\n";
+	$output .= "Disallow: */my-account/*\n";
+	$output .= "Disallow: */actions/*\n";
+	return $output;
+}
+/*** END ДЕЛАЕМ ФАЙЛ ROBOTS.TXT ***/
