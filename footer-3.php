@@ -765,6 +765,9 @@
 			var im = new Inputmask("+7(999)999-99-99");
 			im.mask(telMask);
 		</script>
+
+        <!-- Menu -->
+		<script>prilipalo();</script>
 		
 		<!-- reCaptcha v3 New from Google -->
 		<script src='https://www.google.com/recaptcha/api.js?render=6LdV1IcUAAAAADRQAhpGL8dVj5_t0nZDPh9m_0tn'></script>
