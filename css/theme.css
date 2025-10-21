@@ -370,14 +370,14 @@
 	}
 	*/
 
-	#top-menu-2 {
+	/* #top-menu-2 { */
 		/* border-top: 1px solid rgba(175,175,175,.5);
 		background: rgba(248,249,250,.85); */
-		position: absolute;
-		width: 100%;
-		z-index: 999;
-		top: 57px;
-	}
+		/* position: absolute; */
+		/* width: 100%; */
+		/* z-index: 999; */
+		/* top: 57px; */
+	/* } */
 
 
 	/*** HEADER ***/
