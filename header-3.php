@@ -37,7 +37,7 @@
 		<!-- Quiz CSS -->
 		<link href="<?php echo get_stylesheet_directory_uri(); ?>/css/quiz.css" rel="stylesheet">
 		
-		<!--link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/img/ico/favicon.jpg" type="image/x-icon" /-->
+		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/img/ico/favicon.svg" type="image/svg+xml">
 
 		<title><?php echo wp_get_document_title(); ?></title>
 		

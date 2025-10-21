@@ -64,7 +64,7 @@ do_action( 'woocommerce_before_main_content' );
 				<!--button type="button" class="btn btn-lg btn-orange mt-4">Вызвать замерщика</button-->
 				
 				<!-- Home advantages -->
-				<div class="row pb-2">
+				<div class="row pb-2 align-items-center">
 					<div class="col-md-6 col-lg-3 mb-2 mb-md-0">
 						<div class="row align-items-center">
 							<div class="col-2 col-md-3">

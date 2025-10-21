@@ -281,7 +281,7 @@
 		</div>
 		<div class="row text-start">
 			<div class="col-md-3 mb-3">
-				<a >
+				<a href="#" data-bs-toggle="modal" data-bs-target="#callbackModal">
 					<div class="approximation project-container-2 rounded">
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/card5.jpg" class="img-fluid" alt="" decoding="async" />
 						<div class="card-wrapper project-container-2-footer">
@@ -295,7 +295,7 @@
 				</a>
 			</div>
 			<div class="col-md-3 mb-3">	
-				<a >
+				<a href="#" data-bs-toggle="modal" data-bs-target="#callbackModal">
 					<div class="approximation project-container-2 rounded">
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/card6.jpg" class="img-fluid" alt="" decoding="async" />	
 						<div class="card-wrapper project-container-2-footer">
@@ -309,7 +309,7 @@
 				</a>
 			</div>
 			<div class="col-md-3 mb-3">
-				<a >
+				<a href="#" data-bs-toggle="modal" data-bs-target="#callbackModal">
 					<div class="approximation project-container-2 rounded">
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/card7.jpg" class="img-fluid" alt="" decoding="async" fetchpriority="high" />
 						<div class="card-wrapper project-container-2-footer">
@@ -323,7 +323,7 @@
 				</a>
 			</div>
 			<div class="col-md-3 mb-3">
-				<a >
+				<a href="#" data-bs-toggle="modal" data-bs-target="#callbackModal">
 					<div class="approximation project-container-2 rounded">
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/card8.jpg" class="img-fluid" alt="" decoding="async" />
 						<div class="card-wrapper project-container-2-footer">
@@ -345,7 +345,7 @@
 		</div>
 		<div class="row text-start">
 			<div class="col-md-3 mb-3">
-				<a >
+				<a href="#" data-bs-toggle="modal" data-bs-target="#callbackModal">
 					<div class="approximation project-container-2 rounded">
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/card9.jpg" class="img-fluid" alt="" decoding="async" />
 						<div class="card-wrapper project-container-2-footer">
@@ -359,7 +359,7 @@
 				</a>
 			</div>
 			<div class="col-md-3 mb-3">	
-				<a >
+				<a href="#" data-bs-toggle="modal" data-bs-target="#callbackModal">
 					<div class="approximation project-container-2 rounded">
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/card10.jpg" class="img-fluid" alt="" decoding="async" />	
 						<div class="card-wrapper project-container-2-footer">
@@ -373,7 +373,7 @@
 				</a>
 			</div>
 			<div class="col-md-3 mb-3">
-				<a >
+				<a href="#" data-bs-toggle="modal" data-bs-target="#callbackModal">
 					<div class="approximation project-container-2 rounded">
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/card11.jpg" class="img-fluid" alt="" decoding="async" fetchpriority="high" />
 						<div class="card-wrapper project-container-2-footer">
@@ -387,7 +387,7 @@
 				</a>
 			</div>
 			<div class="col-md-3 mb-3">
-				<a >
+				<a href="#" data-bs-toggle="modal" data-bs-target="#callbackModal">
 					<div class="approximation project-container-2 rounded">
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/card12.jpg" class="img-fluid" alt="" decoding="async" />
 						<div class="card-wrapper project-container-2-footer">
@@ -509,7 +509,7 @@
 				<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/section-title-dec.svg" style="margin-bottom: 60px;">
 				<br>
 				<a href="#" type="button" class="btn btn-lg btn-corporate-color-1" data-bs-toggle="modal" data-bs-target="#calculatePriceWithDownloadModal">Рассчитать стоимость</a>
-				<div class="d-flex calcul_mess" style="margin-top: 40px;">
+				<div class="d-flex calcul_mess justify-content-md-end" style="margin-top: 40px;">
 					<a class="nav-link ico-button" href="https://t.me/+79361385058" style="margin-right: 20px;">
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/telegram-ico.svg">
 					</a>
@@ -615,7 +615,7 @@
 				<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/section-title-dec.svg" style="margin-bottom: 60px;">
 				<br>
 				<a href="#" type="button" class="btn btn-lg btn-corporate-color-1" data-bs-toggle="modal" data-bs-target="#calculatePriceWithDownloadModal">Рассчитать стоимость</a>
-				<div class="d-flex calcul_mess" style="margin-top: 40px;">
+				<div class="d-flex calcul_mess justify-content-md-end" style="margin-top: 40px;">
 					<a class="nav-link ico-button" href="https://t.me/+79361385058" style="margin-right: 20px;">
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/telegram-ico.svg">
 					</a>

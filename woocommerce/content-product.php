@@ -63,9 +63,9 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	
 	?>
 	<div class="row align-items-center">
-		<div class="col mb-3 mb-lg-0">
+		<div class="col">
 			<!--span class="price"><?php echo get_post_meta( get_the_ID(), '_regular_price', true); ?> руб</span-->
-			<span class="mb-0 <?php echo esc_attr( apply_filters( 'woocommerce_product_price_class', 'price' ) ); ?>">
+			<span class="mb-0 <?php echo esc_attr( apply_filters( 'woocommerce_product_price_class', 'price prices-tovar' ) ); ?>">
 			<?php echo $product->get_price_html(); ?>
 			</span>
 		</div>

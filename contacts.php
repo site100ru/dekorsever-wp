@@ -39,53 +39,47 @@
 				<h2 class="text-center mb-3">Контакты</h2>
 				<div class="title-line mb-4"></div>
 				-->
-				
-				<ul class="nav justify-content-lg-center">
-					<li class="nav-item mb-3 mb-lg-0 me-3 text-dark">
-						<div class="contacts-li-float-left text-md-center">
-							<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/location-ico.svg"></div>
-						<div class="contacts-li-float-right">
-							г.о. Мытищи, д. Грибки, ул. Промышленная, д. 64«Д», к. 2
-						</div>
-						<div style="clear: both;"></div>	
-					</li>
-					<li class="nav-item mb-3 mb-lg-0 me-3 text-dark">
-						<div class="contacts-li-float-left text-md-center">
-							<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/clock-ico.svg">
-						</div>
-						<div class="contacts-li-float-right">
-							<!--strong>Оператор:</strong> ПН-ВС с 9:00 до 21:00
-							<br>
-							<strong>Замерщик:</strong> ПН-ВС 9:00 до 21:00
-							<br-->
-							<strong>Офис:</strong> ПН-ПТ с 9:00 до 18:00
-						</div>
-						<div style="clear: both;"></div>
-					</li>
-					
-					<li class="nav-item mb-3 mb-lg-0 me-3">
-						<a href="tel:84993900100‬" class="text-dark text-decoration-none">
-							<div class="contacts-li-float-left text-md-center">
-								<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/mobile-phone-ico.svg">
-							</div>
-							<div class="contacts-li-float-right">
-								8 (499) 390-01-00
-							</div>
-							<div style="clear: both;"></div>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="mailto:mebel-dsever@yandex.ru" class="text-dark text-decoration-none">
-							<div class="contacts-li-float-left text-md-center">
-								<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/email-ico.svg">
-							</div>
-							<div class="contacts-li-float-right">
-								mebel-dsever@yandex.ru
-							</div>
-							<div style="clear: both;"></div>
-						</a>
-					</li>
-				</ul>
+
+                <div class="container" style="margin-top: 60px;">
+                    <div class="row section-contacts contacts">
+                        <!-- 1 блок -->
+                        <div class="col-12 col-md-6 col-xl-3 col-xxl-4 mb-0 mb-md-4">
+                            <div class="d-flex align-items-center mb-4 pb-md-3">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/location-ico.svg" class="me-3">
+                                <p class="mb-0 text-min-text">
+                                    <span>г.о. Мытищи, д. Грибки, ул. Промышленная, д. 64«Д», к. 2</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 2 блок -->
+                        <div class="col-12 col-md-6 col-xl-3 col-xxl-2 mb-0 mb-md-4">
+                            <div class="d-flex align-items-center mb-4">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/clock-ico.svg" alt="Адрес" class="me-3 img-fluid">
+                                <p class="mb-0 text-min-text">Пн-Сб 10:00-19:00, <br> Вс 10:00-17:00</p>
+                            </div>
+                        </div>
+
+                        <!-- 3 блок -->
+                        <div class="col-12 col-md-6 col-xl-3 col-xxl-2 mb-0 mb-md-4">
+                            <div class="d-flex align-items-center mb-4 pb-md-3 flex-wrap">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/mobile-phone-ico.svg" class="me-3">
+
+                                <a href="tel:+74993900100" class="text-decoration-none">8 (499) 390-01-00</a>
+                            </div>
+                        </div>
+
+                        <!-- 4 блок -->
+                        <div class="col-12 col-md-12 col-xl-3 col-xxl-3 mb-0 mb-md-4">
+                            <div class="d-flex align-items-center mb-4 pb-md-3 flex-wrap">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/email-ico.svg" class="me-3">
+
+                                <a href="mailto:mebel-dsever@yandex.ru" class="text-decoration-none">mebel-dsever@yandex.ru
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 				
 				<!--div class="row justify-content-center text-center">
 					<div class="col pt-3">

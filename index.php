@@ -299,13 +299,17 @@
 <!-- About section -->
 <section class="about-section bg-light py-5">
 	<div class="container">	
+        <div class="row">
+			<div class="col text-md-center">
+                <h2 class="mb-3">О нас</h2>
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/section-title-dec.svg" class="mb-5">
+			</div>
+		</div>
 		<div class="row justify-content-between">		
 			<div class="col-12 col-lg-6 order-2 order-lg-first text-center">
 				<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/single-prod-img.jpg" class="img-fluid">
 			</div>
 			<div class="col-12 col-lg-5 offset-lg-1 order-1 order-lg-last mb-5 mb-lg-0 ps-lg-5 about">
-				<h2 class="mb-3">О нас</h2>
-				<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/section-title-dec.svg" class="mb-5">
 				<p class="text-start">Основа успеха – более чем 9 летний опыт, с ежегодным повышением квалификации и, гарантированное качество производимых изделий и монтажных работ, а самое главное – это ориентация на потребности заказчиков.</p>	
 				<p class="text-start">Мы сотрудничаем с ведущими поставщиками материалов и комплектующих в России, для того что бы делать только качественную мебель и предложить Вам лучшее, что есть на рынке с гарантией на изделия и наши работы 2 года.</p>
 				<p class="text-start">Вся наша продукция функциональна, практична и эстетически привлекательна. У нас Вы можете заказать:</p>
@@ -317,6 +321,7 @@
 					<li><p>другую корпусную мебель.</p></li>
 				</ul>
 				<p class="text-start mb-5">Желаете наполнить свой дом эксклюзивными кухней или шкафом-купе? Смело обращайтесь в компанию «Декор-Север». Любая заказанная у нас мебель отличается долговечностью и внешней элегантностью. Все наши изделия будут долго радовать Вас своим изысканным видом, создавая в комнате атмосферу уюта и защищённости.</p>
+                <a href="/about-us" style="padding: 8px 40px;" class="btn btn-lg btn-corporate-color-1">Узнать больше</a>
 			</div>
 		</div>
 	</div>	

@@ -37,7 +37,7 @@
 		<!-- Quiz CSS -->
 		<link href="<?php echo get_stylesheet_directory_uri(); ?>/css/quiz.css" rel="stylesheet">
 		
-		<!--link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/img/ico/favicon.jpg" type="image/x-icon" /-->
+		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/img/ico/favicon.svg" type="image/svg+xml">
 
 		<title><?php echo wp_get_document_title(); ?></title>
 		
@@ -184,7 +184,7 @@
 											<img src="'.get_stylesheet_directory_uri().'/img/ico/clock-ico.svg" style="width: 10px; position: relative; top: 2px;" class="me-1 mb-2">Пн-Пт с 9:00 до 18:00
 										</div>
 									</li>
-									<li class="nav-item d-lg-none pb-4">
+									<li class="nav-item d-lg-none pb-2">
 										<a class="ico-button pe-2" href="https://wa.me/79361385058?web=1&app_absent=1">
 											<img src="'.get_stylesheet_directory_uri().'/img/ico/whatsapp-ico.svg">
 										</a>

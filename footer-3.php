@@ -8,12 +8,12 @@
 							
 							<!-- Desktop version -->
 							<div class="row h-100 justify-content-center align-items-center d-none d-lg-flex">
-								<div class="col-3">
+								<div class="col-2">
 									<a href="#">
 										<img id="navbar-brand-img" src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/logo-light.svg" class="img-fluid">
 									</a>
 								</div>
-								<div class="col-7">
+								<div class="col-8">
 									<nav id="contacts-menu-2" class="navbar navbar-expand-xl navbar-light">
 										<div class="collapse navbar-collapse">					
 											<?php
@@ -31,8 +31,9 @@
 									</nav>
 								</div>
 								<div class="col-2 text-end">
-									<a href="tel:‪84993900100" class="contacts-phone">‪
-										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/mobile-phone-ico.svg" class="me-1">8 <span>(499)</span> 390-01-00‬
+                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/mobile-phone-ico.svg" class="me-1">
+									<a href="tel:‪84993900100" class="contacts-phone">
+										8 <span>(499)</span> 390-01-00‬
 									</a>
 								</div>
 							</div>
@@ -119,8 +120,9 @@
 									</ul>
 								</div>
 								<div class="col-12">
-									<a href="tel:‪84993900100" class="contacts-phone">‪
-										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/mobile-phone-ico.svg" class="pe-2"> 8<span>(499)</span> 390-01-00‬
+                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/mobile-phone-ico.svg" class="pe-2">
+									<a href="tel:‪84993900100" class="contacts-phone">
+										8<span>(499)</span> 390-01-00‬
 									</a>
 								</div>
 							</div>
@@ -278,7 +280,7 @@
 							<div class="col-6 left-col-footer-menu">
 								<?php
 									wp_nav_menu(array(
-										'theme_location' => 'main-menu',
+										'theme_location' => 'footer-menu-1',
 										'container' => false,
 										'menu_class' => '',
 										'fallback_cb' => '__return_false',
@@ -291,7 +293,7 @@
 							<div class="col-6 right-col-footer-menu">
 								<?php
 									wp_nav_menu(array(
-										'theme_location' => 'main-menu',
+										'theme_location' => 'footer-menu-2',
 										'container' => false,
 										'menu_class' => '',
 										'fallback_cb' => '__return_false',

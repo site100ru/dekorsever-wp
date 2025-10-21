@@ -47,7 +47,7 @@ get_header( '2' ); ?>
 				<!--p class="home-description mb-0">Собственное производство в Санкт-Петербурге жалюзи и рулонных штор, готовых и на заказ от 540 руб./м2. Оформляем окна любого размера и конфигурации. Бесплатный выезд замерщика с образцами. Срок изготовления и доставки от 2 до 5 дней. Гарантия 2 года. Европейская фурнитура.</p-->
 				<!--button type="button" class="btn btn-lg btn-orange mt-4">Вызвать замерщика</button-->
 				<!-- Home advantages -->
-				<div class="row pb-2">
+				<div class="row pb-2 align-items-center">
 					<div class="col-md-6 col-lg-3 mb-2 mb-md-0">
 						<div class="row align-items-center">
 							<div class="col-2 col-md-3">

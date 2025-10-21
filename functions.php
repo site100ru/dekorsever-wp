@@ -63,8 +63,14 @@
 			$attributes .= !empty($item->xfn) ? ' rel="' . esc_attr($item->xfn) . '"' : '';
 			$attributes .= !empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
 
-			$active_class = ($item->current || $item->current_item_ancestor || in_array("current_page_parent", $item->classes, true) || in_array("current-post-ancestor", $item->classes, true)) ? 'active' : '';
-			$nav_link_class = ( $depth > 0 ) ? 'dropdown-item ' : 'nav-link ';
+            $is_portfolio_active = ($item->current || $item->current_item_ancestor || in_array("current_page_parent", $item->classes, true) || in_array("current-post-ancestor", $item->classes, true));
+
+            // Если это пункт меню /portfolio/ и мы находимся на странице portfolio-cat
+            if (!$is_portfolio_active && strpos($item->url, '/portfolio/') !== false) {
+                $is_portfolio_active = is_tax('portfolio-cat');
+            }
+
+            $active_class = $is_portfolio_active ? 'active' : '';			$nav_link_class = ( $depth > 0 ) ? 'dropdown-item ' : 'nav-link ';
 			$attributes .= ( $args->walker->has_children ) ? ' class="'. $nav_link_class . $active_class . ' dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"' : ' class="'. $nav_link_class . $active_class . '"';
 
 			$item_output = $args->before;
@@ -111,7 +117,9 @@
 			'mobail-header-collapse' => 'Mobail header collapse',
 			'sliding-header-collapse' => 'Sliding header collapse',
 			'contacts-desktop-menu' => 'Contacts desktop menu',
-			'navbarSupportedContent2' => 'navbarSupportedContent2'
+			'navbarSupportedContent2' => 'navbarSupportedContent2',
+            'footer-menu-1' => 'footer-menu-1',
+            'footer-menu-2' => 'footer-menu-2'
 		] );
 	} );
 	/* End register a new menu */
@@ -217,7 +225,17 @@
 		return $breadcrumb;
 	}
 	/*** END BREADCRUMBS DEFAULT ***/
-	
+
+    // Изменить заголовок страницы Shop на "Каталог"
+    add_filter('pre_get_document_title', 'custom_shop_document_title', 999);
+    function custom_shop_document_title($title) {
+        if (is_shop()) {
+            return 'Каталог - ' . get_bloginfo('name');
+        }
+        return $title;
+    }
+
+
 	
 	
 	
@@ -383,12 +401,12 @@
 	// Подключаем функцию активации мета блока (my_extra_fields)
 	add_action('add_meta_boxes', 'my_extra_fields', 1);
 
-	/*
+	// 
 	function my_extra_fields() {
 		add_meta_box( 'extra_fields', 'Галерея наших работ', 'extra_fields_box_func', 'portfolio', 'side', 'high' );
-	}*/
-
-	/* Код блока галереи
+	}
+// 
+	// Код блока галереи
 	function extra_fields_box_func( $post ){
 		for ($i=1; $i<=9; $i++) { ?>
 			<label>URL&#160;изображения <?php echo $i; ?>:</label>
@@ -397,12 +415,12 @@
 		<? } ?>
 			<input type="hidden" name="extra_fields_nonce" value="<?php echo wp_create_nonce(__FILE__); ?>" />
 		<?php
-	} */
+	} 
 	
 	// включаем обновление полей при сохранении
 	add_action( 'save_post', 'my_extra_fields_update', 0 );
 
-	/* Сохраняем данные, при сохранении поста
+	//  Сохраняем данные, при сохранении поста
 	function my_extra_fields_update( $post_id ){
 		// базовая проверка
 		if (
@@ -423,7 +441,7 @@
 			update_post_meta( $post_id, '_'.$key, $value ); // add_post_meta() работает автоматически
 		}
 		return $post_id;
-	} */
+	} 
 	
 	
 	/* Добавляем дополнительные поля к имеющимуся типу записи page */

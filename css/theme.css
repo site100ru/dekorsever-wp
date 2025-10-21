@@ -313,9 +313,24 @@
 	}
 
 	#main-menu .nav-link,
-	#navbarSupportedContent2 .nav-link {
+	#navbarSupportedContent2 .nav-link,
+    #navbarSupportedContent3 .nav-link  {
 		color: #4B4B4B;
+        transition: all 0.3s;
 	}
+
+    #main-menu .nav-link:hover,
+	#navbarSupportedContent2 .nav-link:hover,
+    #navbarSupportedContent3 .nav-link:hover  {
+        color: var(--corporate-color-1);
+    }
+    
+
+    #navbarSupportedContent2 .nav-link.active,
+    #navbarSupportedContent3 .nav-link.active  {
+        color: var(--corporate-color-1);
+    }
+
 
 	/*
 	#navbarSupportedContent3 .nav-link {
@@ -527,7 +542,20 @@
 			float: right;
 			margin: auto;
 			line-height: 16px;
+            transition: all 0.3s;
 	}
+
+    .nav-li-float-right:hover {
+        opacity: 75%;
+    }
+
+    #top-menu-4 .nav-link:hover {
+        color: var(--nav-link-color) !important;
+    }
+    #top-menu-4 .nav-li-float-right:hover {
+        opacity: 75%;
+    }
+
 	/** End header nav top **/
 	/*
 	.nav-li-float-right span {
@@ -969,10 +997,6 @@
 			white-space: nowrap;
 	}
 
-	.calcul_mess
-	{
-			justify-content: flex-end;
-	}
 	.Mb_back
 	{
 			width: 360px;
@@ -1058,10 +1082,7 @@
 			{
 					padding-left: 0;
 			}
-			.calcul_mess
-			{
-					justify-content: flex-start;
-			}
+		
 			.Mb_back
 			{
 					display: block;
@@ -2168,6 +2189,11 @@
 		transition: .25s;
 	}
 
+    .contacts-phone:hover {
+        opacity: 0.75;
+        color: #C8C8C8;
+    }
+
 	/* Показываем пункты меню чередованием
 	.left-col-footer-menu ul li:nth-child(4n-1) { display: none !important }
 	.right-col-footer-menu ul li:nth-child(4n+1) { display: none !important }
@@ -2681,6 +2707,24 @@
 		margin: auto;
 	}
 
+    
+    .contacts a,
+    .contacts button,
+    .contacts p {
+        font-family: Gilroy;
+        text-align: start;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20px;
+        color: #323232;
+        transition: all 0.3s;
+    }
+
+    .contacts a:hover,
+    .contacts button:hover {
+        color: var(--corporate-color-1);
+    }
+
 	/* `xxl` applies to x-large devices (large desktops, less than 1400px) *
 	@media (max-width: 1399.98px) {
 		#top-menu-2 {
@@ -2725,9 +2769,10 @@
 
 		.top-menu-tel {
 			color: #4B4B4B;
+            font-size: 14px;
 		}	
 		
-		
+
 		/*
 		
 		
@@ -2956,4 +3001,17 @@
 
 .slides .carousel-item {
 	background: none;
+}
+
+.svg-icon {
+	color: var(--corporate-color-1);
+}
+
+.woocommerce-loop-product__title {
+    font-size: 20px;
+}
+
+.prices-tovar,
+.prices-tovar .woocommerce-Price-amount{
+    font-size: 20px;
 }
