@@ -74,7 +74,7 @@ function prilipalo() {
             document.getElementById('top-menu-2').classList.add('fixed-top');
         }
     });
-}ы
+}
 
 
 

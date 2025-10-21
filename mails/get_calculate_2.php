@@ -28,7 +28,7 @@
             $to 	 = 'sidorov-vv3@mail.ru, vasilyev-r@mail.ru';
 
 			$from 	 = 'info@dekorsever.ru';
-			$subject = 'Заявка на расчет стоимости с сайта dekorsever.ru (здесь исправил)';
+			$subject = 'Заявка на расчет стоимости с сайта dekorsever.ru';
 			 
 			
 			// Проверяем есть ли загруженные файлы
