@@ -9,16 +9,20 @@ $(window).scroll(function(e){
 
 /* Функция "Выезжало */	
 function vyezjalo(){
-	onscroll = function(){
-		var prokrutka = window.pageYOffset;
-		if ( window.screen.width >= 992 ) {
-			if ( prokrutka > 400) {
-				document.getElementById('sliding-header').style.top = '0px';
-			} else if ( prokrutka <= 400 ) {
-				document.getElementById('sliding-header').style.top = '-100px';
-			}
-		}
-	}
+    onscroll = function(){
+        var prokrutka = window.pageYOffset;
+        var slidingHeader = document.getElementById('sliding-header');
+
+        if (slidingHeader) {
+            if (window.screen.width >= 992) {
+                if (prokrutka > 400) {
+                    slidingHeader.style.top = '0px';
+                } else if (prokrutka <= 400) {
+                    slidingHeader.style.top = '-100px';
+                }
+            }
+        }
+    }
 }
 
 
