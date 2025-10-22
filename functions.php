@@ -70,11 +70,13 @@
                 $is_portfolio_active = is_tax('portfolio-cat');
             }
 
-            // Проверяем, если URL содержит 'product-category'
-            $is_catalog_active = strpos($item->url, 'product-category') !== false;
+            // Проверяем, если URL содержит 'product-category' И мы находимся на странице product_cat
+            $is_catalog_active = false;
+            if (strpos($item->url, 'product-category') !== false) {
+                $is_catalog_active = is_tax('product_cat') || is_post_type_archive('product') || is_singular('product');
+            }
 
-            // Определяем класс для меню
-            $active_class = $is_catalog_active ? 'active' : '';  // Добавляем 'active', если это таксономия продукта
+            $active_class = ($is_catalog_active || $is_portfolio_active) ? 'active' : '';
             $nav_link_class = ( $depth > 0 ) ? 'dropdown-item ' : 'nav-link ';
             $attributes .= ( $args->walker->has_children ) ? ' class="' . $nav_link_class . $active_class . ' dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"' : ' class="' . $nav_link_class . $active_class . '"';
 			$item_output = $args->before;
