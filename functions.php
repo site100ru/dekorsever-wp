@@ -70,19 +70,14 @@
                 $is_portfolio_active = is_tax('portfolio-cat');
             }
 
-            // Проверяем активность пункта меню для таксономии каталога
-            $is_catalog_active = is_tax('product-category');  // Проверка, находимся ли на странице таксономии товаров
-
-            // Если пункт меню /catalog и мы находимся на странице таксономии продуктов
-            if (!$is_catalog_active && strpos($item->url, '/catalog') !== false) {
-                $is_catalog_active = is_tax('product-category'); 
-            }
+            // Проверяем, если URL содержит 'product-category'
+            $is_catalog_active = strpos($item->url, 'product-category') !== false;
 
             // Определяем класс для меню
-            $active_class = $is_catalog_active ? 'active' : '';  
+            $active_class = $is_catalog_active ? 'active' : '';  // Добавляем 'active', если это таксономия продукта
             $nav_link_class = ( $depth > 0 ) ? 'dropdown-item ' : 'nav-link ';
             $attributes .= ( $args->walker->has_children ) ? ' class="' . $nav_link_class . $active_class . ' dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"' : ' class="' . $nav_link_class . $active_class . '"';
-            $item_output = $args->before;
+			$item_output = $args->before;
 			$item_output .= '<a' . $attributes . '>';
 			$item_output .= $args->link_before . apply_filters('the_title', $item->title, $item->ID) . $args->link_after;
 			$item_output .= '</a>';
