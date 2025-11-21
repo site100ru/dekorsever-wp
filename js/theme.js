@@ -72,7 +72,7 @@ function prilipalo() {
             } else {
                 topMenu.classList.remove('fixed-top');
                 topMenu.style.position = 'absolute';
-                topMenu.style.top = '65px';
+                topMenu.style.top = '57px';
             }
         } else {
             topMenu.style.position = '';
