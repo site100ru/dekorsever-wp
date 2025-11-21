@@ -234,7 +234,7 @@
 			</div>
 		</div>
 		<div class="row text-start">
-			<div class="col-md-6 mb-4">
+			<div class="col-md-4 mb-4">
 				<a href="/kuhni-na-zakaz/">
 					<div class="approximation project-container-2 rounded">
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/card-1.jpg" class="img-fluid" alt="" decoding="async" />
@@ -248,7 +248,7 @@
 					</div>
 				</a>
 			</div>
-			<div class="col-md-6 mb-4">	
+			<!-- <div class="col-md-4 mb-4">	
 				<a href="/delivery/">
 					<div class="approximation project-container-2 rounded">
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/card-2.jpg" class="img-fluid" alt="" decoding="async" />	
@@ -261,8 +261,8 @@
 						</div>	
 					</div>
 				</a>
-			</div>
-			<div class="col-md-6 mb-4">
+			</div> -->
+			<div class="col-md-4 mb-4">
 				<a href="/painting/">
 					<div class="approximation project-container-2 rounded">
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/card-3.jpg" class="img-fluid" alt="" decoding="async" fetchpriority="high" />
@@ -276,7 +276,7 @@
 					</div>
 				</a>
 			</div>
-			<div class="col-md-6 mb-4">
+			<div class="col-md-4 mb-4">
 				<a href="/cutting/">
 					<div class="approximation project-container-2 rounded">
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/card-4.jpg" class="img-fluid" alt="" decoding="async" />

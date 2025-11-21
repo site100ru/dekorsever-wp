@@ -60,7 +60,7 @@
                                     foreach ($terms as $term) { ?>
                                         <li class="nav-item d-none d-xl-inline">
                                             <span class="nav-link px-0">
-                                                <svg style="margin-bottom: 5px;" width="6" height="6" viewBox="0 0 6 6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="svg-icon">
+                                                <svg style="margin-bottom: 3px;" width="6" height="6" viewBox="0 0 6 6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="svg-icon">
                                                     <rect width="6" height="6" rx="2" />
                                                 </svg>
                                             </span>
