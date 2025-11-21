@@ -49,7 +49,7 @@ if ( ! $short_description ) {
 							<p>Стоимость указана за данный образец. Хотите рассчитаем точную стоимость по Вашим размерам? Это бесплатно и ни к чему Вас не обязывает!</p>
 							<button class="btn btn-lg btn-corporate-color-1 mt-2 px-3 text-light" data-bs-toggle="modal" data-bs-target="#calculatePriceWithoutDownloadModal">Рассчитать стоимость</button>
 						<?php } else { ?>
-							<p>Хотите рассчитаем точную стоимость этой кухни по Вашим размерам? Это бесплатно и ни к чему Вас не обязывает!</p>
+							<p>Возможно любое индивидуальное изменение характеристик представленного образца: размеров, материалов, фурнитуры и др. Оставьте заявку и мы рассчитаем точную стоимость данной модели с учетом Вашим характеристик. Это бесплатно и ни к чему Вас не обязывает!</p>
 							<button class="btn btn-lg btn-corporate-color-1 mt-2 px-3 text-light" data-bs-toggle="modal" data-bs-target="#calculatePriceWithoutDownloadModal">Рассчитать стоимость</button>
 						<?php }
 					?>

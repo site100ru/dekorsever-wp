@@ -174,7 +174,7 @@
 						<div id="item<?php echo ($j-1); ?>" class="carousel-item carousel-item-2 h-100">
 							<div class="row align-items-center h-100">
 								<div class="col text-center">
-									<img src="<?php echo get_post_meta($post->ID, '_img-'.$j )[0]; ?>" class="img-fluid" style="max-width: 75vw; max-height: 75vh;">
+									<img src="<?php echo get_post_meta($post->ID, '_img-'.$j )[0]; ?>" class="img-fluid" style="max-width: 90vw; max-height: 90vh;">
 								</div>
 							</div>
 						</div>
@@ -187,14 +187,14 @@
 			<!--div id="item1" class="carousel-item carousel-item-2 h-100">
 				<div class="row align-items-center h-100">
 					<div class="col text-center">
-						<img src="img/portfolio-1.jpg" class="img-fluid" style="max-width: 75vw; max-height: 75vh;">
+						<img src="img/portfolio-1.jpg" class="img-fluid" style="max-width: 90vw; max-height: 90vh;">
 					</div>
 				</div>
 			</div>
 			<div id="item2" class="carousel-item carousel-item-2 h-100">
 				<div class="row align-items-center h-100">
 					<div class="col text-center">
-						<img src="img/portfolio-1.jpg" class="img-fluid" style="max-width: 75vw; max-height: 75vh;">
+						<img src="img/portfolio-1.jpg" class="img-fluid" style="max-width: 90vw; max-height: 90vh;">
 					</div>
 				</div>
 			</div-->

@@ -130,7 +130,7 @@
 											<img src="'.get_stylesheet_directory_uri().'/img/ico/clock-ico.svg" style="width: 10px; position: relative; top: 2px;" class="me-1 mb-2">Ежедневно с 9:00 до 18:00
 										</div>
 									</li>
-									<li class="nav-item d-lg-none pb-4">
+									<li class="nav-item d-lg-none">
 										<a class="ico-button pe-2" href="https://wa.me/79361385058?web=1&app_absent=1">
 											<img src="'.get_stylesheet_directory_uri().'/img/ico/whatsapp-ico.svg">
 										</a>
@@ -191,7 +191,7 @@
 											<img src="'.get_stylesheet_directory_uri().'/img/ico/clock-ico.svg" style="width: 10px; position: relative; top: 2px;" class="me-1 mb-2">Пн - Пт, с 9:00 до 18:00
 										</div>
 									</li>
-									<li class="nav-item d-lg-none pb-4">
+									<li class="nav-item d-lg-none">
 										<a class="ico-button pe-2" href="https://wa.me/79361385058?web=1&app_absent=1">
 											<img src="'.get_stylesheet_directory_uri().'/img/ico/whatsapp-ico.svg">
 										</a>
@@ -215,43 +215,47 @@
 		<div class="row align-items-center home-section-height">
 			<div class="col-xl-10 col-xxl-9">
 				<h1 class="home-title">Покраска кухонных фасадов и другой мебели из МДФ, шпона, дерева, ДСП, и фанеры</h1>
-				<div class="row advantages">
-					<div class="col-lg-4 col-md-6 section_paint_home">
-						<div class="row">
-							<div class="col-3 col-mb-2" style="width: auto; padding-right: 8px;">
-								<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/deadlines2-ico.svg" alt="">
-							</div>
-							<div class="col-9 col-mb-10 section_paint">
-								<h2 class="advantage-title text-start" style="color: #fff;">Оперативные сроки</h2>
-								<p class="home-advantage-description">Выполняем заказы от 3-х дней</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 section_paint_home">
-						<div class="row">
-							<div class="col-3 col-mb-2" style="width: auto; padding-right: 8px;">
-								<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/sell-ico.svg" alt="">
-							</div>
-							<div class="col-9 col-mb-10 section_paint">
-								<h2 class="advantage-title text-start" style="color: #fff;">Скидки от объема</h2>
-								<p class="home-advantage-description">На большие заказы особые условия</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 section_paint_home" style="margin-right: 0;">
-						<div class="row">
-							<div class="col-3 col-mb-2" style="width: auto;">
-								<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/rewerd-ico.svg" alt="">
-							</div>
-							<div class="col-9 col-mb-10 section_paint">
-								<h2 class="advantage-title text-start" style="color: #fff;">Даем гарантию 2 года</h2>
-								<p class="home-advantage-description">На материалы и работу</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<a href="#" type="button" class="btn btn-lg btn-corporate-color-1 header_btn" data-bs-toggle="modal" data-bs-target="#calculatePriceWithDownloadModal">Рассчитать стоимость</a>
-			</div>	
+            </div>	
+            <div class="row advantages">
+                <div class="col-lg-4 col-md-6 section_paint_home mb-3 mb-lg-0">
+                    <div class="row align-items-center gap-3">
+                        <div class="col-2">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/deadlines2-ico.svg" alt="">
+                        </div>
+                        <div class="col-9 section_paint">
+                            <h2 class="advantage-title text-start" style="color: #fff;">Оперативные сроки</h2>
+                            <p class="home-advantage-description me-3">Выполняем заказы от 3-х дней</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 section_paint_home mb-3 mb-lg-0">
+                    <div class="row align-items-center gap-3">
+                        <div class="col-2">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/sell-ico.svg" alt="">
+                        </div>
+                        <div class="col-9 section_paint">
+                            <h2 class="advantage-title text-start" style="color: #fff;">Скидки от объема</h2>
+                            <p class="home-advantage-description">На большие заказы особые&nbsp;условия</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 section_paint_home mb-3 mb-lg-0">
+                    <div class="row align-items-center gap-3">
+                        <div class="col-2">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/rewerd-ico.svg" alt="">
+                        </div>
+                        <div class="col-9 section_paint">
+                            <h2 class="advantage-title text-start" style="color: #fff;">Даем гарантию 2 года</h2>
+                            <p class="home-advantage-description">На материалы и работу</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <a href="#" type="button" class="btn btn-lg btn-corporate-color-1 header_btn" data-bs-toggle="modal" data-bs-target="#calculatePriceWithDownloadModal">Рассчитать стоимость</a>
+                </div>
+            </div>
 		</div>
 	</div>
 </section>
@@ -481,22 +485,33 @@
 	</div>	
 </section>
 
-<section class="archive-portfolio-section archive-portfolio bg-white pb-5">
-	<div class="container">
-		<div class="row">
-			<div class="col text-md-center">
-				<h2 style="margin-top: 60px;">Цены на покраску</h2>
-				<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/section-title-dec.svg" class="mb-5">	
-			</div>
-		</div>
-		<div class="painting_matte_enamel_text_box">
-			<p class="painting_matte_enamel">
-			  <span>Покраска матовой <br class="painting_matte_enamel_br"> эмалью</span>
-			  <span class="painting_matte_enamel_text"></span>
-			  <span style="color: #FF5147; font-weight: 600;">от 4 000 руб/кв.м</span>
-			</p>
-		</div>
-	</div>
+<section class="archive-portfolio-section archive-portfolio bg-white pb-5 prices-section">
+    <div class="container single-product">
+        <div class="row justify-content-center">
+            <div class="col-xl-10">
+                <div class="col text-md-center">
+                    <h2 style="margin-top: 60px;">Цены на покраску</h2>
+
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/section-title-dec.svg" class="mb-5">	
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr class="bg-white">
+                                <td>
+                                    <span class="bg-white">Покраска матовой эмалью</span>
+                                </td>
+                                <td class="text-end">
+                                    <span class="price-discount bg-white" style="color: #FF5147; font-weight: 600;">от 4 000 руб/кв.м</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 

@@ -131,7 +131,7 @@
 											<img src="'.get_stylesheet_directory_uri().'/img/ico/clock-ico.svg" style="width: 10px; position: relative; top: 2px;" class="me-1 mb-2">Ежедневно с 9:00 до 18:00
 										</div>
 									</li>
-									<li class="nav-item d-lg-none pb-4">
+									<li class="nav-item d-lg-none">
 										<a class="ico-button pe-2" href="https://wa.me/79361385058?web=1&app_absent=1">
 											<img src="'.get_stylesheet_directory_uri().'/img/ico/whatsapp-ico.svg">
 										</a>
@@ -192,7 +192,7 @@
 											<img src="'.get_stylesheet_directory_uri().'/img/ico/clock-ico.svg" style="width: 10px; position: relative; top: 2px;" class="me-1 mb-2">Пн - Пт, с 9:00 до 18:00
 										</div>
 									</li>
-									<li class="nav-item d-lg-none pb-4">
+									<li class="nav-item d-lg-none">
 										<a class="ico-button pe-2" href="https://wa.me/79361385058?web=1&app_absent=1">
 											<img src="'.get_stylesheet_directory_uri().'/img/ico/whatsapp-ico.svg">
 										</a>
@@ -241,7 +241,7 @@
 						<div class="card-wrapper project-container-2-footer">
 							<div class="row">
 								<div class="col-6" style="width: auto;">
-									<h3 style="margin: 0 0 30px 30px;">Кухня на заказ</h3>		
+									<h3 class="project-container-2-title">Кухня на заказ</h3>		
 								</div>
 							</div>
 						</div>	
@@ -255,7 +255,7 @@
 						<div class="card-wrapper project-container-2-footer">
 							<div class="row">
 								<div class="col-6" style="width: auto;">
-									<h3 style="margin: 0 0 30px 30px;">Доставка и сборка</h3>		
+									<h3 class="project-container-2-title">Доставка и сборка</h3>		
 								</div>
 							</div>
 						</div>	
@@ -269,7 +269,7 @@
 						<div class="card-wrapper project-container-2-footer">
 							<div class="row">
 								<div class="col-6" style="width: auto;">
-									<h3 style="margin: 0 0 30px 30px;">Покраска материалов</h3>		
+									<h3 class="project-container-2-title">Покраска материалов</h3>		
 								</div>
 							</div>
 						</div>	
@@ -283,7 +283,7 @@
 						<div class="card-wrapper project-container-2-footer">
 							<div class="row">
 								<div class="col-6" style="width: auto;">
-									<h3 style="margin: 0 0 30px 30px;">Распил материалов</h3>		
+									<h3 class="project-container-2-title">Распил материалов</h3>		
 								</div>
 							</div>
 						</div>	

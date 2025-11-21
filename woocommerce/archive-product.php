@@ -422,9 +422,13 @@ do_action( 'woocommerce_before_main_content' );
 							<div class="col-md-4 mb-5">
 								<a onclick="portfolioGalleryOpen( 'portfolio-gallery-<?php echo get_the_ID(); ?>' )">
 									<div class="approximation project-container-2 rounded">
-										<img src="<?php echo get_post_meta( get_the_ID(), '_img-1' )[0]; ?>" class="rounded" alt="<?php echo get_the_title(); ?>" loading="lazy">
-										<div class="card-wrapper">
-											<div class="position-absolute"><?php echo get_the_title(); ?></div>
+										<img src="<?php echo get_post_meta( get_the_ID(), '_img-1' )[0]; ?>" class="img-fluid" alt="<?php echo get_the_title(); ?>" loading="lazy">
+										<div class="card-wrapper project-container-2-footer">
+                                            <div class="row">
+                                                <div class="col-6" style="width: auto;">
+                                                    <h3 class="project-container-2-title"><?php echo get_the_title(); ?></h3>		
+                                                </div>
+                                            </div>
 										</div>
 									</div>
 								</a>

@@ -9,17 +9,17 @@ $(window).scroll(function(e){
 
 /* Функция "Выезжало */	
 function vyezjalo(){
+    var slidingHeader = document.getElementById('sliding-header');
+    if (!slidingHeader) return;
+    
     onscroll = function(){
         var prokrutka = window.pageYOffset;
-        var slidingHeader = document.getElementById('sliding-header');
-
-        if (slidingHeader) {
-            if (window.screen.width >= 992) {
-                if (prokrutka > 400) {
-                    slidingHeader.style.top = '0px';
-                } else if (prokrutka <= 400) {
-                    slidingHeader.style.top = '-100px';
-                }
+        
+        if (window.screen.width >= 992) {
+            if (prokrutka > 400) {
+                slidingHeader.style.top = '0px';
+            } else if (prokrutka <= 400) {
+                slidingHeader.style.top = '-100px';
             }
         }
     }
@@ -29,6 +29,9 @@ function vyezjalo(){
 
 /* Функция "Прилипало" */
 function prilipalo() {
+    var topMenu = document.getElementById('top-menu-2');
+    if (!topMenu) return;
+    
     let lastScrollTop = 0;
     
     window.addEventListener('scroll', function() {
@@ -36,7 +39,6 @@ function prilipalo() {
         
         // Закрываем подменю при скролле на мобильных
         if (window.innerWidth < 992) {
-            // Проверяем, прокрутили ли больше 5 пикселей
             const scrollDifference = Math.abs(prokrutka - lastScrollTop);
             
             if (scrollDifference > 5) {
@@ -64,18 +66,18 @@ function prilipalo() {
         // Оригинальная логика прилипания
         if (window.innerWidth >= 769) {
             if (prokrutka > 50) {
-                document.getElementById('top-menu-2').classList.add('fixed-top');
-                document.getElementById('top-menu-2').style.position = 'fixed';
-                document.getElementById('top-menu-2').style.top = 0;
+                topMenu.classList.add('fixed-top');
+                topMenu.style.position = 'fixed';
+                topMenu.style.top = 0;
             } else {
-                document.getElementById('top-menu-2').classList.remove('fixed-top');
-                document.getElementById('top-menu-2').style.position = 'absolute';
-                document.getElementById('top-menu-2').style.top = '57px';
+                topMenu.classList.remove('fixed-top');
+                topMenu.style.position = 'absolute';
+                topMenu.style.top = '65px';
             }
         } else {
-            document.getElementById('top-menu-2').style.position = '';
-            document.getElementById('top-menu-2').style.top = 0;
-            document.getElementById('top-menu-2').classList.add('fixed-top');
+            topMenu.style.position = '';
+            topMenu.style.top = 0;
+            topMenu.classList.add('fixed-top');
         }
     });
 }
@@ -83,8 +85,12 @@ function prilipalo() {
 
 
 /* Убираем сообщение об успешной отправки */
-function modalClose () {
-	document.getElementById('background-msg').style.display = 'none';
-	document.getElementById('message').style.display = 'none';
-	document.getElementById('btn-close').style.display = 'none';
+function modalClose() {
+    var backgroundMsg = document.getElementById('background-msg');
+    var message = document.getElementById('message');
+    var btnClose = document.getElementById('btn-close');
+    
+    if (backgroundMsg) backgroundMsg.style.display = 'none';
+    if (message) message.style.display = 'none';
+    if (btnClose) btnClose.style.display = 'none';
 }

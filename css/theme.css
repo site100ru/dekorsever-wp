@@ -317,6 +317,7 @@
     #navbarSupportedContent3 .nav-link  {
 		color: #4B4B4B;
         transition: all 0.3s;
+        line-height: 1 !important;
 	}
 
     #main-menu .nav-link:hover,
@@ -587,10 +588,12 @@
 		text-transform: uppercase;
 	}
 
+    #menu-main-menu .nav-link img,
 	.header-nav-bottom .nav-link img {
 		position: relative;
 		bottom: 2px;
 	}
+
 
 	.header-nav-bottom a.nav-link:hover,
 	.header-nav-bottom a.nav-link.active {
@@ -646,8 +649,12 @@
 
 	#sliding-header .nav-link img {
 		position: relative;
-		bottom: 4px;
+		bottom: 3px;
 	}
+
+    #menu-main-menu-1 .nav-item img {
+        margin-bottom: 3px;
+    }
 
 	.top-menu-tel {
 		font-family: HelveticaNeueBoldCondensed;
@@ -802,19 +809,15 @@
 	.painting-home-section .home-title {
 			margin-bottom: 45px;
 	}
-
+/* 
 	.painting-home-section .section_paint_home {
 			margin-right: 24px; 
-			padding-right: 0;
-	}
+	} */
 
 	.painting-home-section .header_btn {
 			margin-top: 35px;
 	}
 
-	.painting-home-section .section_paint {
-			padding-left: 0;
-	}
 
 	.painting-home-section .section_paint h2 {
 			font-weight: 600;
@@ -832,9 +835,9 @@
 			color: #fff;
 	}*/
 
-	.painting-home-section .col-3.col-mb-2 {
+	/* .painting-home-section .col-3.col-mb-2 {
 			padding-left: 0;
-	}
+	} */
 
 	@media (max-width: 360px) {
 		.col-xl-10.col-xxl-9 h2 {
@@ -851,9 +854,12 @@
 	{
 			background-position: center;
 	}
-	.col-xl-10.col-xxl-9 h1
-	{
-			margin: 20px 0;
+
+    @media (min-width: 992px) {
+        .col-xl-10.col-xxl-9 h1.home-title
+        {
+            margin: 20px 0;
+        }
 	}
 
 	/*
@@ -870,9 +876,22 @@
 
 	.project-container-2
 	{
+            --bs-border-radius: 10px;
 			overflow: hidden;
 			transition: 0.25s;
 	}
+
+    .project-container-2 .project-container-2-title {
+        margin: 0 0 20px 30px
+    }
+
+
+    @media (max-width: 768px) {
+        .project-container-2 .project-container-2-title {
+            margin: 0 0 10px 15px
+        }
+    }
+
 	.project-container-2:hover img
 	{
 			transform: scale(1.05);
@@ -967,7 +986,8 @@
 	.slider:hover ~ .magnifying_glass {
 			opacity: 1;
 	} */
-	.painting_matte_enamel
+	.painting_matte_enamel,
+    .prices-section td span
 	{
 			font-weight: 400;
 			color: #323232;
@@ -975,10 +995,29 @@
 			line-height: 25px;
 			font-family: 'HelveticaNeueCyr-Light';   
 	}
-	.painting_matte_enamel_text
+	.painting_matte_enamel_text,
+    .prices-section td span
 	{
 			overflow: hidden;
 	}
+    .prices-section td {
+        border: none;
+        border-bottom: 1px dotted black;
+        padding: 0;
+        padding-top: 25px;
+        height: auto;
+        line-height: 20px;
+        vertical-align: bottom;
+        font-family: HelveticaNeueCyr;
+        font-weight: 300;
+        font-size: 20px;
+    }
+
+    .prices-section td span
+	{
+			line-height: 1;
+	}
+    
 	.painting_matte_enamel_text:after 
 	{  
 			content:'...........................................................................................................................................';
@@ -2942,13 +2981,16 @@
 	}
 
 	@media (max-width: 991.98px) {
-		.main-home-section.painting-home-section ,
+
+        .main-home-section.painting-home-section.painting-home-section-painting,
+        .main-home-section.painting-home-section ,
 		.parallax-home-section {
-			min-height: 740px !important;
+			min-height: 680px !important;
 		}
 	}
 
 	@media (max-width: 767.98px) {
+        .main-home-section.painting-home-section.painting-home-section-painting,
 		.main-home-section.painting-home-section,
 		.parallax-home-section {
 			min-height: 840px !important;
@@ -2956,9 +2998,10 @@
 	}
 
 	@media (max-width: 577.98px) {
+        .main-home-section.painting-home-section.painting-home-section-painting,
 		.main-home-section.painting-home-section,
 		.parallax-home-section {
-			min-height: 640px !important;
+			min-height: 680px !important;
 		}
 	}
 
