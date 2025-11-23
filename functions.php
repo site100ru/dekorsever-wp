@@ -929,12 +929,10 @@ add_filter('robots_txt', 'custom_robots_txt');
 function custom_robots_txt($output) {
 	$output = "User-agent: *\n";
 	$output .= "Disallow: /*?*filter_*\n";
-	$output .= "Disallow: *?query_type_*\n";
-	$output .= "Disallow: *?etext=*\n";
-	$output .= "Disallow: *?add-to-cart=*\n";
-	$output .= "Allow: */portfolio/\n";
+	$output .= "Disallow: /*?*query_type_*\n";
+	$output .= "Disallow: /*?*etext=*\n";
+	$output .= "Disallow: /*?*add-to-cart=*\n";
 	$output .= "Disallow: */portfolio/*/*\n";
-	
 	$output .= "Disallow: */page/*/*\n";
 	$output .= "Disallow: */uncategorized/*\n";
 	$output .= "Disallow: */author/*\n";
@@ -942,6 +940,8 @@ function custom_robots_txt($output) {
 	$output .= "Disallow: */cart/*\n";
 	$output .= "Disallow: */my-account/*\n";
 	$output .= "Disallow: */actions/*\n";
+
+	$output .= "Allow: */portfolio/\n";
 	
 	$output .= "Sitemap: https://dekorsever.ru/sitemap.xml\n";
 	return $output;
