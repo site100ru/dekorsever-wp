@@ -942,6 +942,8 @@ function custom_robots_txt($output) {
 	$output .= "Disallow: */cart/*\n";
 	$output .= "Disallow: */my-account/*\n";
 	$output .= "Disallow: */actions/*\n";
+	
+	$output .= "Sitemap: https://dekorsever.ru/sitemap.xml\n";
 	return $output;
 }
 /*** END ДЕЛАЕМ ФАЙЛ ROBOTS.TXT ***/
