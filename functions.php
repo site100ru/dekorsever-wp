@@ -928,7 +928,7 @@
 add_filter('robots_txt', 'custom_robots_txt');
 function custom_robots_txt($output) {
 	$output = "User-agent: *\n";
-	$output .= "Disallow: /*?filter* \n";
+	$output .= "Disallow: /*?filter_* \n";
 	$output .= "Disallow: *?query_type_*\n";
 	$output .= "Disallow: *?etext=*\n";
 	$output .= "Disallow: *?add-to-cart=*\n";
