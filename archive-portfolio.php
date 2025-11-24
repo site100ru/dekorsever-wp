@@ -311,53 +311,65 @@
 
 
 <script>
-	/* Функция открытия галереи */
-	function galleryOn(gal, img) {
-		var gallery = gal; // Получаем ID галереи
-		var image = img; // Получаем ID картинки
-		// Открываем обертку галереи
-		document.getElementById('galleryWrapper').style.display = 'block';
-		
-		// Проверяем какие данные передаются для открытия галереи и картинки
-		//alert(gallery+' '+image); 
-		
-		
-		<?php // Открываем галерею
-			$posts = get_posts( array(
-				'numberposts' => 999,
-				'orderby'     => 'date',
-				'order'       => 'DESC',
-				'post_type'   => 'portfolio',
-				//'post__not_in' => array( 42 ) // Выводим все категории портфолио кроме Разное
-			) );
-			
-			foreach( $posts as $post ) { setup_postdata($post);
-				
-				echo 'if ( gallery == "gallery-'.$post->ID.'" ) { document.getElementById("gallery-'.$post->ID.'").style.display = "block"; }';
+    /* Функция открытия галереи */
+    function galleryOn(gal, img) {
+        var gallery = gal; // Получаем ID галереи
+        var image = img; // Получаем ID картинки
+        
+        // Открываем обертку галереи
+        document.getElementById('galleryWrapper').style.display = 'block';
+        
+        <?php // Открываем галерею
+            $posts = get_posts( array(
+                'numberposts' => 999,
+                'orderby'     => 'date',
+                'order'       => 'DESC',
+                'post_type'   => 'portfolio',
+            ) );
+            
+            foreach( $posts as $post ) { setup_postdata($post);
+                
+                echo 'if ( gallery == "gallery-'.$post->ID.'" ) { document.getElementById("gallery-'.$post->ID.'").style.display = "block"; }';
 
-			} wp_reset_postdata();
-		?>
-		
-		
-		<?php // Открываем изображения
-			$posts = get_posts( array(
-				'numberposts' => 999,
-				'orderby'     => 'date',
-				'order'       => 'DESC',
-				'post_type'   => 'portfolio',
-				//'post__not_in' => array( 42 ) // Выводим все категории портфолио кроме Разное
-			) );
-			
-			foreach( $posts as $post ) {
-				setup_postdata( $post );
-				$count2 = 0;
-				for ( $i=1; $i<=9; $i++ ) {
-					echo 'if ( image == "img-'.$post->ID.'-'.$count2.'" ) { document.getElementById("img-'.$post->ID.'-'.$count2.'").classList.add("active"); document.getElementById("ind-'.$post->ID.'-'.$count2.'").classList.add("active"); } ';
-					$count2 = $count2 + 1;
-				}
-			} wp_reset_postdata();
-		?>
-	}
+            } wp_reset_postdata();
+        ?>
+        
+        <?php 
+            $posts = get_posts( array(
+                'numberposts' => 999,
+                'orderby'     => 'date',
+                'order'       => 'DESC',
+                'post_type'   => 'portfolio',
+            ) );
+            
+            foreach( $posts as $post ) {
+                setup_postdata( $post );
+                $count2 = 0;
+                for ( $i=1; $i<=9; $i++ ) {
+                    echo 'document.getElementById("img-'.$post->ID.'-'.$count2.'").classList.remove("active"); document.getElementById("ind-'.$post->ID.'-'.$count2.'").classList.remove("active");';
+                    $count2 = $count2 + 1;
+                }
+            } wp_reset_postdata();
+        ?>
+        
+        <?php 
+            $posts = get_posts( array(
+                'numberposts' => 999,
+                'orderby'     => 'date',
+                'order'       => 'DESC',
+                'post_type'   => 'portfolio',
+            ) );
+            
+            foreach( $posts as $post ) {
+                setup_postdata( $post );
+                $count2 = 0;
+                for ( $i=1; $i<=9; $i++ ) {
+                    echo 'if ( image == "img-'.$post->ID.'-'.$count2.'" ) { document.getElementById("img-'.$post->ID.'-'.$count2.'").classList.add("active"); document.getElementById("ind-'.$post->ID.'-'.$count2.'").classList.add("active"); } ';
+                    $count2 = $count2 + 1;
+                }
+            } wp_reset_postdata();
+        ?>
+    }
 	
 
 	// Кнопка закрытия галереи
