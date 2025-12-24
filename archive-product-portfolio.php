@@ -97,6 +97,12 @@
 								<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/whatsapp-ico.svg">
 							</a>
 						</li>
+
+                        <li class="nav-item">
+							<a class="nav-link ico-button" href="https://max.ru/u/f9LHodD0cOIaPC-JT3CO_gR8lX_0r8w8ZdryldFEBqfWiLtrMWwQNmVViZk">
+                                <img src="<?php echo get_template_directory_uri(); ?>/img/ico/max.svg">
+							</a>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -138,9 +144,12 @@
 										<a class="ico-button pe-2" href="https://wa.me/79361385058?web=1&app_absent=1">
 											<img src="'.get_stylesheet_directory_uri().'/img/ico/whatsapp-ico.svg">
 										</a>
-										<a class="ico-button pe-0" href="https://t.me/+79361385058">
+										<a class="ico-button pe-2" href="https://t.me/+79361385058">
 											<img src="'.get_stylesheet_directory_uri().'/img/ico/telegram-ico.svg">
 										</a>
+                                        <a class="ico-button pe-0" href="https://max.ru/u/f9LHodD0cOIaPC-JT3CO_gR8lX_0r8w8ZdryldFEBqfWiLtrMWwQNmVViZk">
+                                            <img src="'.get_stylesheet_directory_uri().'/img/ico/max.svg">
+                                        </a>
 									</li>
 									<!-- End mobile menu -->
 								</ul>
@@ -199,9 +208,12 @@
 										<a class="ico-button pe-2" href="https://wa.me/79361385058?web=1&app_absent=1">
 											<img src="'.get_stylesheet_directory_uri().'/img/ico/whatsapp-ico.svg">
 										</a>
-										<a class="ico-button pe-0" href="https://t.me/+79361385058">
+										<a class="ico-button pe-2" href="https://t.me/+79361385058">
 											<img src="'.get_stylesheet_directory_uri().'/img/ico/telegram-ico.svg">
 										</a>
+                                        <a class="ico-button pe-0" href="https://max.ru/u/f9LHodD0cOIaPC-JT3CO_gR8lX_0r8w8ZdryldFEBqfWiLtrMWwQNmVViZk">
+                                            <img src="'.get_stylesheet_directory_uri().'/img/ico/max.svg">
+                                        </a>
 									</li>
 									<!-- End mobile menu -->
 								</ul>
@@ -338,8 +350,13 @@
 								</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link ico-button px-3" href="https://t.me/+79361385058">
+								<a class="nav-link ico-button px-2" href="https://t.me/+79361385058">
 									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/telegram-ico.svg">
+								</a>
+							</li>
+                            <li class="nav-item">
+								<a class="nav-link ico-button px-2" href="https://max.ru/u/f9LHodD0cOIaPC-JT3CO_gR8lX_0r8w8ZdryldFEBqfWiLtrMWwQNmVViZk">
+									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/max.svg">
 								</a>
 							</li>
 						</ul>
@@ -675,8 +692,13 @@
 								</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link ico-button px-3" href="https://t.me/+79361385058">
+								<a class="nav-link ico-button px-2" href="https://t.me/+79361385058">
 									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/telegram-ico.svg">
+								</a>
+							</li>
+                            <li class="nav-item">
+								<a class="nav-link ico-button px-2" href="https://max.ru/u/f9LHodD0cOIaPC-JT3CO_gR8lX_0r8w8ZdryldFEBqfWiLtrMWwQNmVViZk">
+									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/max.svg">
 								</a>
 							</li>
 						</ul>
