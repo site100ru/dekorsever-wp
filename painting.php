@@ -540,7 +540,7 @@
 					<a class="nav-link ico-button" href="https://t.me/+79361385058" style="margin-right: 20px;">
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/telegram-ico.svg">
 					</a>
-					<a class="nav-link ico-button" href="https://wa.me/79361385058?web=1&app_absent=1">
+					<a class="nav-link ico-button" href="https://wa.me/79361385058?web=1&app_absent=1" style="margin-right: 20px;">
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/whatsapp-ico.svg">
 					</a>
                     <a class="nav-link ico-button" href="https://max.ru/u/f9LHodD0cOIaPC-JT3CO_gR8lX_0r8w8ZdryldFEBqfWiLtrMWwQNmVViZk">
