@@ -132,7 +132,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link ico-button pe-0" href="https://max.ru/u/f9LHodD0cOIaPC-JT3CO_gR8lX_0r8w8ZdryldFEBqfWiLtrMWwQNmVViZk">
+                                        <a class="nav-link ico-button px-0" href="https://max.ru/u/f9LHodD0cOIaPC-JT3CO_gR8lX_0r8w8ZdryldFEBqfWiLtrMWwQNmVViZk">
                                             <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/max.svg">
                                         </a>
                                     </li>
