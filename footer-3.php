@@ -374,7 +374,7 @@
 				<a href="https://t.me/+79361385058"><div class="callback-telegram-button-ico"></div></a>
 			</div>
             <div id="maxBtn" class="callback-max-button" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-custom-class="custom-tooltip" data-bs-title="Max">
-                <a href="https://max.ru/u/f9LHodD0cOJ43FcHRXMZDl7Pj6Znjki8fXkN8cmXFNxOU9f0FntW8dTdUis">
+                <a href="https://max.ru/u/f9LHodD0cOIaPC-JT3CO_gR8lX_0r8w8ZdryldFEBqfWiLtrMWwQNmVViZk">
                     <div class="callback-max-button-ico"></div>
                 </a>
             </div>
