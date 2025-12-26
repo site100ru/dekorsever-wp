@@ -46,4 +46,4 @@
 			<?php echo $counter_head; ?>
 		<?php endif; ?>
 	</head>
-	<body>
+	<body <?php body_class(); ?>>

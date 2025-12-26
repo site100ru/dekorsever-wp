@@ -3142,3 +3142,69 @@
 .prices-tovar .woocommerce-Price-amount{
     font-size: 20px;
 }
+
+
+
+/*** NEW YEAR ***/
+a.custom-logo-link.new-year {
+    position: relative;
+}
+
+a.custom-logo-link.new-year:before {
+    content: '';
+    background: url(../img/new-year/new-year-cap.png) no-repeat;
+    width: 60px;
+    height: 63px;
+    z-index: 9999;
+    position: absolute;
+    background-size: contain;
+    left: -22px;
+    top: -14px;
+}
+
+a.custom-logo-link.new-year img {
+    margin-top: auto;
+}
+
+@media (max-width: 980px) {
+	a.custom-logo-link.new-year:before {
+		width: 60px;
+		left: -19px;
+		top: -12px;
+	}
+}
+@media (max-width: 570px) {
+	a.custom-logo-link.new-year:before {
+		width: 60px;
+		left: -14px;
+		top: -9px;
+	}
+}
+
+body.b-new-year {
+    position: relative;
+}
+
+body.b-new-year:before {
+    position: fixed;
+    background: url(../img/new-year/new-year-footer-banner.png) repeat-x;
+    content: '';
+    width: 100%;
+    height: 100px;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+    background-size: contain;
+}
+
+@media (max-width: 1300px) {
+    body.b-new-year:before {
+		background-size: cover;
+	}
+	a.custom-logo-link.new-year:before {
+		width: 60px;
+		left: -21px;
+		top: -12px;
+	}
+}
+/*** END NEW YEAR ***/

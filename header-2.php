@@ -46,7 +46,7 @@
 			<?php echo $counter_head; ?>
 		<?php endif; ?>
 	</head>
-	<body>
+	<body <?php body_class(); ?>>
 		
 
 		<!-- Header 1 -->
@@ -146,14 +146,14 @@
 		<!-- Header 2 -->
 		<nav id="top-menu-2" class="navbar navbar-expand-lg navbar-light bg-white shadow py-0">
 			<div class="container">
-				<a class="navbar-brand d-none d-lg-block" href="#" style="white-space: normal; margin-right: 0;">
-					<div class="align-items-center">
+                <a href="/" class="navbar-brand d-none d-lg-block custom-logo-link new-year" rel="home" aria-current="page" style="white-space: normal; margin-right: 0;">
+                    <div class="align-items-center">
 						<div id="navbar-brand-ico">
-							<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/logo.svg" id="navbar-brand-img" style="transition: .25s;">
+							<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/logo.svg" id="navbar-brand-img" style="transition: .25s;" class="custom-logo" alt="Логотип в шапке" decoding="async">
 						</div>
 						<div style="clear: both;"></div>
-					</div>
-				</a>
+					</div>    
+                </a>
 				<a class="navbar-brand d-lg-none" href="#" style="white-space: normal; margin-right: 0;">
 					<div class="align-items-center">
 							<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/logo.svg" id="navbar-brand-img" style="transition: .25s;">
