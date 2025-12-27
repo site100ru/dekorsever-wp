@@ -18,8 +18,10 @@ function vyezjalo(){
         if (window.screen.width >= 992) {
             if (prokrutka > 400) {
                 slidingHeader.style.top = '0px';
+                slidingHeader.classList.add('show');
             } else if (prokrutka <= 400) {
                 slidingHeader.style.top = '-100px';
+                slidingHeader.classList.remove('show');
             }
         }
     }
@@ -69,15 +71,18 @@ function prilipalo() {
                 topMenu.classList.add('fixed-top');
                 topMenu.style.position = 'fixed';
                 topMenu.style.top = 0;
+                topMenu.classList.add('show');
             } else {
                 topMenu.classList.remove('fixed-top');
                 topMenu.style.position = 'absolute';
                 topMenu.style.top = '57px';
+                topMenu.classList.remove('show');
             }
         } else {
             topMenu.style.position = '';
             topMenu.style.top = 0;
             topMenu.classList.add('fixed-top');
+            topMenu.classList.remove('show');
         }
     });
 }
