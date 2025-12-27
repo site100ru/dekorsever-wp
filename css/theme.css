@@ -3158,10 +3158,8 @@ a.custom-logo-link.new-year:before {
     z-index: 9999;
     position: absolute;
     background-size: contain;
-    left: 35px;
+    left: 0;
     top: -5px;
-    transform: scaleX(-1);
-    rotate: 30deg;
 }
 
 a.custom-logo-link.new-year img {
@@ -3177,15 +3175,14 @@ a.custom-logo-link.new-year img {
     width: 30px;
     height: 30px;
     top: 0;
-    left: 22px;
+    left: 0;
 }
 
 @media (max-width: 980px) {
 	a.custom-logo-link.new-year:before {
 		width: 25px;
         height: 25px;
-        top: 0px;
-        left: 18px;
+        top: 0;
 	}
 }
 
