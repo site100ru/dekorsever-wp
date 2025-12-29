@@ -757,6 +757,18 @@
 				background-position: 15% 50%;
 			}
 		}
+        
+    .parallax-home-section-painting {
+        min-height: 640px;
+		width: 100%;
+		position: fixed;
+        background-image: url(../img/painting.jpg);
+		background-position: 50% 50%;
+		background-size: cover;
+		z-index: -1;
+
+
+    }
 	/* End parallax home section */
 
 	/*
@@ -850,10 +862,6 @@
 
 
 	/*** STYLES FOR HOME PAGE ***/
-	.parallax-home-section
-	{
-			background-position: center;
-	}
 
     @media (min-width: 992px) {
         .col-xl-10.col-xxl-9 h1.home-title
@@ -3061,32 +3069,28 @@
 	@media (max-width: 991.98px) {
 
         .main-home-section.painting-home-section.painting-home-section-painting,
-        .main-home-section.painting-home-section ,
-		.parallax-home-section {
+        .main-home-section.painting-home-section{
 			min-height: 680px !important;
 		}
 	}
 
 	@media (max-width: 767.98px) {
         .main-home-section.painting-home-section.painting-home-section-painting,
-		.main-home-section.painting-home-section,
-		.parallax-home-section {
+		.main-home-section.painting-home-section{
 			min-height: 840px !important;
 		}
 	}
 
 	@media (max-width: 577.98px) {
         .main-home-section.painting-home-section.painting-home-section-painting,
-		.main-home-section.painting-home-section,
-		.parallax-home-section {
+		.main-home-section.painting-home-section {
 			min-height: 680px !important;
 		}
 	}
 
 
 	@media (max-width: 360.98px) {
-		.main-home-section.painting-home-section,
-		.parallax-home-section {
+		.main-home-section.painting-home-section {
 			min-height: 740px !important;
 		}
 	}
@@ -3160,6 +3164,7 @@ a.custom-logo-link.new-year:before {
     background-size: contain;
     left: 0;
     top: -5px;
+    transition: width 0.3s ease, height 0.3s ease, top 0.3s ease;
 }
 
 a.custom-logo-link.new-year img {
@@ -3167,14 +3172,9 @@ a.custom-logo-link.new-year img {
     transition: all 0.2s ease;
 }
 
-.show a.custom-logo-link.new-year img {
-    height: 45px;
-}
-
 .show a.custom-logo-link.new-year:before {
-    width: 30px;
-    height: 30px;
-    top: 0;
+    width: 40px;
+    height: 40px;
     left: 0;
 }
 
