@@ -380,12 +380,6 @@
 		top: 57px;
 	}
 
-    .main-home-section 	#top-menu-2 {
-		position: initial;
-		z-index: initial;
-		top: initial;
-	}
-
 
 	/*** HEADER ***/
 	header {
@@ -741,15 +735,15 @@
 	/** End main home section **/
 
 	/* Parallax home section */
-	.parallax-home-section {
-		min-height: 640px;
-		width: 100%;
-		position: fixed;
-		background: url(../img/header-catalog-background.jpg) no-repeat;
-		background-position: 50% 50%;
-		background-size: cover;
-		z-index: -1;
-		/*display: block;*/ }
+        .parallax-home-section {
+            min-height: 640px;
+            width: 100%;
+            position: fixed;
+            background: url(../img/header-catalog-background.jpg) no-repeat;
+            background-position: 50% 50%;
+            background-size: cover;
+            z-index: -1;
+        }
 
 		/* md (less than 768px) */
 		@media (max-width: 767.98px) {
