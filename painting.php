@@ -515,7 +515,7 @@
                                     <span class="bg-white">Покраска матовой эмалью</span>
                                 </td>
                                 <td class="text-end">
-                                    <span class="price-discount bg-white" style="color: #FF5147; font-weight: 600;">от 4 000 руб/кв.м</span>
+                                    <span class="price-discount bg-white" style="color: #FF5147; font-weight: 600;">от 4 400 руб/кв.м</span>
                                 </td>
                             </tr>
                         </tbody>
