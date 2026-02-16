@@ -146,7 +146,7 @@
 		<!-- Header 2 -->
 		<nav id="top-menu-2" class="navbar navbar-expand-lg navbar-light bg-white shadow py-0">
 			<div class="container">
-                <a href="/" class="navbar-brand d-none d-lg-block custom-logo-link new-year" rel="home" aria-current="page" style="white-space: normal; margin-right: 0;">
+                <a href="/" class="navbar-brand d-none d-lg-block" rel="home" aria-current="page" style="white-space: normal; margin-right: 0;">
                     <div class="align-items-center">
 						<div id="navbar-brand-ico">
 							<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/logo.svg" id="navbar-brand-img" style="transition: .25s;" class="custom-logo" alt="Логотип в шапке" decoding="async">

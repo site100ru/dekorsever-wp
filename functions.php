@@ -949,10 +949,10 @@ function custom_robots_txt($output) {
 /*** END ДЕЛАЕМ ФАЙЛ ROBOTS.TXT ***/
 
 // КЛАССЫ В BODY_CLASS
-add_filter('body_class', 'custom_body_classes');
+// add_filter('body_class', 'custom_body_classes');
 
-function custom_body_classes($classes) {
-    // Добавить класс для всех страниц
-    $classes[] = 'b-new-year';
-    return $classes;
-}
+// function custom_body_classes($classes) {
+//     // Добавить класс для всех страниц
+//     $classes[] = 'b-new-year';
+//     return $classes;
+// }

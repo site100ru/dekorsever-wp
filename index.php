@@ -108,7 +108,7 @@
 		<!-- Header nav bottom -->
 		<nav id="top-menu-1" class="header-nav-bottom navbar navbar-expand-lg navbar-light py-0">
 			<div class="container">
-                <a href="/" class="navbar-brand custom-logo-link new-year" rel="home" aria-current="page">
+                <a href="/" class="navbar-brand" rel="home" aria-current="page">
                     <img src="<?php echo get_template_directory_uri(); ?>/img/ico/logo-transparent.svg" class="custom-logo" alt="Логотип в шапке" decoding="async" />
                 </a>
 				
@@ -165,7 +165,7 @@
 		<!-- Header nav bottom -->
 		<nav class="header-nav-bottom navbar navbar-expand-lg navbar-light py-1 py-lg-0">
 			<div class="container">
-                <a href="/" class="navbar-brand custom-logo-link new-year" rel="home" aria-current="page">
+                <a href="/" class="navbar-brand" rel="home" aria-current="page">
                     <img src="<?php echo get_template_directory_uri(); ?>/img/ico/logo.svg" class="custom-logo" alt="Логотип в шапке" decoding="async" />
                 </a>
 				
