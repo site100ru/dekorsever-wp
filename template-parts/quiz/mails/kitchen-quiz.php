@@ -73,7 +73,7 @@ if ($_POST && $phone) {
     );
     
     $_SESSION['win'] = 1;
-    $_SESSION['recaptcha'] = '<p class="text-light">Спасибо за обращение в салон кухонь «Мозаика». Мы ответим Вам в&#160;ближайшее время.</p>';
+    $_SESSION['recaptcha'] = '<p class="text-light">Спасибо за обращение в салон кухонь «Декор-Север». Мы ответим Вам в&#160;ближайшее время.</p>';
     header("Location: " . $_SERVER['HTTP_REFERER']);
 } else {
     // Если поле с телефоном НЕ заполнено
