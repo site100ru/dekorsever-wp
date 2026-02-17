@@ -41,12 +41,12 @@ $answer6_kitchen = isset($_POST['form-question-6-kitchen']) ? $_POST['form-quest
 
 // Заголовки письма
 $headers = "MIME-Version: 1.0\r\n";
-$headers .= "From: info@xn--62-6kca7ahoms.xn--p1ai\r\n";
+$headers .= "From: info@dekorsever.ru\r\n";
 $headers .= "Content-type: text/html; charset=utf-8\r\n";
 
 // Формируем тело письма
 $email_body = "
-    <h3>Новая заявка с Квиза (Кухня) с сайта мозаика62.рф</h3>
+    <h3>Новая заявка с Квиза (Кухня) с сайта dekorsever.ru</h3>
     <p><strong>Имя:</strong> " . $name . "</p>
     <p><strong>Телефон:</strong> " . $phone . "</p>
     <p><strong>Способы связи:</strong> " . $contact_methods_str . "</p>
@@ -65,9 +65,9 @@ $email_body = "
 if ($_POST && $phone) {
     // Отправляем письмо
     mail(
-        "mozaika62@bk.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru",
-        // "sidorov-vv3@mail.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru",
-        "Заявка с Квиза (Кухня) с сайта мозаика62.рф",
+        // "mozaika62@bk.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru",
+        "sidorov-vv3@mail.ru, vasilyev-r@mail.ru",
+        "Заявка с Квиза (Кухня) с сайта dekorsever.ru",
         $email_body,
         $headers
     );
