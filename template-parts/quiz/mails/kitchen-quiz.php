@@ -67,8 +67,10 @@ $email_body = "
 
 // Проверяем что заполнено поле с телефоном
 if ($_POST && $phone) {
+
+    // "sidorov-vv3@mail.ru, vasilyev-r@mail.ru",
     mail(
-        "sidorov-vv3@mail.ru, vasilyev-r@mail.ru",
+        "mebel-dsever@yandex.ru, vika5383@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru",
         "Заявка с Квиза (Кухня) с сайта dekorsever.ru",
         $email_body,
         $headers
