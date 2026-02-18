@@ -11,14 +11,23 @@ jobs:
       - name: Connect to server
         uses: appleboy/ssh-action@v0.1.10
         with:
-          host: ${{ secrets.REGRU_HOST }}
-          username: ${{ secrets.REGRU_USER }}
-          key: ${{ secrets.REGRU_KEY }}
+          host: ${{ secrets.DEKORSEVER_HOST }}
+          username: ${{ secrets.DEKORSEVER_USER }}
+          key: ${{ secrets.DEKORSEVER_KEY }}
           script: |
-            #cd ~/dekorsever/public_html/wp-content/themes/dekorsever-wp
+            #Переключаемся в нужную папку
+            cd ~/dekorsever/public_html/wp-content/themes/dekorsever
+            
+            #Клинируем репозиторий в папку (только для первой выгрузки)
+            git clone https://github.com/site100ru/dekorsever.git .
+            
             #git pull
             
             #Если кто то изменил файлы на сервере минуя GitHub, перезаписываем версию на сервере из GitHub
-            cd ~/dekorsever/public_html/wp-content/themes/dekorsever-wp
-            git reset --hard HEAD
-            git pull origin main
+            #cd ~/dekorsever/public_html/wp-content/themes/dekorsever-wp
+            #git reset --hard HEAD
+            #git pull origin main
+
+            # ========== ДЛЯ ПЕРВОЙ ИНИЦИАЛИЗАЦИИ ==========
+            # cd /var/www/u1538455/data/www/мозаика62.рф/wp-content/themes
+            # git clone https://github.com/site100ru/mozaika62-rf.git site100mozaika
