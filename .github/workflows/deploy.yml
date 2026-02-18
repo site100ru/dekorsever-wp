@@ -18,16 +18,12 @@ jobs:
             #Переключаемся в нужную папку
             cd ~/dekorsever/public_html/wp-content/themes/dekorsever
             
-            #Клинируем репозиторий в папку (только для первой выгрузки)
-            git clone https://github.com/site100ru/dekorsever.git .
+            #Клинируем репозиторий в папку (только для первой выгрузки!!!)
+            #git clone https://github.com/site100ru/dekorsever.git .
             
-            #git pull
+            #Клинируем репозиторий в папку
+            git pull
             
             #Если кто то изменил файлы на сервере минуя GitHub, перезаписываем версию на сервере из GitHub
-            #cd ~/dekorsever/public_html/wp-content/themes/dekorsever-wp
             #git reset --hard HEAD
             #git pull origin main
-
-            # ========== ДЛЯ ПЕРВОЙ ИНИЦИАЛИЗАЦИИ ==========
-            # cd /var/www/u1538455/data/www/мозаика62.рф/wp-content/themes
-            # git clone https://github.com/site100ru/mozaika62-rf.git site100mozaika
