@@ -26,6 +26,8 @@
             
             $headers = "From: info@dekorsever.ru\r\n";
             $headers .= "Reply-To: info@dekorsever.ru\r\n";
+            $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+            $headers .= "X-Mailer: PHP/" . phpversion();
 
 			if ( isset( $_POST['shtory-order'] ) ) {
 
