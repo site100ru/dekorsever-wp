@@ -39,8 +39,8 @@
                     $headers
 				);
 			} else {
-                // mail( "sidorov-vv3@mail.ru, vasilyev-r@mail.ru", $subject, "
-				mail( "mebel-dsever@yandex.ru,  vasilyev-r@mail.ru", $subject, "
+                // mail( "mebel-dsever@yandex.ru,  vasilyev-r@mail.ru", $subject, "
+                mail( "sidorov-vv3@mail.ru, vasilyev-r@mail.ru", $subject, "
 					Клиент ".$name."\n
 					Телефон: ".$tel."\n
 					Адрес: ".$adr."\n
