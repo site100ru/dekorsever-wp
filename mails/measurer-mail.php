@@ -41,12 +41,12 @@
 			} else {
                 // mail( "mebel-dsever@yandex.ru,  vasilyev-r@mail.ru", $subject, "
                 mail( "sidorov-vv3@mail.ru, vasilyev-r@mail.ru", $subject, "
-					Клиент ".$name."\n
-					Телефон: ".$tel."\n
-					Адрес: ".$adr."\n
-					Доп. инф: ".$mes."\n,
+                    Клиент ".$name."\n
+                    Телефон: ".$tel."\n
+                    Адрес: ".$adr."\n
+                    Доп. инф: ".$mes,
                     $headers
-				" );
+                );
 			}
 			
 			//mail( "infoskmeridian@mail.ru", "Заявка с сайта meridian-vorot.ru", "Услуга: ".$service."\n\nКлиент ".$name."\n\nТелефон: ".$tel ); 
