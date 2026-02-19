@@ -23,11 +23,15 @@
 			
 			/* Проверям что заполнено поле с телефоном */
 			if ( $_POST['tel'] ) {
-				// Если поле с телефоно заполненно
-                // mail( "sidorov-vv3@mail.ru, vasilyev-r@mail.ru", $subject, "
-				mail( "mebel-dsever@yandex.ru, vika5383@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru", $subject, "
+                $headers = "From: info@dekorsever.ru\r\n";
+                $headers .= "Reply-To: info@dekorsever.ru\r\n";
+				
+                // Если поле с телефоно заполненно
+				// mail( "mebel-dsever@yandex.ru, vika5383@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru", $subject, "
+                mail( "sidorov-vv3@mail.ru, vasilyev-r@mail.ru", $subject, "
 					Клиент: " . $name ."\n
-					Телефон: " . $tel
+					Телефон: " . $tel,
+                    $headers
 				);
 				$_SESSION['win'] = 1;
 				$_SESSION['recaptcha'] = '<p class="text-light">Спасибо за обращение в компанию «Декор-Север». Мы ответим Вам в&#160;ближайшее время.</p>';

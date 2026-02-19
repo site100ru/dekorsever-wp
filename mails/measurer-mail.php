@@ -23,23 +23,29 @@
 			$adr = $_POST['adr'];
 			$mes = $_POST['mes'];
 			$subject = '=?utf-8?B?' . base64_encode("Заявка на вызов замерщика с сайта dekorsever.ru") . '?='; // Тема письма
-			
+            
+            $headers = "From: info@dekorsever.ru\r\n";
+            $headers .= "Reply-To: info@dekorsever.ru\r\n";
+
 			if ( isset( $_POST['shtory-order'] ) ) {
-                // mail( "sidorov-vv3@mail.ru, vasilyev-r@mail.ru", $subject, "
-				mail( "mebel-dsever@yandex.ru, vika5383@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru", $subject, "
-					Клиент ".$name."\n
-					Телефон: ".$tel."\n
-					Адрес: ".$adr."\n
-					Доп. инф: ".$mes."\n
-					Заявка со страницы штор."
-				);
-			} else {
-				// mail( "mebel-dsever@yandex.ru,  vasilyev-r@mail.ru", $subject, "
+
+				// mail( "mebel-dsever@yandex.ru, vika5383@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru", $subject, "
                 mail( "sidorov-vv3@mail.ru, vasilyev-r@mail.ru", $subject, "
 					Клиент ".$name."\n
 					Телефон: ".$tel."\n
 					Адрес: ".$adr."\n
 					Доп. инф: ".$mes."\n
+					Заявка со страницы штор.",
+                    $headers
+				);
+			} else {
+                // mail( "sidorov-vv3@mail.ru, vasilyev-r@mail.ru", $subject, "
+				mail( "mebel-dsever@yandex.ru,  vasilyev-r@mail.ru", $subject, "
+					Клиент ".$name."\n
+					Телефон: ".$tel."\n
+					Адрес: ".$adr."\n
+					Доп. инф: ".$mes."\n,
+                    $headers
 				" );
 			}
 			

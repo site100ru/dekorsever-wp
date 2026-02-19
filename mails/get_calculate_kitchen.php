@@ -34,9 +34,12 @@
 			
 			/* Проверям что заполнено поле с телефоном */
 			if ( $_POST['phone'] ) {
+                $headers = "From: info@dekorsever.ru\r\n";
+                $headers .= "Reply-To: info@dekorsever.ru\r\n";
+                
 				// Если поле с телефоно заполненно
-                // mail( "sidorov-vv3@mail.ru, vasilyev-r@mail.ru", $subject, "
-				mail( "mebel-dsever@yandex.ru, vika5383@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru", $subject, "
+				// mail( "mebel-dsever@yandex.ru, vika5383@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru", $subject, "
+                mail( "sidorov-vv3@mail.ru, vasilyev-r@mail.ru", $subject, "
 					Тип мебели: " . $answer1 ."\n
 					Планировка: " . $answer2 ."\n
 					Размер 1: " . $answer3_1 ."\n
@@ -47,7 +50,8 @@
 					Материал фасада: " . $answer5 ."\n
 					Желаемый подарок: " . $answer6 ."\n
 					Клиент: " . $name ."\n
-					Телефон: " . $phone
+					Телефон: " . $phone,
+                    $headers
 				); 	
 				$_SESSION['win'] = 1;
 				$_SESSION['recaptcha'] = '<p class="text-light">Спасибо за обращение в компанию «Декор-Север». Мы ответим Вам в&#160;ближайшее время.</p>';

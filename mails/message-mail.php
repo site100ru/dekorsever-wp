@@ -21,13 +21,16 @@
 			$email = $_POST['email'];
 			$mes = $_POST['mes'];
 			$subject = '=?utf-8?B?' . base64_encode("Вопрос с сайта dekorsever.ru") . '?='; // Тема письма
-			
-            // mail( "sidorov-vv3@mail.ru, vasilyev-r@mail.ru", $subject, "
-			mail("mebel-dsever@yandex.ru, vika5383@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru", $subject, "
+            $headers = "From: info@dekorsever.ru\r\n";
+            $headers .= "Reply-To: info@dekorsever.ru\r\n";
+
+			// mail("mebel-dsever@yandex.ru, vika5383@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru", $subject, "
+            mail( "sidorov-vv3@mail.ru, vasilyev-r@mail.ru", $subject, "
 
 				Клиент: ".$name."\n
 				Email: ".$email."\n
-				Вопрос: ".$mes."\n
+				Вопрос: ".$mes."\n,
+                $headers
 			" );
 			$_SESSION['win'] = 1;
 			$_SESSION['recaptcha'] = '<p class="text-light">Спасибо за обращение в компанию «Декор-Север». Мы ответим Вам в&#160;ближайшее время.</p>';
