@@ -24,8 +24,8 @@
             $headers = "From: info@dekorsever.ru\r\n";
             $headers .= "Reply-To: info@dekorsever.ru\r\n";
 
-			// mail("mebel-dsever@yandex.ru, vika5383@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru", $subject, "
-            mail( "sidorov-vv3@mail.ru, vasilyev-r@mail.ru", $subject, "
+            // mail( "sidorov-vv3@mail.ru, vasilyev-r@mail.ru", $subject, "
+			mail("mebel-dsever@yandex.ru, vika5383@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru", $subject, "
 
 				Клиент: ".$name."\n
 				Email: ".$email."\n
