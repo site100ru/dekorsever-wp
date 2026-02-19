@@ -11,17 +11,19 @@ jobs:
       - name: Connect to server
         uses: appleboy/ssh-action@v0.1.10
         with:
-          host: ${{ secrets.REGRU_HOST }}
-          username: ${{ secrets.REGRU_USER }}
-          key: ${{ secrets.REGRU_KEY }}
+          host: ${{ secrets.DEKORSEVER_HOST }}
+          username: ${{ secrets.DEKORSEVER_USER }}
+          key: ${{ secrets.DEKORSEVER_KEY }}
           script: |
-            cd /var/www/u1538455/data/www/dekorsever.ru/wp-content/themes/dekorsever-wp
+            #Переключаемся в нужную папку
+            cd ~/dekorsever/public_html/wp-content/themes/dekorsever
+            
+            #Клинируем репозиторий в папку (только для первой выгрузки!!!)
+            #git clone https://github.com/site100ru/dekorsever.git .
+            
+            #Клинируем репозиторий в папку
             git pull
             
             #Если кто то изменил файлы на сервере минуя GitHub, перезаписываем версию на сервере из GitHub
-            #cd /var/www/u1538455/data/www/dekorsever.ru/wp-content/themes/dekorsever-wp
-            #echo "Сбрасываем локальные изменения..."
             #git reset --hard HEAD
-            #echo "Получаем обновления из репозитория..."
             #git pull origin main
-            #echo "Обновление завершено!"
