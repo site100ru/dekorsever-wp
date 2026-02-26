@@ -234,6 +234,7 @@
 </section>
 <!-- /Home section -->
 
+<?php get_template_part('template-parts/quiz/kitchen/quiz-kitchen'); ?>
 
 <!-- Archive portfolio section -->
 <section class="archive-portfolio-section archive-portfolio bg-white pb-5">
