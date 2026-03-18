@@ -23,7 +23,7 @@ try {
     $mail->SMTPSecure = 'ssl';
     $mail->SMTPAuth = true;
     $mail->Username = 'mebel-dsever@yandex.ru';
-    $mail->Password = 'eetwmzfveztzlfup';
+    $mail->Password = 'dphqlezqsxdxropg';
     
     $mail->setFrom('mebel-dsever@yandex.ru', 'Декор-Север');
     $mail->addAddress('vasilyev-r@mail.ru');
