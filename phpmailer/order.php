@@ -1,46 +1,38 @@
 <?php
-// Подключаем WordPress
-require_once(dirname(__FILE__) . '/../../../../wp-load.php');
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-// ТВОИ ДАННЫЕ (впиши сюда)
-$smtp_host = 'smtp.yandex.ru';      // твой сервер
-$smtp_port = 465;                    // порт
-$smtp_encrypt = 'ssl';                // ssl или tls
-$smtp_user = 'mebel-dsever@yandex.ru';        // логин
-$smtp_pass = 'DS/mebel-zakaz2023';            // пароль
-$email_otpravitel = 'mebel-dsever@yandex.ru'; // с какого email отправлять
-$email_komu = 'vasilyev-r@mail.ru'; // кому уходят заявки
+// ПРОСТО ВСТАВЬ СВОЙ ПУТЬ (он у тебя в ошибке написан)
+require_once('/home/v/vasilyevr/dekorsever/public_html/wp-load.php');
 
-// Данные с формы (если есть)
-$name = $_POST['name'] ?? '';
-$phone = $_POST['phone'] ?? '';
-$message = $_POST['message'] ?? '';
+// Подключаем PHPMailer из ядра WordPress
+require_once ABSPATH . WPINC . '/PHPMailer/PHPMailer.php';
+require_once ABSPATH . WPINC . '/PHPMailer/SMTP.php';
+require_once ABSPATH . WPINC . '/PHPMailer/Exception.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
 try {
-    // Создаем письмо
-    $mail = new PHPMailer\PHPMailer\PHPMailer(true);
+    $mail = new PHPMailer(true);
     
-    // Настройки SMTP
     $mail->isSMTP();
-    $mail->Host = $smtp_host;
-    $mail->Port = $smtp_port;
-    $mail->SMTPSecure = $smtp_encrypt;
+    $mail->Host = 'smtp.yandex.ru';
+    $mail->Port = 465;
+    $mail->SMTPSecure = 'ssl';
     $mail->SMTPAuth = true;
-    $mail->Username = $smtp_user;
-    $mail->Password = $smtp_pass;
+    $mail->Username = 'mebel-dsever@yandex.ru';
+    $mail->Password = 'eetwmzfveztzlfup';
     
-    // От кого и кому
-    $mail->setFrom($email_otpravitel, 'Мой сайт');
-    $mail->addAddress($email_komu);
+    $mail->setFrom('mebel-dsever@yandex.ru', 'Декор-Север');
+    $mail->addAddress('vasilyev-r@mail.ru');
+    $mail->Subject = 'Тест SMTP';
+    $mail->Body = 'Проверка';
     
-    // Тема и текст
-    $mail->Subject = 'Заявка с сайта';
-    $mail->Body = "Имя: $name\nТелефон: $phone\nСообщение: $message";
-    
-    // Отправляем
     $mail->send();
-    echo 'ok';
+    echo 'Ок, работает!';
     
 } catch (Exception $e) {
-    echo 'error: ' . $mail->ErrorInfo;
+    echo 'Ошибка: ' . $e->getMessage();
 }
