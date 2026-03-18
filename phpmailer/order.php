@@ -1,41 +1,46 @@
 <?php
-// 1. Указываем, что будем использовать классы из пространства имен PHPMailer
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
+// Подключаем WordPress
+require_once(dirname(__FILE__) . '/../../../../wp-load.php');
 
-// 2. Подключаем три скачанных файла в правильном порядке
-require 'Exception.php';
-require 'PHPMailer.php';
-require 'SMTP.php';
+// ТВОИ ДАННЫЕ (впиши сюда)
+$smtp_host = 'smtp.yandex.ru';      // твой сервер
+$smtp_port = 465;                    // порт
+$smtp_encrypt = 'ssl';                // ssl или tls
+$smtp_user = 'mebel-dsever@yandex.ru';        // логин
+$smtp_pass = 'DS/mebel-zakaz2023';            // пароль
+$email_otpravitel = 'mebel-dsever@yandex.ru'; // с какого email отправлять
+$email_komu = 'vasilyev-r@mail.ru'; // кому уходят заявки
 
-// 3. Создаем объект. Параметр 'true' включает исключения для ловли ошибок
-$mail = new PHPMailer(true);
+// Данные с формы (если есть)
+$name = $_POST['name'] ?? '';
+$phone = $_POST['phone'] ?? '';
+$message = $_POST['message'] ?? '';
 
 try {
-    // ---- Настройки SMTP (заполните своими данными) ----
-    $mail->isSMTP();                          // Отправка через SMTP
-    $mail->Host       = 'smtp.yandex.ru';   // Сервер (пример: smtp.gmail.com)
-    $mail->SMTPAuth   = true;                 // Включаем аутентификацию
-    $mail->Username   = 'mebel-dsever@yandex.ru'; // Ваш email для входа
-    $mail->Password   = 'DS/mebel-zakaz2023';      // Ваш пароль
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Шифрование: 'tls' или 'ssl'
-    $mail->Port       = 465;                   // Порт: 587 для TLS, 465 для SSL
-
-    // ---- От кого и кому ----
-    $mail->setFrom('mebel-dsever@yandex.ru', 'Декор-Север');
-    $mail->addAddress('vasilyev-r@mail.ru', 'Роман Васильев'); // Кому
-
-    // ---- Тема и тело письма ----
-    $mail->isHTML(true);                       // Формат HTML
-    $mail->Subject = 'Минимальное тестовое письмо';
-    $mail->Body    = 'Это <b>простое</b> HTML-письмо.';
-    $mail->AltBody = 'Это текстовая версия письма для старых клиентов.';
-
-    // 4. Отправляем
+    // Создаем письмо
+    $mail = new PHPMailer\PHPMailer\PHPMailer(true);
+    
+    // Настройки SMTP
+    $mail->isSMTP();
+    $mail->Host = $smtp_host;
+    $mail->Port = $smtp_port;
+    $mail->SMTPSecure = $smtp_encrypt;
+    $mail->SMTPAuth = true;
+    $mail->Username = $smtp_user;
+    $mail->Password = $smtp_pass;
+    
+    // От кого и кому
+    $mail->setFrom($email_otpravitel, 'Мой сайт');
+    $mail->addAddress($email_komu);
+    
+    // Тема и текст
+    $mail->Subject = 'Заявка с сайта';
+    $mail->Body = "Имя: $name\nТелефон: $phone\nСообщение: $message";
+    
+    // Отправляем
     $mail->send();
-    echo 'Письмо успешно отправлено!';
+    echo 'ok';
+    
 } catch (Exception $e) {
-    // Если произошла ошибка
-    echo "Не удалось отправить письмо. Ошибка: {$mail->ErrorInfo}";
+    echo 'error: ' . $mail->ErrorInfo;
 }
