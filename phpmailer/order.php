@@ -5,9 +5,9 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 // 2. Подключаем три скачанных файла в правильном порядке
-require 'phpmailer/Exception.php';
-require 'phpmailer/PHPMailer.php';
-require 'phpmailer/SMTP.php';
+require 'Exception.php';
+require 'PHPMailer.php';
+require 'SMTP.php';
 
 // 3. Создаем объект. Параметр 'true' включает исключения для ловли ошибок
 $mail = new PHPMailer(true);
