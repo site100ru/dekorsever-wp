@@ -498,6 +498,7 @@
                             <input type="hidden" name="form-source" value="quiz-kitchen" />
                             <input type="hidden" name="button-context" value="quiz-configurator-kitchen" />
                             <input type="hidden" name="form-branch" value="kitchen" />
+                            <input type="hidden" id="g-recaptcha-response-quiz" name="g-recaptcha-response">
 
                             <div class="quiz-questions-container">
                                 <div class="row align-items-center mb-3">

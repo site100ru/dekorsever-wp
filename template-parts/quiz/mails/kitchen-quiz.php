@@ -2,7 +2,7 @@
 session_start();
 $win = "true";
 
-require_once('../../../../wp-load.php');
+require_once('../../../../../../wp-load.php');
 
 if (!empty($_POST)) {
 

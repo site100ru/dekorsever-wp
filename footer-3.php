@@ -829,6 +829,10 @@
 					if ( document.getElementById('g-recaptcha-calculate-price-modal') ) {
 						document.getElementById('g-recaptcha-calculate-price-modal').value=token;
 					}
+                    // quiz
+					if ( document.getElementById('g-recaptcha-response-quiz') ) {
+						document.getElementById('g-recaptcha-response-quiz').value=token;
+					}
 				});
 			});
 		</script>
