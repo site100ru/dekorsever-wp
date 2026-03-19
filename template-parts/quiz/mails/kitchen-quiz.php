@@ -2,88 +2,81 @@
 session_start();
 $win = "true";
 
-// Общие данные
-$name = isset($_POST['form-name']) ? $_POST['form-name'] : '';
-$phone = isset($_POST['form-phone']) ? $_POST['form-phone'] : '';
+require_once('../../../../wp-load.php');
 
-// Способы связи (чекбоксы)
-$answer_final_1 = isset($_POST['form-answer-final-1']) ? $_POST['form-answer-final-1'] : '';
-$answer_final_2 = isset($_POST['form-answer-final-2']) ? $_POST['form-answer-final-2'] : '';
-$answer_final_3 = isset($_POST['form-answer-final-3']) ? $_POST['form-answer-final-3'] : '';
-$answer_final_4 = isset($_POST['form-answer-final-4']) ? $_POST['form-answer-final-4'] : '';
-$answer_final_5 = isset($_POST['form-answer-final-5']) ? $_POST['form-answer-final-5'] : '';
+if (!empty($_POST)) {
 
-// Собираем способы связи в одну строку
-$contact_methods = array();
-if ($answer_final_1) $contact_methods[] = $answer_final_1;
-if ($answer_final_2) $contact_methods[] = $answer_final_2;
-if ($answer_final_3) $contact_methods[] = $answer_final_3;
-if ($answer_final_4) $contact_methods[] = $answer_final_4;
-if ($answer_final_5) $contact_methods[] = $answer_final_5;
-$contact_methods_str = !empty($contact_methods) ? implode(', ', $contact_methods) : 'Не выбрано';
+    function getCaptcha($key) {
+        $resp = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=6LdV1IcUAAAAABnQ0mXIp5Yh7tLEcAXzdqG6rx9Y&response=' . $key);
+        return json_decode($resp);
+    }
 
-// Данные кухни
-$answer1_kitchen = isset($_POST['form-question-1-kitchen']) ? $_POST['form-question-1-kitchen'] : 'Не указано';
+    $captcha = getCaptcha($_POST['g-recaptcha-response'] ?? '');
 
-// Дополнительные особенности (множественный выбор)
-$features = array();
-if (isset($_POST['form-answer-2-kitchen-1']) && $_POST['form-answer-2-kitchen-1'])
-    $features[] = $_POST['form-answer-2-kitchen-1'];
-if (isset($_POST['form-answer-2-kitchen-2']) && $_POST['form-answer-2-kitchen-2'])
-    $features[] = $_POST['form-answer-2-kitchen-2'];
-if (isset($_POST['form-answer-2-kitchen-3']) && $_POST['form-answer-2-kitchen-3'])
-    $features[] = $_POST['form-answer-2-kitchen-3'];
-$features_str = !empty($features) ? implode(', ', $features) : 'Не выбрано';
+    if ($captcha->success == true && $captcha->score > 0.125) {
 
-// Размер кухни
-$kitchen_size = isset($_POST['form-kitchen-size']) ? $_POST['form-kitchen-size'] : 'Не указано';
+        $name  = htmlspecialchars(trim($_POST['form-name']  ?? ''), ENT_QUOTES, 'UTF-8');
+        $phone = htmlspecialchars(trim($_POST['form-phone'] ?? ''), ENT_QUOTES, 'UTF-8');
 
-$answer4_kitchen = isset($_POST['form-question-4-kitchen']) ? $_POST['form-question-4-kitchen'] : 'Не указано';
-$answer5_kitchen = isset($_POST['form-question-5-kitchen']) ? $_POST['form-question-5-kitchen'] : 'Не указано';
-$answer6_kitchen = isset($_POST['form-question-6-kitchen']) ? $_POST['form-question-6-kitchen'] : 'Не указано';
-$answer7_kitchen = isset($_POST['form-question-7-kitchen']) ? $_POST['form-question-7-kitchen'] : 'Не указано';
+        if ($phone) {
 
-// Заголовки письма
-$headers = "MIME-Version: 1.0\r\n";
-$headers .= "From: info@dekorsever.ru\r\n";
-$headers .= "Content-type: text/html; charset=utf-8\r\n";
+            // Способы связи
+            $contact_methods = array_filter([
+                $_POST['form-answer-final-1'] ?? '',
+                $_POST['form-answer-final-2'] ?? '',
+                $_POST['form-answer-final-3'] ?? '',
+                $_POST['form-answer-final-4'] ?? '',
+                $_POST['form-answer-final-5'] ?? '',
+            ]);
+            $contact_methods_str = !empty($contact_methods) ? implode(', ', $contact_methods) : 'Не выбрано';
 
-// Формируем тело письма
-$email_body = "
-    <h3>Новая заявка с Квиза (Кухня) с сайта dekorsever.ru</h3>
-    <p><strong>Имя:</strong> " . htmlspecialchars($name) . "</p>
-    <p><strong>Телефон:</strong> " . htmlspecialchars($phone) . "</p>
-    <p><strong>Способы связи:</strong> " . htmlspecialchars($contact_methods_str) . "</p>
-    <hr>
-    <h4>Параметры кухни:</h4>
-    <p><strong>Планировка:</strong> " . htmlspecialchars($answer1_kitchen) . "</p>
-    <p><strong>Дополнительные особенности:</strong> " . htmlspecialchars($features_str) . "</p>
-    <p><strong>Размеры кухни:</strong> " . htmlspecialchars($kitchen_size) . "</p>
-    <p><strong>Стиль:</strong> " . htmlspecialchars($answer4_kitchen) . "</p>
-    <p><strong>Материал фасада:</strong> " . htmlspecialchars($answer5_kitchen) . "</p>
-    <p><strong>Бюджет:</strong> " . htmlspecialchars($answer6_kitchen) . "</p>
-    <p><strong>Подарок:</strong> " . htmlspecialchars($answer7_kitchen) . "</p>
-";
+            // Параметры кухни
+            $answer1      = htmlspecialchars($_POST['form-question-1-kitchen'] ?? 'Не указано', ENT_QUOTES, 'UTF-8');
+            $features     = array_filter([
+                $_POST['form-answer-2-kitchen-1'] ?? '',
+                $_POST['form-answer-2-kitchen-2'] ?? '',
+                $_POST['form-answer-2-kitchen-3'] ?? '',
+            ]);
+            $features_str = !empty($features) ? implode(', ', $features) : 'Не выбрано';
+            $kitchen_size = htmlspecialchars($_POST['form-kitchen-size']       ?? 'Не указано', ENT_QUOTES, 'UTF-8');
+            $answer4      = htmlspecialchars($_POST['form-question-4-kitchen'] ?? 'Не указано', ENT_QUOTES, 'UTF-8');
+            $answer5      = htmlspecialchars($_POST['form-question-5-kitchen'] ?? 'Не указано', ENT_QUOTES, 'UTF-8');
+            $answer6      = htmlspecialchars($_POST['form-question-6-kitchen'] ?? 'Не указано', ENT_QUOTES, 'UTF-8');
+            $answer7      = htmlspecialchars($_POST['form-question-7-kitchen'] ?? 'Не указано', ENT_QUOTES, 'UTF-8');
 
-// Проверяем что заполнено поле с телефоном
-if ($_POST && $phone) {
+            $subject = 'Заявка с Квиза (Кухня) с сайта dekorsever.ru';
+            $body    = '
+                <html><body style="font-family:Arial,sans-serif;font-size:14px;color:#333">
+                <h2 style="color:#1a1a1a">Новая заявка с Квиза (Кухня)</h2>
+                <p><strong>Клиент:</strong> ' . $name . '</p>
+                <p><strong>Телефон:</strong> ' . $phone . '</p>
+                <p><strong>Способы связи:</strong> ' . $contact_methods_str . '</p>
+                <hr>
+                <h3>Параметры кухни</h3>
+                <p><strong>Планировка:</strong> ' . $answer1 . '</p>
+                <p><strong>Дополнительные особенности:</strong> ' . $features_str . '</p>
+                <p><strong>Размеры кухни:</strong> ' . $kitchen_size . '</p>
+                <p><strong>Стиль:</strong> ' . $answer4 . '</p>
+                <p><strong>Материал фасада:</strong> ' . $answer5 . '</p>
+                <p><strong>Бюджет:</strong> ' . $answer6 . '</p>
+                <p><strong>Подарок:</strong> ' . $answer7 . '</p>
+                </body></html>';
 
-    // "mebel-dsever@yandex.ru, vika5383@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru",
-    // "sidorov-vv3@mail.ru, vasilyev-r@mail.ru",
+            mytheme_send_mail($subject, $body);
 
-    mail(
-        "mebel-dsever@yandex.ru, vika5383@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru",
-        "Заявка с Квиза (Кухня) с сайта dekorsever.ru",
-        $email_body,
-        $headers
-    );
+            $_SESSION['win']       = 1;
+            $_SESSION['recaptcha'] = '<p class="text-light">Спасибо за обращение в салон кухонь «Декор-Север». Мы ответим Вам в&#160;ближайшее время.</p>';
 
-    $_SESSION['win'] = 1;
-    $_SESSION['recaptcha'] = '<p class="text-light">Спасибо за обращение в салон кухонь «Декор-Север». Мы ответим Вам в&#160;ближайшее время.</p>';
-    header("Location: " . $_SERVER['HTTP_REFERER']);
-} else {
-    $_SESSION['win'] = 1;
-    $_SESSION['recaptcha'] = '<p class="text-light"><strong>Извините!</strong><br>Ваши действия похожи на робота. Пожалуйста повторите попытку!</p>';
-    header("Location: " . $_SERVER['HTTP_REFERER']);
+        } else {
+            $_SESSION['win']       = 1;
+            $_SESSION['recaptcha'] = '<p class="text-light">Обязательное поле с номером телефона не заполнено! Пожалуйста, повторите попытку.</p>';
+        }
+
+    } else {
+        $_SESSION['win']       = 1;
+        $_SESSION['recaptcha'] = '<p class="text-light"><strong>Извините!</strong><br>Ваши действия похожи на робота. Пожалуйста повторите попытку!</p>';
+    }
+
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    exit;
 }
-?>

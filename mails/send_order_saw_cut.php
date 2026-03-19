@@ -1,5 +1,6 @@
 <?php
 session_start();
+$win = "true";
 
 require_once('../../../../wp-load.php');
 
