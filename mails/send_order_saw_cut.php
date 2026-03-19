@@ -18,6 +18,7 @@ if (!empty($_POST)) {
         $allowed_types = [
             'application/vnd.ms-excel',
             'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+            'application/octet-stream',
         ];
 
         $file_tmp  = $_FILES['mail_file']['tmp_name'] ?? '';
@@ -29,10 +30,7 @@ if (!empty($_POST)) {
 
         if (!empty($file_tmp)) {
             if (in_array($file_type, $allowed_types) && $file_size < 5120000) {
-                $path = __DIR__ . '/mail-img/' . basename($file_name);
-                if (copy($file_tmp, $path)) {
-                    $attachments[] = ['path' => $path, 'name' => basename($file_name)];
-                }
+                $attachments[] = ['path' => $file_tmp, 'name' => $file_name];
             } else {
                 $_SESSION['win']       = 1;
                 $_SESSION['recaptcha'] = '<p class="text-light">Вы пытаетесь загрузить неподходящий формат или размер файла. Файл должен быть в формате .xls или .xlsx и размером не более 5 МБ. Пожалуйста повторите попытку.</p>';
