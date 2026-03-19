@@ -1,66 +1,50 @@
 <?php
-	session_start();
-	$win = "true";
-	// Если существует переменная POST, то
-	
-	if($_POST){
-		// Отправляем данные в Google
-		function getCaptcha($SecretKey){
-			$Response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LdV1IcUAAAAABnQ0mXIp5Yh7tLEcAXzdqG6rx9Y&response={$SecretKey}");
-			
-			$Return = json_decode($Response);
-			return $Return;
-		}
-		
-		/* Принимаем данные обратно */
-		$Return = getCaptcha($_POST['g-recaptcha-response']);
-		// Если вероятность робота более 0.5, то считаем отправителя человеком и выполняем отправку почты
-		if( $Return->success == true && $Return->score > .125 ){
-			
-			
-			$name = $_POST['name'];
-			$tel = $_POST['tel'];
-			$adr = $_POST['adr'];
-			$mes = $_POST['mes'];
-			$subject = '=?utf-8?B?' . base64_encode("Заявка на вызов замерщика с сайта dekorsever.ru") . '?='; // Тема письма
-            
-            $headers = "From: info@dekorsever.ru\r\n";
-            $headers .= "Reply-To: info@dekorsever.ru\r\n";
-            $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-            $headers .= "X-Mailer: PHP/" . phpversion();
+session_start();
+$win = "true";
 
-			if ( isset( $_POST['shtory-order'] ) ) {
+require_once('../../../../wp-load.php');
 
-                // mail( "sidorov-vv3@mail.ru, vasilyev-r@mail.ru", $subject, "
-				mail( "mebel-dsever@yandex.ru, vika5383@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru", $subject, "
-					Клиент ".$name."\n
-					Телефон: ".$tel."\n
-					Адрес: ".$adr."\n
-					Доп. инф: ".$mes."\n
-					Заявка со страницы штор.",
-                    $headers
-				);
-			} else {
-                // mail( "sidorov-vv3@mail.ru, vasilyev-r@mail.ru", $subject, "
-                mail( "mebel-dsever@yandex.ru,  vasilyev-r@mail.ru", $subject, "
-                    Клиент ".$name."\n
-                    Телефон: ".$tel."\n
-                    Адрес: ".$adr."\n
-                    Доп. инф: ".$mes,
-                    $headers
-                );
-			}
-			
-			//mail( "infoskmeridian@mail.ru", "Заявка с сайта meridian-vorot.ru", "Услуга: ".$service."\n\nКлиент ".$name."\n\nТелефон: ".$tel ); 
-			$_SESSION['win'] = 1;
-			$_SESSION['recaptcha'] = '<p class="text-light">Спасибо за обращение в компанию «Декор-Север». Мы ответим Вам в&#160;ближайшее время.</p>';
-			header("Location: ".$_SERVER['HTTP_REFERER']);
-		
-		} else {
-			// Иначе считаем отправителя роботом и выводим сообщение с просьбой повторить попытку
-			$_SESSION['win'] = 1;
-			$_SESSION['recaptcha'] = '<p class="text-light"><strong>Извините!</strong><br>Ваши действия похожи на робота. Пожалуйста повторите попытку!</p>';
-			header("Location: ".$_SERVER['HTTP_REFERER']);
-		}
-	}
-?>
+if (!empty($_POST)) {
+
+    function getCaptcha($key) {
+        $resp = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=6LdV1IcUAAAAABnQ0mXIp5Yh7tLEcAXzdqG6rx9Y&response=' . $key);
+        return json_decode($resp);
+    }
+
+    $captcha = getCaptcha($_POST['g-recaptcha-response'] ?? '');
+
+    if ($captcha->success == true && $captcha->score > 0.125) {
+
+        $name = htmlspecialchars(trim($_POST['name'] ?? ''), ENT_QUOTES, 'UTF-8');
+        $tel  = htmlspecialchars(trim($_POST['tel']  ?? ''), ENT_QUOTES, 'UTF-8');
+        $adr  = htmlspecialchars(trim($_POST['adr']  ?? ''), ENT_QUOTES, 'UTF-8');
+        $mes  = htmlspecialchars(trim($_POST['mes']  ?? ''), ENT_QUOTES, 'UTF-8');
+
+        $page_note = isset($_POST['shtory-order'])
+            ? '<p style="color:#888;font-style:italic">Заявка со страницы штор.</p>'
+            : '';
+
+        $subject = 'Заявка на вызов замерщика с сайта dekorsever.ru';
+        $body    = '
+            <html><body style="font-family:Arial,sans-serif;font-size:14px;color:#333">
+            <h2 style="color:#1a1a1a">Заявка на вызов замерщика</h2>
+            <p><strong>Клиент:</strong> ' . $name . '</p>
+            <p><strong>Телефон:</strong> ' . $tel . '</p>
+            <p><strong>Адрес:</strong> ' . $adr . '</p>
+            <p><strong>Доп. информация:</strong><br>' . nl2br($mes) . '</p>
+            ' . $page_note . '
+            </body></html>';
+
+        mytheme_send_mail($subject, $body);
+
+        $_SESSION['win']       = 1;
+        $_SESSION['recaptcha'] = '<p class="text-light">Спасибо за обращение в компанию «Декор-Север». Мы ответим Вам в&#160;ближайшее время.</p>';
+
+    } else {
+        $_SESSION['win']       = 1;
+        $_SESSION['recaptcha'] = '<p class="text-light"><strong>Извините!</strong><br>Ваши действия похожи на робота. Пожалуйста повторите попытку!</p>';
+    }
+
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    exit;
+}

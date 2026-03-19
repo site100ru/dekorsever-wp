@@ -551,7 +551,71 @@
 			'section'     => 'mytheme_analytics',
 			'type'        => 'textarea',
 		));
-		
+
+        /* SMTP настройки */
+        $wp_customize->add_section('mytheme_smtp', array(
+            'title'    => 'SMTP (настройки отправки почты)',
+            'priority' => 202,
+        ));
+
+        $wp_customize->add_setting('mytheme_smtp_host', array(
+            'default'   => 'smtp.yandex.ru',
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'sanitize_text_field',
+        ));
+        $wp_customize->add_control('mytheme_smtp_host', array(
+            'label'       => 'SMTP хост',
+            'description' => 'Например: smtp.yandex.ru или smtp.gmail.com',
+            'section'     => 'mytheme_smtp',
+            'type'        => 'text',
+        ));
+
+        $wp_customize->add_setting('mytheme_smtp_port', array(
+            'default'   => '465',
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'absint',
+        ));
+        $wp_customize->add_control('mytheme_smtp_port', array(
+            'label'       => 'SMTP порт',
+            'description' => '465 — SSL, 587 — TLS',
+            'section'     => 'mytheme_smtp',
+            'type'        => 'text',
+        ));
+
+        $wp_customize->add_setting('mytheme_smtp_username', array(
+            'default'   => '',
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'sanitize_email',
+        ));
+        $wp_customize->add_control('mytheme_smtp_username', array(
+            'label'       => 'SMTP логин (email отправителя)',
+            'description' => 'С этого адреса будут уходить письма',
+            'section'     => 'mytheme_smtp',
+            'type'        => 'text',
+        ));
+
+        $wp_customize->add_setting('mytheme_smtp_password', array(
+            'default'   => '',
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'sanitize_text_field',
+        ));
+        $wp_customize->add_control('mytheme_smtp_password', array(
+            'label'       => 'SMTP пароль',
+            'section'     => 'mytheme_smtp',
+            'type'        => 'text',
+        ));
+
+        $wp_customize->add_setting('mytheme_smtp_from_name', array(
+            'default'   => '',
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'sanitize_text_field',
+        ));
+        $wp_customize->add_control('mytheme_smtp_from_name', array(
+            'label'       => 'Имя отправителя',
+            'description' => 'Например: Декор-Север',
+            'section'     => 'mytheme_smtp',
+            'type'        => 'text',
+        ));
 		
 		/** ИСПОЛЬЗУЕМ ВЛОЖЕННЫЕ КОНТЕЙНЕРЫ **/
 		/* КОНТАКТЫ */
@@ -703,6 +767,29 @@
 						//'style'      => 'width: 60px; display: inline-block;', // Уменьшаем ширину и делаем в одну строку
 					)
 				));
+
+            /* ДОПОЛНИТЕЛЬНЫЕ EMAIL (повторитель) */
+            $wp_customize->add_section('mytheme_contacts_emails_extra', array(
+                'title' => 'Дополнительные почты для приема писем',
+                'panel' => 'contact_panel',
+                'priority' => 5
+            ));
+
+            $wp_customize->add_setting('mytheme_emails_extra_json', array(
+                'default' => '',
+                'transport' => 'postMessage',
+                'sanitize_callback' => 'sanitize_text_field',
+            ));
+
+            $wp_customize->add_control(new Mytheme_Email_Repeater_Control(
+                $wp_customize,
+                'mytheme_emails_extra_json',
+                array(
+                    'label' => 'Дополнительные Email адреса',
+                    'description' => 'Добавьте дополнительные email адреса для приема почты. Можно добавить несколько.',
+                    'section' => 'mytheme_contacts_emails_extra',
+                )
+            ));
 				
 				
 			// Добавляем вложенную секцию для Telegram
@@ -821,8 +908,253 @@
 	add_action( 'customize_register', 'mytheme_customize_register' );
 	/*** END ДОБАВЛЯЕМ ВОЗМОЖНОСТЬ В НАСТРОЙКАХ ТЕМЫ ДОБАВИТЬ КОНТАКТЫ И КОД СЧЕТЧИКА ***/
 	
-	
-	
+
+    /**
+     * Получить SMTP-конфиг из настроек темы
+     */
+    function mytheme_get_smtp_config() {
+        return array(
+            'host'      => get_theme_mod('mytheme_smtp_host', 'smtp.yandex.ru'),
+            'port'      => (int) get_theme_mod('mytheme_smtp_port', 465),
+            'username'  => get_theme_mod('mytheme_smtp_username', ''),
+            'password'  => get_theme_mod('mytheme_smtp_password', ''),
+            'from_name' => get_theme_mod('mytheme_smtp_from_name', get_bloginfo('name')),
+        );
+    }
+
+    function mytheme_get_recipients() {
+        $recipients = array();
+
+        $main = get_theme_mod('mytheme_email', '');
+        if (!empty($main)) {
+            $recipients[] = $main;
+        }
+
+        $extra = mytheme_get_emails_extra();
+        foreach ($extra as $item) {
+            if (!empty($item['email'])) {
+                $recipients[] = $item['email'];
+            }
+        }
+
+        if (empty($recipients)) {
+            $recipients[] = get_option('admin_email');
+        }
+
+        return $recipients;
+    }
+
+    function mytheme_send_mail($subject, $body_html, $attachments = []) {
+        require_once ABSPATH . WPINC . '/PHPMailer/PHPMailer.php';
+        require_once ABSPATH . WPINC . '/PHPMailer/SMTP.php';
+        require_once ABSPATH . WPINC . '/PHPMailer/Exception.php';
+
+        $smtp = mytheme_get_smtp_config();
+
+        $mail = new PHPMailer\PHPMailer\PHPMailer(true);
+
+        try {
+            $mail->isSMTP();
+            $mail->Host       = $smtp['host'];
+            $mail->Port       = $smtp['port'];
+            $mail->SMTPSecure = 'ssl';
+            $mail->SMTPAuth   = true;
+            $mail->Username   = $smtp['username'];
+            $mail->Password   = $smtp['password'];
+            $mail->SMTPOptions = ['ssl' => ['verify_peer' => false, 'verify_peer_name' => false, 'allow_self_signed' => true]];
+
+            $mail->CharSet = 'UTF-8';
+            $mail->setFrom($smtp['username'], $smtp['from_name']);
+
+            foreach (mytheme_get_recipients() as $email) {
+                $mail->addAddress($email);
+            }
+
+            $mail->isHTML(true);
+            $mail->Subject = $subject;
+            $mail->Body    = $body_html;
+
+            // Добавляем вложения если есть
+            foreach ($attachments as $attach) {
+                $mail->addAttachment($attach['path'], $attach['name']);
+            }
+
+            $mail->send();
+            return true;
+
+        } catch (\Exception $e) {
+            error_log('mytheme_send_mail: ' . $e->getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * Получить дополнительные email из повторителя
+     */
+    function mytheme_get_emails_extra() {
+        $emails_json = get_theme_mod('mytheme_emails_extra_json', '');
+        $emails = json_decode($emails_json, true);
+        return is_array($emails) ? $emails : array();
+    }
+
+    
+    /**
+     * Кастомные контролы - загружаются только в контексте кастомайзера
+     */
+    if (class_exists('WP_Customize_Control')) {
+        
+        /**
+         * Кастомный контрол для повторителя телефонов
+         */
+        class Mytheme_Phone_Repeater_Control extends WP_Customize_Control
+        {
+            public $type = 'phone_repeater';
+
+            public function render_content()
+            {
+                $values = json_decode($this->value(), true);
+                if (!is_array($values)) {
+                    $values = array();
+                }
+        ?>
+                <label>
+                    <span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
+                    <?php if (!empty($this->description)) : ?>
+                        <span class="description customize-control-description"><?php echo esc_html($this->description); ?></span>
+                    <?php endif; ?>
+                </label>
+
+                <div class="phone-repeater-list">
+                    <?php foreach ($values as $index => $phone) : ?>
+                        <div class="phone-repeater-item" style="margin-bottom: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                            <input type="text" placeholder="Номер для отображения (напр: 8 (4912) 77-70-98)" value="<?php echo esc_attr($phone['display']); ?>" class="phone-display" style="width: 100%; margin-bottom: 5px;" />
+                            <input type="text" placeholder="Номер для ссылки (напр: 84912777098)" value="<?php echo esc_attr($phone['link']); ?>" class="phone-link" style="width: 100%; margin-bottom: 5px;" />
+                            <button type="button" class="button remove-phone" style="color: #a00;">Удалить</button>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+
+                <button type="button" class="button add-phone" style="margin-top: 10px;">+ Добавить телефон</button>
+
+                <input type="hidden" <?php $this->link(); ?> value="<?php echo esc_attr($this->value()); ?>" class="phone-repeater-value" />
+
+                <script type="text/javascript">
+                    jQuery(document).ready(function($) {
+                        var control = $('#customize-control-<?php echo esc_js($this->id); ?>');
+
+                        function updateValue() {
+                            var phones = [];
+                            control.find('.phone-repeater-item').each(function() {
+                                var display = $(this).find('.phone-display').val();
+                                var link = $(this).find('.phone-link').val();
+                                if (display || link) {
+                                    phones.push({
+                                        display: display,
+                                        link: link
+                                    });
+                                }
+                            });
+                            control.find('.phone-repeater-value').val(JSON.stringify(phones)).trigger('change');
+                        }
+
+                        control.on('click', '.add-phone', function() {
+                            var template = '<div class="phone-repeater-item" style="margin-bottom: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">' +
+                                '<input type="text" placeholder="Номер для отображения (напр: 8 (4912) 77-70-98)" class="phone-display" style="width: 100%; margin-bottom: 5px;" />' +
+                                '<input type="text" placeholder="Номер для ссылки (напр: 84912777098)" class="phone-link" style="width: 100%; margin-bottom: 5px;" />' +
+                                '<button type="button" class="button remove-phone" style="color: #a00;">Удалить</button>' +
+                                '</div>';
+                            control.find('.phone-repeater-list').append(template);
+                        });
+
+                        control.on('click', '.remove-phone', function() {
+                            $(this).closest('.phone-repeater-item').remove();
+                            updateValue();
+                        });
+
+                        control.on('input', '.phone-display, .phone-link', function() {
+                            updateValue();
+                        });
+                    });
+                </script>
+        <?php
+            }
+        }
+
+
+        /**
+         * Кастомный контрол для повторителя email
+         */
+        class Mytheme_Email_Repeater_Control extends WP_Customize_Control
+        {
+            public $type = 'email_repeater';
+
+            public function render_content()
+            {
+                $values = json_decode($this->value(), true);
+                if (!is_array($values)) {
+                    $values = array();
+                }
+        ?>
+                <label>
+                    <span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
+                    <?php if (!empty($this->description)) : ?>
+                        <span class="description customize-control-description"><?php echo esc_html($this->description); ?></span>
+                    <?php endif; ?>
+                </label>
+
+                <div class="email-repeater-list">
+                    <?php foreach ($values as $index => $email) : ?>
+                        <div class="email-repeater-item" style="margin-bottom: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                            <input type="email" placeholder="Email адрес" value="<?php echo esc_attr($email['email']); ?>" class="email-address" style="width: 100%; margin-bottom: 5px;" />
+                            <button type="button" class="button remove-email" style="color: #a00;">Удалить</button>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+
+                <button type="button" class="button add-email" style="margin-top: 10px;">+ Добавить email</button>
+
+                <input type="hidden" <?php $this->link(); ?> value="<?php echo esc_attr($this->value()); ?>" class="email-repeater-value" />
+
+                <script type="text/javascript">
+                    jQuery(document).ready(function($) {
+                        var control = $('#customize-control-<?php echo esc_js($this->id); ?>');
+
+                        function updateValue() {
+                            var emails = [];
+                            control.find('.email-repeater-item').each(function() {
+                                var email = $(this).find('.email-address').val();
+                                if (email) {
+                                    emails.push({
+                                        email: email
+                                    });
+                                }
+                            });
+                            control.find('.email-repeater-value').val(JSON.stringify(emails)).trigger('change');
+                        }
+
+                        control.on('click', '.add-email', function() {
+                            var template = '<div class="email-repeater-item" style="margin-bottom: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">' +
+                                '<input type="email" placeholder="Email адрес" class="email-address" style="width: 100%; margin-bottom: 5px;" />' +
+                                '<button type="button" class="button remove-email" style="color: #a00;">Удалить</button>' +
+                                '</div>';
+                            control.find('.email-repeater-list').append(template);
+                        });
+
+                        control.on('click', '.remove-email', function() {
+                            $(this).closest('.email-repeater-item').remove();
+                            updateValue();
+                        });
+
+                        control.on('input', '.email-address', function() {
+                            updateValue();
+                        });
+                    });
+                </script>
+        <?php
+            }
+        }
+    }
+
 	
 	/*** ON EXCERPT FOR PAGES ***/
 	add_action('init', 'add_excerpt_to_pages');

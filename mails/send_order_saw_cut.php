@@ -1,124 +1,66 @@
 <?php
+session_start();
 
-	session_start();
-	$win = "true";
-	
-	// Вспомогательная функция для отправки почтового сообщения с вложением 
-	function send_mail($to, $subject, $html, $path) {
-		$fp = fopen($path,"r"); 
-		
-		/* Если нет файла */
-		if ( !$fp ) { 
-			print "Файл $path не может быть прочитан"; 
-			exit(); 
-		}
+require_once('../../../../wp-load.php');
 
-		$file = fread($fp, filesize($path)); 
-		fclose($fp); 
+if (!empty($_POST)) {
 
-		$boundary = "--".md5(uniqid(time())); // генерируем разделитель 
+    function getCaptcha($key) {
+        $resp = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=6LdV1IcUAAAAABnQ0mXIp5Yh7tLEcAXzdqG6rx9Y&response=' . $key);
+        return json_decode($resp);
+    }
 
-		$headers = "MIME-Version: 1.0\r\n";
-		
-		$headers .= "From: info@dekorsever.ru\r\n";
+    $captcha = getCaptcha($_POST['g-recaptcha-response'] ?? '');
 
-		$headers .= "Content-Type: multipart/mixed; boundary=\"$boundary\"\n"; 
+    if ($captcha->success == true && $captcha->score > 0.125) {
 
-		$multipart = "--$boundary\n";
+        $allowed_types = [
+            'application/vnd.ms-excel',
+            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        ];
 
-		$kod = 'utf-8'; // или $kod = 'windows-1251 или koi8-r'; 
+        $file_tmp  = $_FILES['mail_file']['tmp_name'] ?? '';
+        $file_type = $_FILES['mail_file']['type']     ?? '';
+        $file_size = $_FILES['mail_file']['size']     ?? 0;
+        $file_name = $_FILES['mail_file']['name']     ?? '';
 
-		$multipart .= "Content-Type: text/html; charset=$kod\n"; 
+        $attachments = [];
 
-		$multipart .= "Content-Transfer-Encoding: Quot-Printed\n\n"; 
+        if (!empty($file_tmp)) {
+            if (in_array($file_type, $allowed_types) && $file_size < 5120000) {
+                $path = __DIR__ . '/mail-img/' . basename($file_name);
+                if (copy($file_tmp, $path)) {
+                    $attachments[] = ['path' => $path, 'name' => basename($file_name)];
+                }
+            } else {
+                $_SESSION['win']       = 1;
+                $_SESSION['recaptcha'] = '<p class="text-light">Вы пытаетесь загрузить неподходящий формат или размер файла. Файл должен быть в формате .xls или .xlsx и размером не более 5 МБ. Пожалуйста повторите попытку.</p>';
+                header('Location: ' . $_SERVER['HTTP_REFERER']);
+                exit;
+            }
+        }
 
-		$multipart .= "$html\n\n"; 
+        $attach_note = !empty($attachments)
+            ? '<p><strong>Файл с заявкой во вложении.</strong></p>'
+            : '<p>Файл не был прикреплён.</p>';
 
-		$message_part = "--$boundary\n"; 
+        $subject = 'Заявка на распил с сайта dekorsever.ru';
+        $body    = '
+            <html><body style="font-family:Arial,sans-serif;font-size:14px;color:#333">
+            <h2 style="color:#1a1a1a">Заявка на распил</h2>
+            ' . $attach_note . '
+            </body></html>';
 
-		$message_part .= "Content-Type: application/octet-stream\n"; 
+        mytheme_send_mail($subject, $body, $attachments);
 
-		$message_part .= "Content-Transfer-Encoding: base64\n"; 
+        $_SESSION['win']       = 1;
+        $_SESSION['recaptcha'] = '<p class="text-light">Спасибо за обращение в компанию «Декор-Север». Мы ответим Вам в&#160;ближайшее время.</p>';
 
-		$message_part .= "Content-Disposition: attachment; filename = \"".$path."\"\n\n"; 
+    } else {
+        $_SESSION['win']       = 1;
+        $_SESSION['recaptcha'] = '<p class="text-light"><strong>Извините!</strong><br>Ваши действия похожи на робота. Пожалуйста повторите попытку!</p>';
+    }
 
-		$message_part .= chunk_split(base64_encode($file))."\n"; 
-
-		$multipart .= $message_part."--$boundary--\n"; 
-
-
-		/**/
-		if ( !mail( $to, $subject, $multipart, $headers ) ) { 
-			echo "К сожалению, письмо не отправлено"; 
-			exit();
-		}
-	}
-	
-	
-			
-			
-	//$name = $_POST['name'];
-	//$tel = $_POST['tel'];
-	//$mes = $_POST['mes'];
-	
-	$picture = "";
-	$mail_to = "mebel-dsever@yandex.ru, vika5383@yandex.ru, vasilyev-r@mail.ru, vasilyev-r@yandex.ru"; // Адрес доставки почты
-    // $mail_to = "sidorov-vv3@mail.ru, vasilyev-r@mail.ru"; // Адрес доставки почты
-
-	$subject = '=?utf-8?B?' . base64_encode("Зявка на распил с сайта dekorsever.ru") . '?='; // Тема письма
-	
-	$file_type = $_FILES['mail_file']['type'];
-	$file_size = $_FILES['mail_file']['size'];
-	
-	// Используем, если отправка файла обязательная
-	/* Если поле выбора вложения не пустое - закачиваем его на сервер
-	if ( !empty( $_FILES['mail_file']['tmp_name'] ) and ( $file_type == 'image/png' OR  $file_type == 'image/jpeg' OR $file_type ==  'application/pdf' ) and ( $file_size < 5120000 ) ) { 
-		// Закачиваем файл 
-		$path = 'mail-img/'.$_FILES['mail_file']['name']; 
-		if (copy($_FILES['mail_file']['tmp_name'], $path)) $picture = $path; 
-	} else {
-		$_SESSION['win'] = 1;
-		$_SESSION['recaptcha'] = '<p class="text-light">Неправильный формат или размер файла. Файл должен быть в формате .jpg, .jpeg, .png или .pdf и размером не более 5 МБ. Пожалуйста повторите попытку.</p>';
-		header("Location: ".$_SERVER['HTTP_REFERER']);
-		exit();
-	} */
-	
-	// Используем, если отправка файла НЕ обязательная
-	// Если изображение есть то проверяем его на соответствие требованиям
-	// Если нет изображение, то ничего не делаем
-	if ( !empty( $_FILES['mail_file']['tmp_name'] ) ) { 
-		if ( ( $file_type ==  'application/vnd.ms-excel' OR $file_type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ) and ( $file_size < 5120000 ) ) {
-			// Закачиваем файл 
-			$path = 'mail-img/'.$_FILES['mail_file']['name']; 
-			if ( copy($_FILES['mail_file']['tmp_name'], $path) ) { $picture = $path; }
-		} else {
-			$_SESSION['win'] = 1;
-			$_SESSION['recaptcha'] = '<p class="text-light">Вы пытаетесь загрузить неподходящий формат или размер файла. Файл должен быть в формате .xls или .xlsx и размером не более 5 МБ. Пожалуйста повторите попытку.</p>';
-			header("Location: ".$_SERVER['HTTP_REFERER']);
-			exit();
-		}
-	}
-	
-	
-	/* Отправляем почтовое сообщение  */
-	if ( empty( $picture ) ) {
-		$headers = "MIME-Version: 1.0\r\n";
-		$headers .= "From: info@dekorsever.ru\r\n";
-		$headers .= "Content-type: text/html; charset=utf-8\r\n";
-		$msg = "
-			<strong>Имя:</strong> ".$name."<br><br>
-			<strong>Телефон:</strong> ".$tel."<br><br>
-			<strong>Сообщение:</strong> ".$mes."<br><br>
-		";
-		mail( $mail_to, $subject, $msg, $headers );
-	} else {
-		$msg = "Заявка на распил.";
-		send_mail($mail_to, $subject, $msg, $picture);
-	}
-	
-	$_SESSION['win'] = 1;
-	$_SESSION['recaptcha'] = '<p class="text-light">Спасибо за обращение в компанию «Декор-Север». Мы ответим Вам в&#160;ближайшее время.';
-	header("Location: ".$_SERVER['HTTP_REFERER']);
-		
-
-?>
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    exit;
+}
