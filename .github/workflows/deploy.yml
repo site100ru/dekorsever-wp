@@ -6,18 +6,12 @@ on:
 
 jobs:
   
-  #Описания первой задачи
-  test:
-
-    #На какой системе будет запущена задача. ubuntu-latest система на которой работает GitHub
-    runs-on: ubuntu-latest
-
-    #Шаги которые будут выполненны последовательно один за другим
-    steps:
-
-      - uses: actions/checkout@v4 #Cкачивает ваш код из репозитория на виртуальную машину (Обязательно)
-      - run: npx html-validate "**/*.html" #Ищем все html файлы и проверяем ошибки
-      - run: echo "Checked complite!" #Выводим сообщение
+  #test: #Название первой задачи
+    #runs-on: ubuntu-latest #На какой системе будет запущена задача. ubuntu-latest система на которой работает GitHub
+    #steps: #Шаги которые будут выполненны последовательно один за другим
+      #- uses: actions/checkout@v4 #Cкачивает ваш код из репозитория на виртуальную машину (Обязательно)
+      #- run: npx html-validate "**/*.html" #Ищем все html файлы и проверяем ошибки
+      #- run: echo "Checked complite!" #Выводим сообщение
 
   deploy:
     runs-on: ubuntu-latest
