@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: npx css-validator "**/*.css"
+      - run: find . -name "*.css" -exec npx css-validator {} \;
   
   check-php: # Проверка PHP
     runs-on: ubuntu-latest
