@@ -410,8 +410,9 @@
 	function my_extra_fields() {
 		add_meta_box( 'extra_fields', 'Галерея наших работ', 'extra_fields_box_func', 'portfolio', 'side', 'high' );
 	}
+	
 	// Код блока галереи
-	function extra_fields_box_func( $post ){
+	function extra_fields_box_func( $post ) {
 		for ($i=1; $i<=9; $i++) { ?>
 			<label>URL&#160;изображения <?php echo $i; ?>:</label>
 			<input type="text" name="extra[img-<?php echo $i; ?>]" value="<?php echo get_post_meta($post->ID, '_img-'.$i, 1); ?>" style="width: 100%;">
