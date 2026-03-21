@@ -13,6 +13,12 @@ jobs:
       #- run: npx html-validate "**/*.html" #Ищем все html файлы и проверяем ошибки
       #- run: echo "Checked complite!" #Выводим сообщение
 
+  check-php: # Проверка PHP
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: find . -name "*.php" -exec php -l {} \;
+
   deploy:
     runs-on: ubuntu-latest
     #needs: test  #Деплой запустится только если test прошел успешно
