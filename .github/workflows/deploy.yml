@@ -28,8 +28,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     #needs: test  #Деплой запустится только если test прошел успешно
-    needs: check-css  # Деплой запустится только если check-css прошел успешно
-    needs: check-php  # Деплой запустится только если check-php прошел успешно
+    needs: [check-css, check-php]  # Деплой запустится только если check-css, check-php прошли успешно
     steps:
       - name: Connect to server
         uses: appleboy/ssh-action@v0.1.10
