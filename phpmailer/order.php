@@ -21,7 +21,7 @@ try {
     $mail->SMTPSecure = 'ssl';
     $mail->SMTPAuth = true;
     $mail->Username = 'mebel-dsever@yandex.ru';
-    $mail->Password = 'dphqlezqsxdxropg';
+    $mail->Password = 'acfisyykjddaszyy';
     
     // ВАЖНО: отключаем проверку сертификата (для надежности)
     $mail->SMTPOptions = [
